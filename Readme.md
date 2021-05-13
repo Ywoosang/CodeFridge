@@ -25,3 +25,8 @@ compose down 명령어로 컨테이너와 네트워크를 삭제한다.
 ```bash
 docker compose down 
 ```
+
+`service-application/api` 디렉토리에서 다음 명령어를 입력해 패키지를 설치한다.  
+```
+npm i
+```
