@@ -1,0 +1,77 @@
+.background{
+    display: flex;
+    padding-top: 50px;
+    padding-left: 30px;
+    margin-right: 30px;
+}
+
+.log-background .log-in .title{
+    width: 387px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    top: 66px;
+    border: 1px solid lightgray;
+    background-color: #FFFFFF;
+}
+.log-background .log-in .title p{
+    font-size: 17px;
+    color: gray;
+}
+.wrap-item{
+    text-align: center;
+    position: relative;
+    background-color: #FFFFFF;
+    border: 1px solid lightgray;
+    width: 387px;
+    height: 220px;
+    border-top: none;
+}
+
+.wrap-item .item input{
+    border-radius:5px;
+    width: 296px;
+    height: 41px;
+    border: 1px solid lightgray;
+    margin-top: 10px;
+}
+
+.wrap-item .item input:focus{
+    border: 1px solid black;
+}
+.check-box{
+    display: flex;
+    /* border: 1px solid red; */
+    position: relative;
+    width:296px;
+    justify-content: flex-start;
+    margin:0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.check-box input{
+    width: 20px;
+    height: 20px;
+    top: 15px;
+    left: 40px;
+}
+.check-box p{
+    /* border: 1px solid red; */
+    margin-left: 10px;
+}
+.login-btn button{
+    color:white;
+    display: inline-block;
+    width: 295px;
+    height: 35px;
+    background-color: #0059AB;
+    border: none;
+    border-radius: 4px;
+}
+.login-btn button:hover{
+    background-color: #286090;
+}
+.login-btn a button{
+    color: white;
+    box-sizing: border-box;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<title>E조</title>
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+	<script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+	<!-- dev -->
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/home.css">
+	<script src='../js/home.js' defer></script>
+	<!-- publishing -->
+	<!-- <link rel="stylesheet" href="../public/css/style.css">
+	<link rel="stylesheet" href="../public/css/home.css">
+	<script src='../public/js/home.js' defer></script> -->
+</head>
+<body>
+	<div class="container">
+		<!-- Modal 렌더링 -->
+		<nav>
+			<div class="logo"></div>
+			<div class="n-itm"><i class="far fa-file"></i>모두 보기</div>
+			<div class="n-itm"><i class="far fa-share-square"></i>내 공유 목록</div>
+			<div class="n-itm"><i class="far fa-star"></i>즐겨찾기</div>
+			<div class="n-itm"><i class="far fa-bell"></i>알림</div>
+			<div class="n-itm"><i class="far fa-trash-alt"></i>휴지통</div>
+			<a href="https://github.com/Ywoosang/DropBox-2021" class="github"><i class="fab fa-github"></i></a>
+		</nav>
+		<main>
+			<header>
+				<div class="search">
+                    <i class="fas fa-search"></i><input type="text">
+                </div>
+				<div class="profile">
+                    <div class="logout"><button>로그아웃</button></div>
+                </div>
+			</header>
+			<div class="inner">
+				<section>
+					<article>
+					<!-- Elem 렌더링 -->
+					</article>
+					<footer></footer>
+				</section>
+				<aside>
+					<div>
+							<input name="image"   type="file" id="file" style="display:none;" multiple>
+							<svg viewBox="0 0 24 24" fill="none" class="dig-UIIcon dig-UIIcon--standard" width="24" height="24" focusable="false"><path d="M17.341 6.0305L15.9695 4.659C15.5467 4.23855 14.9752 4.00176 14.379 4H5.5V20H18V7.621C17.9982 7.02476 17.7614 6.45326 17.341 6.0305ZM7 18.5V5.5H14V8H16.5V18.5H7Z" fill="currentColor"></path><path d="M8.88999 12.7095L9.92999 13.7905L11 12.7615V16.5H12.5V12.7615L13.57 13.7905L14.61 12.7095L11.75 9.95953L8.88999 12.7095Z" fill="currentColor"></path></svg>
+							<button type="button" class="upload_file">파일 업로드</button>
+					</div>
+					<div>
+							<input type="file" name="folder"   style="display:none;" id="folder" class="folder" webkitdirectory   multiple />
+							<svg viewBox="0 0 24 24" fill="none" class="dig-UIIcon dig-UIIcon--standard" width="24" height="24" focusable="false"><path d="M10.4635 7.00001L10.0855 6.24351C9.8997 5.86894 9.61268 5.5539 9.25698 5.33412C8.90128 5.11434 8.49112 4.99859 8.073 5.00001H3.5V16.75C3.5 17.3468 3.73705 17.919 4.15901 18.341C4.58097 18.763 5.15326 19 5.75 19H9.5V17.5H5.75C5.55109 17.5 5.36032 17.421 5.21967 17.2803C5.07902 17.1397 5 16.9489 5 16.75V6.50001H8.073C8.21234 6.49949 8.34904 6.53805 8.46756 6.61132C8.58609 6.68459 8.68168 6.78963 8.7435 6.91451L9.5365 8.50001H18.5V16.75C18.5 16.9489 18.421 17.1397 18.2803 17.2803C18.1397 17.421 17.9489 17.5 17.75 17.5H14V19H17.75C18.0455 19 18.3381 18.9418 18.611 18.8287C18.884 18.7157 19.1321 18.5499 19.341 18.341C19.5499 18.1321 19.7157 17.884 19.8287 17.6111C19.9418 17.3381 20 17.0455 20 16.75V7.00001H10.4635Z" fill="currentColor"></path><path d="M14.61 15.2096L11.75 12.4596L8.88999 15.2096L9.92949 16.2906L11 15.2616V19.0001H12.5V15.2616L13.5705 16.2906L14.61 15.2096Z" fill="currentColor"></path></svg>
+							<button type="button" class="upload_folder">폴더 업로드</button>
+					</div>
+				</aside>
+			</div>
+		</main>
+	</div>
+</body>
+
+</html>

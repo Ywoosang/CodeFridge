@@ -1,0 +1,129 @@
+/* font-family  */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+/* Reset CSS */
+html, body {height:100%;}
+body{
+    margin : 0;
+    color : #222;
+    font-weight : 300;
+}
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+*:focus { outline:none; }
+div>a:hover,ul>a:hover{
+    color : #222;
+}
+ul {
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+a {
+    text-decoration: none !important;
+    color : #222;
+}
+h1,h2,h3,h4,h5,h6{
+    margin:0;
+    font-weight: normal;
+}
+button {
+    cursor:pointer;
+    outline: none;
+}
+p{
+    margin:0;
+}
+input,textarea,select{
+    outline : none;
+}
+* {
+    /* border: 1px solid black; */
+    box-sizing: border-box;
+}
+
+/* CSS */
+.container {
+    display: flex;
+    position:relative; 
+}
+.modal{
+    position:absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height:100vh;
+    z-index: 1;
+}
+nav {
+    flex: 1;
+    min-width: 10rem;
+    background-color: #257dcf;
+    min-height: 100vh;
+}
+nav .logo {
+    margin: 1rem 0 2rem 0;
+    height: 4rem;
+}
+nav .n-itm{
+    padding : 5px;
+    padding-left: 10%;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    
+}
+/* main */
+main {
+    flex: 8;
+}
+
+header {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+}
+
+.inner {
+    display: flex;
+}
+
+.inner section {
+    flex: 5;
+}
+.inner section article {
+    height: calc(100vh - 134px);
+}
+article {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+footer {
+    height: 70px;
+}
+@media screen and (max-width: 1024px) {
+    .inner aside {
+        display: none;
+    }
+}
+@media screen and (max-width: 768px) {
+    nav {
+        display: none;
+    }
+    header{
+        flex-direction: column;
+        height:auto;
+    }
+    header div{
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .inner section article .des{
+        display: none;
+    }
+}

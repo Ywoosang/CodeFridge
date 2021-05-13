@@ -1,0 +1,91 @@
+
+.background{
+    display: flex;
+    padding-top: 50px;
+    padding-left: 30px;
+    flex:1;
+}
+.background .top-title h2{
+    color: gray;
+}
+.join-background {
+    text-align: center;
+}
+.join-background .join-in{
+    height: 400px;
+}
+.join-background .join-in .title{
+    line-height: 60px;
+    width: 387px;
+    height: 60px;
+    border: 1px solid lightgray;
+    background-color: #FFFFFF;
+}
+.join-background .join-in .title p{
+    font-size: 17px;
+    color: gray;
+}
+.wrap-item-up{
+    position: relative;
+    background-color: #FFFFFF;
+    border: 1px solid lightgray;
+    width: 387px;
+    height: 275px;
+    border-top: none;
+}
+
+.wrap-item-up .item input{
+    border-radius:5px;
+    width: 350px;
+    height: 40px;
+    border: 1px solid lightgray;
+    margin-top: 10px;
+}
+.wrap-item-up .item input::placeholder{
+    margin-left: 15px;
+}
+
+.wrap-item-up .item input:focus{
+    border:1px solid black;
+}
+.check-box{
+    display: flex;
+    /* border: 1px solid red; */
+    position: relative;
+    width:296px;
+    justify-content: flex-start;
+    margin:0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.check-box input{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    top: 15px;
+    left: 40px;
+}
+.check-box p{
+    /* border: 1px solid red; */
+    top: 15px;
+    left: 50px;
+    margin-left: 5px;
+}
+
+.formation-btn button{
+    display: inline-block;
+    width: 295px;
+    height: 35px;
+    color: white;
+    font-weight: bold;
+    background-color:#0059AB;
+    border: none;
+    border-radius: 4px;
+}
+.formation-btn button:hover{
+    background-color: #337AB7;
+}
+.formation-btn button a{
+    color: white;
+    box-sizing: border-box;
+}
