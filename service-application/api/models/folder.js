@@ -8,11 +8,6 @@ module.exports = class Folder extends Sequelize.Model {
             type: Sequelize.STRING(50),
             allowNull: false,
           },
-          favorate : {
-            type : Sequelize.TINYINT(1),
-            defaultValue : 0,
-            allowNull : false
-          }
     }, {
       sequelize,
       // createdAt 
