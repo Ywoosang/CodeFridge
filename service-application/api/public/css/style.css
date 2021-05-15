@@ -9,6 +9,7 @@ body{
     font-weight : 300;
 }
 * {
+    /* border: 1px solid red; */
     font-family: 'Noto Sans KR', sans-serif;
 }
 *:focus { outline:none; }
@@ -61,7 +62,7 @@ input,textarea,select{
 nav {
     flex: 1;
     min-width: 10rem;
-    background-color: #257dcf;
+    background-color: #95C5C1;
     min-height: 100vh;
 }
 nav .logo {
