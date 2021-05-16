@@ -5,9 +5,16 @@ const uploadFolderBtn = $('.upload_folder');
 const uploadFileBtn = $('.upload_file');
 const uploadFolderInput = $('#folder');
 const uploadFileInput = $('#file');
+const logoutBtn = $('.logout button');
+
+
 
 // 이벤트 리스너 등록 
 
+// 로그아웃
+logoutBtn.addEventListener('click',()=>{
+    location.href = `${window.origin}/auth/logout`;
+});
 uploadFolderBtn.addEventListener('click', () => {
     uploadFolderInput.click();
 });
@@ -33,7 +40,8 @@ function showUploadModal() {
         totalSize = (parseInt(tmp) + 1) / 1000
     } else {
         totalSize = parseInt(tmp) / 1000
-    }
+    };
+
     const modal = document.createElement('div');
     modal.classList.add('modal');
     const uploadContent = `
@@ -52,8 +60,9 @@ function showUploadModal() {
     const list = modal.querySelector('.upload-list');
     Object.values(this.files).forEach(el => {
         const liTag = document.createElement('li');
-        liTag.textContent = el.name + el.size;
+        liTag.textContent = el.name  
         list.appendChild(liTag);
+        
     })
     const cancelButton = modal.querySelector('.cancel');
     cancelButton.addEventListener('click', cancelModal);
@@ -70,22 +79,43 @@ function cancelModal(){
 //   file/folder
 async function upload(files) {
     console.log(files);
+    const uploadBtnArea = document.querySelector('.upload-button');
+    uploadBtnArea.innerHTML = ''
+    const num = new Date().valueOf();
     try {
+        let idx = 0; 
+        const list = document.querySelectorAll('.modal ul li');
         for (let file of files) {
             const formData = new FormData();
             formData.append('file', file);
+            formData.append('num',num);
             // url,FormData,options 
             const res = await axios.post(`${window.origin}/s3/file`, formData, {
-                Headers: {
+                headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             });
             if (!res.data.msg === 'uploaded') {
                 alert('업로드 중 오류가 발생했습니다.');
             }
+            const liTag = list[idx]; 
+            const spanTag = document.createElement('span');
+            spanTag.innerHTML = `<i class="fas fa-check"></i>`;
+            liTag.appendChild(spanTag);
+            console.log(idx);
+            ++ idx;  
         }
-        alert('업로드 완료');
+        const msg = document.querySelector('.upload h1');
+        msg.textContent = '업로드 완료';
+        const acceptBtn = document.createElement('button');
+        acceptBtn.classList.add('submit');
+        acceptBtn.textContent = '확인';
+        uploadBtnArea.appendChild(acceptBtn);
+        acceptBtn.addEventListener('click',()=>{
+            cancelModal();
+        })
     } catch (err) {
+        console.log(err);
     }
 }
 
@@ -98,7 +128,7 @@ const resetNode = () => {
     // article 기존 내용을 지우고 빈 article 로 대체 
     const article = document.querySelector('article');
     article.parentNode.replaceChild(document.createElement('article'), article);
-}
+}; 
 
 
 const renderComponents = async () => {
@@ -112,16 +142,16 @@ const renderComponents = async () => {
             },2000)
             return;
         }
-        const files = res.data.files;
-        const folders = res.data.folders
+       
         console.log(files);
         files.forEach(el => {
-            const file = fileComponent(el.path, el.name);
+            const file = fileComponent(el.fileUrl, el.name);
             article.appendChild(file);
         })
         folders.forEach(el => {
-            const file = fileComponent(el.path, el.name);
-            article.appendChild(file);
+            const url = `${window.origin}/resource/folder/${el.id}`
+            const folder = folderComponent(url, el.name);
+            article.appendChild(folder);
         })
     } catch (err) {
         console.log(err);
@@ -136,5 +166,36 @@ const fileComponent = (path, name) => {
             <h1>${name}</h1>
         </a>`;
     div.innerHTML = file;
+    return div;
+}
+const folderComponent = (url, name) => {
+    const article = document.querySelector('article');
+    const div = document.createElement('div');
+    const folder = `
+        <a> 
+            <img src="img/folder.svg"> 
+            <h1>${name}</h1>
+        </a>`;
+    div.innerHTML = folder;
+    const folderBtn = div.getElementsByTagName('a')[0];
+    console.log(folderBtn);
+    folderBtn.addEventListener('click',()=>{
+        axios.post(url)
+        .then(res=>{
+            article.innerHTML = '';
+            for(let el of res.data.folders){
+                const url = `${window.origin}/resource/folder/${el.id}`
+                const folder = folderComponent(url, el.name);
+                article.appendChild(folder);
+            }
+            for(let el of res.data.files){
+                const file = fileComponent(el.fileUrl, el.name);
+                article.appendChild(file);
+            }
+        })
+        .catch(err=>{
+            console.log(err); 
+        })
+    })
     return div;
 }
