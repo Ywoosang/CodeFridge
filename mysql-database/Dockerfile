@@ -4,5 +4,6 @@ ENV MYSQL_ROOT_PASSWORD 123
 ENV MYSQL_DATABASE CLOUDE
 ENV MYSQL_USER users_service  
 ENV MYSQL_PASSWORD 123
-
+ENV character-set-server=utf8
+ENV collation-server=utf8_unicode_ci
 
