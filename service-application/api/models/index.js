@@ -2,6 +2,7 @@ const Sequelize = require('sequelize');
 const User = require('./user');
 const File = require('./file');
 const Folder = require('./folder');
+const Code = require('./code');
 
 const db = {};
 const sequelize = new Sequelize(
@@ -19,17 +20,21 @@ const sequelize = new Sequelize(
 	    port: 3306
 */
 db.sequelize = sequelize;
-db.Folder = Folder;
 db.User = User;
+db.Folder = Folder;
 db.File = File;
+db.Code = Code; 
 
 // 테이블 실제로 생성
 User.init(sequelize);
 File.init(sequelize);
 Folder.init(sequelize); 
+Code.init(sequelize);
 
+// 관계 설정
 User.associate(db);
 File.associate(db);
 Folder.associate(db);
+Code.associate(db);
 
 module.exports = db;
