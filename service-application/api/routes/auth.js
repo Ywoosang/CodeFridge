@@ -80,7 +80,7 @@ router.get('/logout', (req, res) => {
     req.session.destroy(()=>{
        req.session; 
     });
-    res.redirect('/')
+    res.redirect('/');
 });
 
 module.exports = router;
