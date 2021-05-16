@@ -21,7 +21,16 @@
     padding-left: 0.5rem;
     border: 1px solid black;
     border-bottom: none;
+    display: flex;
 }
+.modal .upload  li span{
+    margin-left: auto;
+}
+.modal .upload .fa-check {
+    color : rgb(121, 228, 121);
+    font-size: 16px;
+}
+
 .modal .upload .upload-list li:last-child{
     border-bottom: 1px solid black;
 }
