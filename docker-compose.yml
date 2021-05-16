@@ -29,6 +29,9 @@ services:
     restart: always
     ports:
       - 3306:3306
+    volumes:
+      - ./mysql-database/custom.conf:/etc/mysql/conf.d/custom.cnf
+      - db_volume:/var/lib/mysql 
     networks: 
       - webnet
   redisdb:
@@ -41,3 +44,6 @@ services:
       - webnet
 networks: 
   webnet: 
+
+volumes:
+  db_volume:
