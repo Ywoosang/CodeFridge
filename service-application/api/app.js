@@ -2,7 +2,6 @@ const express = require("express");
 const morgan = require("morgan");
 const path =require('path')
 const indexRouter = require('./routes/index');
-const testRouter = require('./routes/test');
 const authRouter = require('./routes/auth'); 
 const resourceRouter = require('./routes/resource'); 
 const uploadRouter = require('./routes/upload'); 
@@ -101,10 +100,15 @@ app.use(passport.session());
 
 // 라우터 등록 
 app.use('/', indexRouter);
-app.use('/test', testRouter);
 app.use('/auth',authRouter); 
 app.use('/resource',resourceRouter); 
 app.use('/s3',uploadRouter);
+
+// 404 라우터
+app.use((req,res,next)=>{
+  res.status(404).json({ msg : 'Page Not Found'});
+});
+
 
 // 서버 실행 
 const port = process.env.PORT || 8080;
