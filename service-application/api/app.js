@@ -15,13 +15,22 @@ const passport = require('passport');
 const passportConfig = require('./passport');
 const redis = require('redis')
 const connectRedis = require('connect-redis');
+const nunjucks = require('nunjucks')
 const redisStore = connectRedis(session); 
 const app = express(); 
+
+
+
+app.set('view engine', 'html');
+nunjucks.configure('views', {
+    express: app,
+    watch: true,
+});
 
 // 파싱
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-
+ 
 // 정적 파일 경로 설정
 app.use(express.static(path.join(__dirname,'public')));
   
@@ -107,6 +116,20 @@ app.use('/s3',uploadRouter);
 // 404 라우터
 app.use((req,res,next)=>{
   res.status(404).json({ msg : 'Page Not Found'});
+});
+
+app.use((error, req, res, next) => {
+  // 에러 로깅
+  // errorLogger.error(error.stack);
+  console.error(error)
+  // AJAX 요청인 경우
+  if (req.is('json') || req.is('multipart/form-data')) {
+    res.status(500).json({ message: '시스템 오류가 발생하였습니다.' });
+  }
+  // VIEW 요청의 경우
+  // res.render('error/500', {
+  //   layout: false,
+  // });
 });
 
 
