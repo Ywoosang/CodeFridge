@@ -11,7 +11,7 @@ module.exports = class File extends Sequelize.Model {
         type: Sequelize.STRING(50),
         allowNull: false,
       },
-      favorate : {
+      favorite : {
         type : Sequelize.TINYINT(1),
         defaultValue : 0,
         allowNull : false
@@ -34,7 +34,8 @@ module.exports = class File extends Sequelize.Model {
         foreignKey : 'ownerId'
     });
     db.File.belongsTo(db.Folder,{
-        foreignKey : 'folderId'
+        foreignKey : 'folderId',
+        onDelete : 'CASCADE',
     })
  }
 };
