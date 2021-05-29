@@ -5,6 +5,8 @@ const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth'); 
 const resourceRouter = require('./routes/resource'); 
 const uploadRouter = require('./routes/upload'); 
+const downloadRouter = require('./routes/download'); 
+const teamRouter = require('./routes/team'); 
 const helmet = require('helmet');
 const hpp = require('hpp'); 
 const { sequelize } = require('./models');
@@ -22,10 +24,21 @@ const app = express();
 
 
 app.set('view engine', 'html');
-nunjucks.configure('views', {
+const env = nunjucks.configure('views', {
     express: app,
     watch: true,
 });
+env.addFilter('dateform',function (str) {
+  const date = new Date(str) 
+  const year = date.getFullYear();
+  const month = (date.getMonth() +1);
+  const day = date.getDate();
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const seconds = date.getSeconds(); 
+  return `${ year}-${month}-${ day } ${hours}:${minutes}:${seconds}`;
+});
+
 
 // 파싱
 app.use(express.json());
@@ -37,7 +50,7 @@ app.use(express.static(path.join(__dirname,'public')));
 // Mysql 연결 
 sequelize.sync({ force: false })
   .then(() => {
-    console.log('데이터베이스 연결 성공');
+    console.log('MySQL: connection success');
   })
   .catch((err) => {
     console.error(err);
@@ -112,6 +125,8 @@ app.use('/', indexRouter);
 app.use('/auth',authRouter); 
 app.use('/resource',resourceRouter); 
 app.use('/s3',uploadRouter);
+app.use('/s3',downloadRouter); 
+app.use('/team',teamRouter); 
 
 // 404 라우터
 app.use((req,res,next)=>{
