@@ -20,6 +20,7 @@ const storage = multerS3({
        try{
         // S3 저장할때 Date 붙여서 구분
         const filePathName = `${Date.now()}-${file.originalname}`;
+        req.data = filePathName;
         cb(null,filePathName); 
        } catch(err){
             console.log(err);            
@@ -35,7 +36,6 @@ const upload = multer({
 exports.fileUpload = async(req , res , next ) => {
     upload(req, res, async (err) => {
         try {
-            
             if (err instanceof multer.MulterError) {
                 console.log(err)
                 return res.status(404).json({ message: "올바른 파일을 업로드해주세요" });
@@ -50,14 +50,20 @@ exports.fileUpload = async(req , res , next ) => {
             // 업로드된 파일  
             const f = req.file; 
             // aws 에 업로드된 파일 주소 
+            const key = req.data;
+            console.log('업로드된 키',key)
             const fileUrl = f.location; 
+            // 팀 아이디
+            const teamId = req.session.teamId;
+            // 소유자 아이디
+            const ownerId = req.user.id; 
             // 파일 정보
             const fileName = path.basename(f.originalname);   
             const filePath = f.originalname.split('/');
             const codeNumber =  req.body.num.substr(0,9);
             const pathLength = filePath.length; 
             const hierarchy = filePath.length-1; 
-
+            const mimetype = req.file.mimetype;
             // foreign key constraint 만족시키기 위해 생성
             const code = await Code.findOne({
                 where : {
@@ -74,18 +80,21 @@ exports.fileUpload = async(req , res , next ) => {
             for(fd of filePath.slice(0,filePath.length-2)){
                 const tmp = await Folder.findOne({
                     where:{
-                        ownerId : req.user.id,
+                        ownerId,
                         name: fd,
                         hierarchy : idx,
-                        codeNumber
+                        codeNumber,
+                        teamId 
                     }
                 })
+                // 해당 폴더가 존재하지 않으면 
                 if(!tmp){
                     await Folder.create({
-                        ownerId : req.user.id,
+                        ownerId,
                         name: fd,
                         hierarchy: idx,
                         codeNumber,
+                        teamId,
                     });
                 }
                 ++idx;
@@ -102,10 +111,12 @@ exports.fileUpload = async(req , res , next ) => {
                     ownerId : req.user.id,
                     fileUrl,
                     name : fileName,
+                    awsKey : key,
+                    teamId,
+                    mimetype
                 }); 
                 return res.json({ msg: 'uploaded',file });
             };
-            console.log('폴더이름 확인',folderName);
             // 소속 폴더 이름이 존재할 경우 폴더 업로드 처리
             const crrFolder = await Folder.findOne({
                 where:{
@@ -134,7 +145,10 @@ exports.fileUpload = async(req , res , next ) => {
                 folderId,
                 ownerId : req.user.id,
                 fileUrl,
-                name : fileName
+                name : fileName,
+                awsKey:key,
+                teamId,
+                mimetype
             }); 
             return res.json({ msg: 'uploaded',file });
         } catch (err) {
