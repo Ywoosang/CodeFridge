@@ -51,3 +51,30 @@ exports.fileDownload = async(req,res,next) =>{
         next(err); 
     }
 }
+
+exports.filePreview = async(req,res,next) => {
+    try{
+        const id = req.query.id;
+        if(!id){
+            res.render('err',{message:'올바른 파일이 아닙니다.'})
+        }
+        console.log('실행됨')
+        const file = await File.findOne({
+            where: {
+                id
+            }
+        })
+        const Key = file.awsKey;
+        // 버킷의 데이터를 읽어온다. 
+        // const data =    .
+        const f = s3.getObject({
+            Bucket : 'ywoosang-s3',
+            Key 
+        }).createReadStream(); 
+        res.setHeader('Content-Type','application/pdf');
+        res.setHeader('Content-Disposition',`inline; filename=quote.pdf`)
+        f.pipe(res)
+    } catch (err){
+        next(err); 
+    }
+}
