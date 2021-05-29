@@ -1,81 +1,93 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-	<meta charset="utf-8">
-	<title>E조</title>
-	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-	<script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
-	<!-- dev -->
-  	<link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/signup.css">
-    <link rel="stylesheet" href="../css/oauth.css">
-    <script src='../js/signup.js' defer></script>
-	<!-- publishing -->
-	<!-- <link rel="stylesheet" href="../public/css/style.css">
+  <meta charset="utf-8">
+  <title>E조</title>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+  <!-- dev -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/auth.css">
+  <script src='../js/signup.js' defer></script>
+  <script src="../js/auth.js" defer></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- publishing -->
+  <!-- <link rel="stylesheet" href="../public/css/style.css">
     <link rel="stylesheet" href="../public/css/signup.css">
     <link rel="stylesheet" href="../public/css/oauth.css">
 	<script src='../public/js/home.js' defer></script> -->
 </head>
 <body>
-	<div class="container">
-		<!-- Modal 렌더링 -->
-		<main>
-			<header>
-				<div class="auth">
+  <div class="container">
+    <!-- Modal 렌더링 -->
+    <main>
+      <header>
+        <div class="auth">
           <a href="/auth/login">로그인</a>
+        </div>
+      </header>
+      <div class="inner">
+        <section>
+          <article>
+            <div class="des"></div>
+            <div class="background">
+
+              <form method="POST" class="log-background">
+                <div class="title">
+                  <p><b>아이디 로그인</b></p>
                 </div>
-			</header>
-			<div class="inner">
-				<section>
-					<article>
-                        <div class="des"></div>
-                        <div class="background">
-                            <div class="join-background">
-                              <div class="join-in">
-                                <div class="title">
-                                  <p><b>이메일로 가입하기</b></p>
-                                </div>
-                                <form method="POST" class="wrap-item-up">
-                                      <div class="item">
-                                    <input type="text" name="email" placeholder="이메일" />
-                                  </div>
-                                       <div class="item">
-                                    <input type="text" name="password" placeholder="비밀번호" />
-                                  </div>
-                                      <div class="item">
-                                    <input type="text" name="name" placeholder="닉네임" />
-                                  </div>
-                                  <div class="check-box">
-                                    <input type="checkbox" />
-                                    <p><b>이메일 수신 동의</b></p>
-                                  </div>
-                                  <div class="formation-btn">
-                                    <button type="submit">계정 만들기</button>
-                                  </div>
-                                </form>
-                              </div>
-                            </div>
-                            <!--  -->
-                            <div class="sns-join">
-                                <div class="title">
-                                  <p><b>SNS로 로그인</b></p>
-                                </div>
-                                <div class="wrap-item2">
-                                <a href='/auth/github'><div>깃허브 로그인</div></a>
-                                  <a href='/auth/google'><div>구글 로그인</div></a>
-                                  <a href='/auth/facebook'><div>페이스북 로그인</div></a>
-                                  <a href='/auth/kakao'><div>카카오 로그인</div></a>
-                                  <a href='/auth/naver'><div>네이버 로그인</div></a>
-                                </div>
-                            </div>
-                            <!--  -->
-                          </div>
-					</article>
-					<footer></footer>
-				</section>
-			</div>
-		</main>
-	</div>
+                <div class="wrap-item">
+                <div class="item">
+                  <input type="text" name="email" placeholder="이메일" />
+                </div>
+                <div class="item">
+                  <input type="text" name="password" placeholder="비밀번호" />
+                </div>
+                <div class="item">
+                  <input type="text" name="name" placeholder="닉네임" />
+                </div>
+                <div class="check-box">
+                  <input type="checkbox" />
+                  <p><b>이메일 수신 동의</b></p>
+                </div>
+                <button type="submit" class="a-btn">계정 만들기</button>
+                </div>
+                
+              </form>
+              <!--  -->
+              <div class="sns-join">
+                <div class="title">
+                  <p><b>SNS로 로그인</b></p>
+                </div>
+                <div class="wrap-item2">
+                  <a href='/auth/github'>
+                    <div>깃허브 로그인</div>
+                  </a>
+                  <a href='/auth/google'>
+                    <div>구글 로그인</div>
+                  </a>
+                  <a href='/auth/facebook'>
+                    <div>페이스북 로그인</div>
+                  </a>
+                  <a href='/auth/kakao'>
+                    <div>카카오 로그인</div>
+                  </a>
+                  <a href='/auth/naver'>
+                    <div>네이버 로그인</div>
+                  </a>
+                </div>
+              </div>
+              <!--  -->
+            </div>
+          </article>
+          <footer></footer>
+        </section>
+      </div>
+    </main>
+  </div>
 </body>
 
 </html>

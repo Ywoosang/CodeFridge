@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href='/'>메인으로</a>
+    <form method="POST"> 
+    <div>이름: {{user.nickname}}</div>
+    <input type="text" name='name' value="{{user.nickname}}"> 
+    <div>아이디: {{user.nickId}}</div>
+    <input type="text" name="nickId" value="{{user.nickId}}">
+    <br>
+    <button type="submit">변경하기</button>
+    <div>마지막 프로필 수정일 {{user.updatedAt | dateform}}</div>
+    <div>가입일: {{user.createdAt | dateform }}</div>
+</form>
+</body>
+</html>
