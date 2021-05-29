@@ -34,6 +34,9 @@ services:
       - db_volume:/var/lib/mysql 
     networks: 
       - webnet
+    cap_add:
+      - SYS_NICE
+    
   redisdb:
     build: ./redis-database
     restart: always
