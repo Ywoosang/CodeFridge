@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const db = require('../models')
+const db = require('.')
 
 module.exports = class Folder extends Sequelize.Model {
   static init(sequelize) {
@@ -30,7 +30,12 @@ module.exports = class Folder extends Sequelize.Model {
            foreignKey : 'codeNumber'
        });
        db.Folder.hasMany(db.File,{
-        foreignKey: 'folderId'
-    });
+        foreignKey: 'folderId',
+        onDelete : 'CASCADE',
+       });
+       db.Folder.belongsTo(db.Team,{
+        foreignKey: 'teamId',
+        onDelete: 'CASCADE' 
+      });
  }
 };

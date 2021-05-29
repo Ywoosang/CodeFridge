@@ -15,6 +15,14 @@ module.exports = class File extends Sequelize.Model {
         type : Sequelize.TINYINT(1),
         defaultValue : 0,
         allowNull : false
+      },
+      awsKey :{
+        type: Sequelize.TEXT,
+        allowNull: false,
+      },
+      mimetype : {
+        type: Sequelize.STRING(50),
+        allowNull:false,
       }
     }, {
       sequelize,
@@ -36,6 +44,14 @@ module.exports = class File extends Sequelize.Model {
     db.File.belongsTo(db.Folder,{
         foreignKey : 'folderId',
         onDelete : 'CASCADE',
-    })
+    }); 
+    db.File.hasMany(db.Comment,{
+      foreignKey : 'fileId',
+      onDelete : 'CASCADE',
+    });
+    db.File.belongsTo(db.Team,{
+      foreignKey: 'teamId',
+      onDelete: 'CASCADE' 
+    });
  }
 };

@@ -22,9 +22,15 @@ module.exports = class User extends Sequelize.Model {
         defaultValue: 'local',
       },
       authId: {
-        type: Sequelize.INTEGER(10),
-        allowNull: true,
+        type: Sequelize.STRING(20),
+        allowNull:true
       },
+      nickId : {
+        type: Sequelize.STRING(20),
+        allowNull: false,
+        // 랜덤 값 생성 
+        defaultValue : Math.random().toString(36).substr(2,11),
+      }
     }, {
       sequelize,
       // createdAt 
@@ -45,5 +51,10 @@ module.exports = class User extends Sequelize.Model {
       db.User.hasMany(db.File,{
           foreignKey: 'ownerId'
       });
+      db.User.hasMany(db.Comment,{
+        foreignKey : 'ownerId',
+        onDelete : 'CASCADE',
+      })
+      db.User.belongsToMany(db.Team, { through: 'User_Team' });
  }
 };
