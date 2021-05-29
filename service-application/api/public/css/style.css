@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
 
 /* Reset CSS */
-html, body {height:100%;}
+html,
 body{
     margin : 0;
     color : #222;
@@ -59,6 +59,28 @@ input,textarea,select{
     height:100vh;
     z-index: 1;
 }
+
+/* 헤더 */
+header{
+    background-color: #95C5C1;
+    justify-content: flex-end;
+}
+header .auth{
+    margin-right : 2rem;
+}
+header .auth button{
+    height: 2rem;
+    font-size: 1rem;
+}
+.inner section{
+    display: flex;
+    justify-content: center;
+}
+.inner section article{
+    flex:1;
+    display: flex;
+}
+
 nav {
     flex: 1;
     min-width: 10rem;

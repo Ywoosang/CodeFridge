@@ -1,0 +1,12 @@
+.teams{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.team{
+    border:1px solid black;
+    margin: 1rem;
+    min-width: 15rem;
+    min-height: 15rem;
+}

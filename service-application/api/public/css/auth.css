@@ -1,0 +1,157 @@
+.des{
+    flex:1;
+}
+
+
+.background{
+    display: flex;
+    flex-direction: column;
+}
+/* .상단부 */
+.log-background{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.log-background  .title{
+    text-align: center;
+    border: 1px solid lightgray;
+    background-color: #FFFFFF;
+}
+.log-background .title p{
+    flex:1;
+    font-size: 17px;
+    color: gray;
+}
+.wrap-item{
+    flex:1;
+    /* input 요소 가운데 정렬 */
+    text-align: center;
+    background-color: #FFFFFF;
+    border: 1px solid lightgray;
+    height: 220px;
+    border-top: none;
+}
+
+.wrap-item .item input{
+    border-radius:5px;
+    height: 41px;
+    border: 1px solid lightgray;
+}
+.wrap-item .item{
+    /* input 사이 간격 */
+    margin : 1rem 0;
+}
+
+.wrap-item .item input:focus{
+    border: 1px solid black;
+}
+.check-box{
+    display: flex;
+    position: relative;
+    width:296px;
+    justify-content: flex-start;
+    margin:0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.check-box input{
+    width: 20px;
+    height: 20px;
+    top: 15px;
+    left: 40px;
+}
+.check-box p{
+    /* border: 1px solid red; */
+    margin-left: 10px;
+}
+.a-btn{
+    color:white;
+    height: 35px;
+    background-color: #0059AB;
+    border: none;
+    display: block;
+    flex:1;
+    border-radius: 4px;
+    width:296px;
+}
+.a-btn:hover{
+    background-color: #286090;
+}
+
+
+
+/*sns 로그인 부분 */
+.sns-join .title{
+    text-align: center;
+    border: 1px solid lightgray;
+    border-bottom: none;
+    line-height: 60px;
+    height: 60px;
+    background-color: #fff;
+}
+.sns-join .title p{
+    color: gray;
+}
+.sns-join .wrap-item2{
+    border: 1px solid lightgray;
+    background-color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sns-join .wrap-item2 a{
+    width: 300px;
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid lightgray;
+    font-weight: bold;
+    border-radius: 5px;
+}
+/* 깃허브 로그인 */
+.wrap-item2 a:nth-child(1){
+    background-color: rgb(24, 24, 24);
+    color: white;
+}
+.wrap-item2 a:nth-child(1):hover{
+    background-color: black;
+}
+/* 구글 로그인 */
+.wrap-item2 a:nth-child(2){
+    background-color:#FFFFFF;
+    color : #222;
+}
+.wrap-item2 a:nth-child(2):hover{
+    background-color:#eeeeee;
+}
+/* 페이스북 로그인 */
+.wrap-item2 a:nth-child(3){
+    background-color: #1877F2;
+    color: white;
+}
+.wrap-item2 a:nth-child(3):hover{
+    background-color: #2985ff;
+}
+/* 카카오 로그인 */
+.wrap-item2 a:nth-child(4){
+    background-color: #FCE601;
+    color : #222;
+}
+.wrap-item2 a:nth-child(4):hover{
+    background-color: #f1ed00;
+}
+/* 네이버 로그인 */
+.wrap-item2 a:nth-child(5){
+    background-color: #1EC800;
+    color: white;
+}
+.wrap-item2 a:nth-child(5):hover{
+    background-color: #21db00;
+}
+.wrap-item2 a b{
+    font-family: "TmoneyRoundWindExtraBold";
+    font-weight: bold;
+}
+ 

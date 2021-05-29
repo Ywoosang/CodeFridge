@@ -1,0 +1,13 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
+.dl-1{
+    margin-bottom: 20px;
+}
+.comment{
+    margin : 20px 0;
+}
+.com-reg{
+    margin-bottom: 120px;
+}
