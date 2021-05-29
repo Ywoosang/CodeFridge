@@ -3,6 +3,8 @@ const User = require('./user');
 const File = require('./file');
 const Folder = require('./folder');
 const Code = require('./code');
+const Comment = require('./comment'); 
+const Team = require('./team');
 
 const db = {};
 const sequelize = new Sequelize(
@@ -24,17 +26,23 @@ db.User = User;
 db.Folder = Folder;
 db.File = File;
 db.Code = Code; 
+db.Comment= Comment; 
+db.Team = Team; 
 
 // 테이블 실제로 생성
 User.init(sequelize);
 File.init(sequelize);
 Folder.init(sequelize); 
 Code.init(sequelize);
+Comment.init(sequelize); 
+Team.init(sequelize); 
 
 // 관계 설정
 User.associate(db);
 File.associate(db);
 Folder.associate(db);
 Code.associate(db);
+Comment.associate(db); 
+Team.associate(db); 
 
 module.exports = db;
