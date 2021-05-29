@@ -5,7 +5,7 @@ const path = require('path');
 router.get('/', function(req, res, next) {
     try{
         if(req.user){
-            res.redirect('/home')
+            res.redirect('/team')
         } else{
             res.redirect('/auth/login')
         }
@@ -14,9 +14,9 @@ router.get('/', function(req, res, next) {
         }
 });
 
-router.get('/home',(req,res)=>{
-    res.sendFile(path.join(__dirname,'..','/views','/home.html'));
-}); 
-
+router.get('/error',(req,res,next)=>{
+    const errorMsg = req.query.message;
+    res.render('error',{errorMsg});
+})
 
 module.exports = router;
