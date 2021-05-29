@@ -10,9 +10,12 @@ const logoutBtn = $('.logout button');
 // 이벤트 리스너 등록 
 
 // 로그아웃
-logoutBtn.addEventListener('click', () => {
-    location.href = `${window.origin}/auth/logout`;
-});
+if(logoutBtn){
+    logoutBtn.addEventListener('click', () => {
+        location.href = `${window.origin}/auth/logout`;
+    });
+}
+ 
 uploadFolderBtn.addEventListener('click', () => {
     uploadFolderInput.click();
 });
@@ -124,13 +127,40 @@ async function upload(files) {
 }
 
 const folders = document.querySelectorAll('.folder');
-folders.forEach(el => el.addEventListener('click', (e) => {
-    const id = e.target.parentNode.querySelector('input').value;
-    location.href = `${window.origin}/resource/folder?id=${id}`
-}));
-const files = document.querySelectorAll('.file input');
-folders.forEach(el => el.addEventListener('click', (e) => {
-}));
+folders.forEach(el =>
+    el.addEventListener('click', (e) => {
+        const id = e.target.parentNode.querySelector('input').value;
+        location.href = `${window.origin}/resource/folder?id=${id}`
+    })
+);
+const files = document.querySelectorAll('.file');
+files.forEach(el => {
+    const restoreBtn = el.querySelector('.restore');
+    if (restoreBtn) {
+        restoreBtn.addEventListener('click', (e) => {
+            const id = e.target.parentNode.parentNode.querySelector('.h_1').value;
+            const hasParentFolder = e.target.parentNode.parentNode.querySelector('.h_2').value;
+            console.log('아이디',id);
+            axios({
+                url : `${window.origin}/resource/file?id=${id}&parent=${hasParentFolder}`,
+                method: 'post',
+                data : {
+                    id : 2
+                }
+            })
+            .then( _ =>{
+                alert('복구되었습니다'); 
+                location.reload();
+            })
+            .catch(err=>{
+                alert(err); 
+            })
+         
+        })
+    }
+        // 파일을 복구할 경우 만약 폴더가 통째로 삭제되었을 경우, 폴더 복원
+    });
+
 
 
 // location.href = `${window.origin}/경로`;
@@ -142,8 +172,10 @@ const setEvent = () => {
         const id = e.target.parentNode.querySelector('input').value;
         location.href = `${window.origin}/resource/folder?id=${id}`
     }));
-    const files = document.querySelectorAll('.file input');
+    const files = document.querySelectorAll('.file');
     files.forEach(el => el.addEventListener('click', (e) => {
+        const id = e.target.parentNode.querySelector('input').value;
+        location.href = `${window.origin}/resource/file/${id}`
     }));
 
     const starBtns = document.querySelectorAll('.fol-btn-s');
@@ -177,53 +209,56 @@ const setEvent = () => {
     }));
     const deleteBtns = document.querySelectorAll('.tsh');
     console.log(deleteBtns);
-    deleteBtns.forEach(el => el.addEventListener('click',(e)=>{
+    deleteBtns.forEach(el => el.addEventListener('click', (e) => {
         console.log(e.target);
         const id = e.target.parentNode.parentNode.querySelector('input').value;
         console.log(id);
         console.log(e.target.classList)
         const _class = e.target.classList.contains('fld') ? 'folder' : 'file';
         axios({
-            url :  `${window.origin}/resource/?id=${id}&class=${_class}`,
+            url: `${window.origin}/resource/?id=${id}&class=${_class}`,
             method: 'delete'
         })
-        .then(res=>{
-            location.reload();
-        })
-        .catch(err=>{
-            console.log(err);
-        })
+            .then(res => {
+                location.reload();
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }))
 
 }
 
-
-
 // 검색기능 구현
 const searchInput = $('.search input');
-searchInput.onkeyup = function () {
+const favorateCategory = encodeURI(location.href).split('/').includes('favorites');
+
+if(searchInput){
+    searchInput.onkeyup = searchContent;
+}
+function searchContent () {
     axios({
         url: `${window.origin}/resource/?name=${this.value}&limit=15`,
         method: 'post',
     })
-    .then(res => {
-        // 붙여넣을 곳
-        const contentsWrapper = $('.fol-c');
-        // 파일, 폴더 데이터 받아옴
-        const folders = res.data.folders;
-        const files = res.data.files;
-        // 내용물 초기화
-        contentsWrapper.innerHTML = "";
-        // 
-        const div = document.createElement('div');
-        div.classList.add('com');
-        //
-        folders.forEach(folder=>{
+        .then(res => {
+            // 붙여넣을 곳
+            const contentsWrapper = $('.fol-c');
+            // 파일, 폴더 데이터 받아옴
+            const folders = res.data.folders;
+            const files = res.data.files;
+            // 내용물 초기화
+            contentsWrapper.innerHTML = "";
+            // 
             const div = document.createElement('div');
             div.classList.add('com');
-            div.classList.add('folder');
-            div.innerHTML = 
-            ` 
+            //
+            folders.forEach(folder => {
+                const div = document.createElement('div');
+                div.classList.add('com');
+                div.classList.add('folder');
+                div.innerHTML =
+                    ` 
             <div class="fol-b">
             <button class="tsh fld">
                 <i class="fas fa-trash-alt"></i>
@@ -231,16 +266,16 @@ searchInput.onkeyup = function () {
             </div>
             <input type="hidden" value="${folder.id}">
             <img src="#">
-            <h1>${ folder.name }</h1>
+            <h1>${folder.name}</h1>
             </div>
            `
-           contentsWrapper.appendChild(div);
-        });
-        files.forEach(file=>{
-            const div = document.createElement('div');
-            div.classList.add('com');
-            div.classList.add('file');
-            div.innerHTML = `
+                contentsWrapper.appendChild(div);
+            });
+            files.forEach(file => {
+                const div = document.createElement('div');
+                div.classList.add('com');
+                div.classList.add('file');
+                div.innerHTML = `
                 <div class="fol-b">
                     <button class="fol-btn-s">
                         <i class="fas fa-star"></i>
@@ -251,22 +286,19 @@ searchInput.onkeyup = function () {
                 </div>
                 <input type="hidden" value="${file.id}">
                 <img src="#">
-                <h1>${ file.name }</h1>
+                <h1>${file.name}</h1>
             `
-            if(file.favorite){
-                div.querySelector('fa-star').classList.add('checked');
-            }
-            contentsWrapper.appendChild(div); 
-        }); 
-        setEvent();
-    })
-    .catch(err=>{
-        console.log(err);
-    })
+                if (file.favorite) {
+                    div.querySelector('.fa-star').classList.add('checked');
+                }
+                contentsWrapper.appendChild(div);
+            });
+            setEvent();
+        })
+        .catch(err => {
+            console.log(err);
+        })
 }
-
-
-
 
 
 
