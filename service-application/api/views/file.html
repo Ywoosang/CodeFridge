@@ -26,13 +26,19 @@
 </head>
 
 <body>
-
+    <header>
+        <p>Code Fridge</p>
+        <a href="/auth/logout">로그아웃</a>
+        <a href="/auth/profile">프로필로 가기</a> 
+    </header>
     <div class="container">
-        <div>파일 다운로드 페이지</div>
-        <a href='/'>홈으로 가기</a>
+        <div class="head">
+            <div>파일 다운로드 페이지</div> 
+            <a href='/'>홈으로 가기</a>
+        </div>
         <div class="dl-1">
             <div class="dl-1-im">
-                파일 이름: {{file.name}}
+                {{file.name}}
             </div>
             <div class="dl-1-btn">
                 <!-- <a href="{{file.fileUrl}}" class="dl-1-down">다운로드</a> -->
@@ -51,7 +57,7 @@
         {% endfor %}
         <div class="error"></div>
         <form method="post" class="com-reg">
-            <textarea id="summernote" name="editordata"></textarea>
+            <textarea id="summernote" name="editordata" style="resize: none;" rows="25" cols="175"></textarea>
             <button type="submit">댓글 등록</button>
         </form>
     </div>

@@ -2,12 +2,46 @@
     display: flex;
     flex-direction: column;
 }
+
+.container > div.head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    border-radius: 6px;
+}
+
 .dl-1{
     margin-bottom: 20px;
+}
+.dl-1-im {
+    text-align: center;
+    font-size: 32px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dl-1-down {
+    display: flex;
+    justify-content: flex-end;
+    width: 75px;
+    position: relative;
+    left: 92%;
+    border-radius: 6px;
 }
 .comment{
     margin : 20px 0;
 }
 .com-reg{
+    display: flex;
+    flex-direction: column;
     margin-bottom: 120px;
+    align-items: flex-end;
+    border-radius: 6px;
+}
+
+.com-reg > button {
+    margin-top: 10px;
+    width: 80px;
+    border-radius: 6px;
 }

@@ -110,6 +110,23 @@ header {
     align-items: center;
 }
 
+header > a {
+    background-color: #c3dce4;
+    margin: 2px;
+    padding: 4px 6px;
+    border-radius: 4px;
+}
+
+header > p {
+    position: absolute;
+    left: 100px;
+    font-size: 32px;
+}
+
+header > a:hover {
+    background-color: #e4c3dc;
+}
+
 .inner {
     display: flex;
 }
