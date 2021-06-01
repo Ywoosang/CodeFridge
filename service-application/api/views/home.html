@@ -1,136 +1,171 @@
 <!DOCTYPE html>
-<html lang="ko">
-
-<head>
-	<meta charset="utf-8">
-	<title>E조</title>
-	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+<html>
+    <head>
+        <title>Code Fridge</title>
+        <meta charset="UTF-8">
+        <link href="../css/home.css" rel="stylesheet">
+        <link href="../css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
 		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 	<script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
-	<!-- dev -->
-	<link rel="stylesheet" href="../css/style.css">
-	<link rel="stylesheet" href="../css/home.css">
-	<script src='../js/home.js' defer></script>
-	<!-- publishing -->
-	<!-- <link rel="stylesheet" href="../public/css/style.css">
-	<link rel="stylesheet" href="../public/css/home.css">
-	<script src='../public/js/home.js' defer></script> -->
-</head>
+    </head>
+    <body>
+        <div class="container">
+            <!-- Modal 렌더링 -->
+            <nav>
+                <!-- 로고 이미지-->
+                    <a href="#"  target="_self">
+                        <img src = "https://ifh.cc/g/zEqNzf.png" >
+                    </a>
+                <!-- 좌측 사이드바 -->
 
-<body>
-	<div class="container">
-		<!-- Modal 렌더링 -->
-		<nav>
-			<div class="logo"></div>
-			<div class="n-itm"><i class="far fa-file"></i><a href="/resource/all" >모두 보기</a></div>
-			<div class="n-itm"><i class="far fa-share-square"></i><a href="#">내 공유 목록</a></div>
-			<div class="n-itm"><i class="far fa-star"></i><a href="/resource/favorites">즐겨찾기</a></div>
-			<div class="n-itm"><i class="far fa-bell"></i>알림</div>
-			<div class="n-itm"><i class="far fa-trash-alt"></i><a href="/resource/trash">휴지통</a></div>
-			<a href="https://github.com/Ywoosang/DropBox-2021" class="github"><i class="fab fa-github"></i></a>
-		</nav>
-		<main>
-		 
-			<header>
-				{% if not deleteCategory %}
-				<div class="search">
-					<i class="fas fa-search"></i><input type="text">
-				</div>
-				<div class="profile">
-					<div class="logout"><button>로그아웃</button></div>
-				</div>
-				{% endif %}
-			</header>
-			<div class="inner">
-				<section>
-					<article>
-						<div class="fol-w">
-							<!-- 정렬 -->
-							<div>
-								<a href="/resource/all?sort=date">최신순</a>
-								<a href="/resource/all?sort=views">조회순</a>
-								<a href="/resource/all?sort=title">이름순</a>
-							</div>
-							<div class="fol-c"> 
-								{% if not deleteCategory %}
-								{% for folder in folders %}
-								<div class="com folder">
-									<div class="fol-b">
-										<button class="tsh fld">
-											<i class="fas fa-trash-alt"></i>
-										</button>
-									</div>
-									<input type="hidden" value="{{folder.id}}">
-									<img src="#">
-									<h1>{{ folder.name }}</h1>
-								</div>
-								{% endfor %}
-								{% endif%}
-								{% for file in files %}
-								<div class="com file">
-									<div class="fol-b">
-										{% if not file.deletedAt %} 
-										<button class="fol-btn-s">
-											{% if file.favorite%}
-											<i class="fas fa-star checked"></i>
-											{% else %}
-											<i class="fas fa-star"></i>
-											{% endif %}
-										</button>
-										<button class="tsh">
-											<i class="fas fa-trash-alt"></i>
-										</button>
-										{% else %}
-										<button class="restore">복구</button>
-										{% if file.folderId %}
-										<input type="hidden" class="h_2" value="1">
-										{% else %}
-										<input type="hidden" class="h_2" value="0">
-										{% endif %}
-										{% endif %}
-									</div>
-									<input type="hidden" class="h_1" value="{{file.id}}">
-									<img src="#">
-									<h1>{{ file.name }}</h1>
-								</div>
-								{% endfor %}
-							</div>
-						</div>
-					</article>
-					<footer></footer>
-				</section>
-				<aside>
-					<div>
-						<input name="image" type="file" id="file" style="display:none;" multiple>
-						<svg viewBox="0 0 24 24" fill="none" class="dig-UIIcon dig-UIIcon--standard" width="24"
-							height="24" focusable="false">
-							<path
-								d="M17.341 6.0305L15.9695 4.659C15.5467 4.23855 14.9752 4.00176 14.379 4H5.5V20H18V7.621C17.9982 7.02476 17.7614 6.45326 17.341 6.0305ZM7 18.5V5.5H14V8H16.5V18.5H7Z"
-								fill="currentColor"></path>
-							<path
-								d="M8.88999 12.7095L9.92999 13.7905L11 12.7615V16.5H12.5V12.7615L13.57 13.7905L14.61 12.7095L11.75 9.95953L8.88999 12.7095Z"
-								fill="currentColor"></path>
-						</svg>
-						<button type="button" class="upload_file">파일 업로드</button>
-					</div>
-					<div>
-						<input type="file" name="folder" style="display:none;" id="folder"
-							webkitdirectory multiple />
-						<svg viewBox="0 0 24 24" fill="none" class="dig-UIIcon dig-UIIcon--standard" width="24"
-							height="24" focusable="false">
-							<path
-								d="M10.4635 7.00001L10.0855 6.24351C9.8997 5.86894 9.61268 5.5539 9.25698 5.33412C8.90128 5.11434 8.49112 4.99859 8.073 5.00001H3.5V16.75C3.5 17.3468 3.73705 17.919 4.15901 18.341C4.58097 18.763 5.15326 19 5.75 19H9.5V17.5H5.75C5.55109 17.5 5.36032 17.421 5.21967 17.2803C5.07902 17.1397 5 16.9489 5 16.75V6.50001H8.073C8.21234 6.49949 8.34904 6.53805 8.46756 6.61132C8.58609 6.68459 8.68168 6.78963 8.7435 6.91451L9.5365 8.50001H18.5V16.75C18.5 16.9489 18.421 17.1397 18.2803 17.2803C18.1397 17.421 17.9489 17.5 17.75 17.5H14V19H17.75C18.0455 19 18.3381 18.9418 18.611 18.8287C18.884 18.7157 19.1321 18.5499 19.341 18.341C19.5499 18.1321 19.7157 17.884 19.8287 17.6111C19.9418 17.3381 20 17.0455 20 16.75V7.00001H10.4635Z"
-								fill="currentColor"></path>
-							<path
-								d="M14.61 15.2096L11.75 12.4596L8.88999 15.2096L9.92949 16.2906L11 15.2616V19.0001H12.5V15.2616L13.5705 16.2906L14.61 15.2096Z"
-								fill="currentColor"></path>
-						</svg>
-						<button type="button" class="upload_folder">폴더 업로드</button>
-					</div>
-				</aside>
-			</div>
-		</main>
-	</div>
-</body>
+                <ul>
+                    <li class="n-itm current"><i class="far fa-file"></i><a  href="/resource/all" >모두 보기</a></li>
+                    <li class="n-itm"><i class="far fa-share-square"></i><a href="#">내 공유 목록</a></li>
+                    <li class="n-itm"><i class="far fa-star"></i><a href="/resource/favorites">즐겨찾기</a></li>
+                    <li class="n-itm"><i class="far fa-trash-alt"></i><a href="/resource/trash">휴지통</a></li>
+                </ul>
+                <a href="https://github.com/Ywoosang/DropBox-2021" class="github"><i class="fab fa-github"></i></a>
+            </nav>
+            <main>
+                <header>
+                    {% if not deleteCategory %}
+                    <div class = "group">그룹명</div>
 
+                    <div class="search">
+                        <i class="fas fa-search"></i><input type="text">
+                    </div>
+                    
+                        <div class="logout"><button>로그아웃</button></div>
+                    <div class = "asidemenu">
+                        <div>
+                            <a href = "#" class = "setting">
+                                <i class = "fas fa-cog fa-2x" ></i>
+                            </a>
+
+                            <a href ="#" class = "userprofile">
+                                <i class = "fas fa-user-alt fa-2x"></i>
+                            </a>
+                        
+                        
+                            <a href ="#" class = "bell">
+                                <i class = "fas fa-bell fa-2x">
+                                    <span class ="number">1</span>
+                                </i>
+                            </a>
+                        </div>
+                    {% endif %}
+                </header>
+                <div class="inner">
+                    <section>
+                        <article>
+                            <div class="fol-w">
+                                <!-- 정렬 -->
+                                <div>
+                                    <ul class = "sort">
+                                        <li ><a class = current2 href="/resource/all?sort=date">최신순</a></li>
+                                        <li><a href="/resource/all?sort=views">조회순</a></li>
+                                        <li><a href="/resource/all?sort=title">이름순</a></li>
+
+                                        <!--  메뉴아이콘 -->
+                                        <label for="menu" onclick><i class = "fas fa-plus fa-lg"> 업로드 </i> </label> 
+                                        <!-- 메뉴 토글-->
+                                        <input type="checkbox" id="menu"/>
+                                        <!-- 메뉴 -->
+                                        <ul id = "nav">
+                                            <div>
+                                                <input name="image" type="file" id="file" style="display:none;" multiple>
+                                                <svg viewBox="0 0 24 24" fill="none" class="dig-UIIcon dig-UIIcon--standard" width="24"
+                                                    height="24" focusable="false">
+                                                    <path
+                                                        d="M17.341 6.0305L15.9695 4.659C15.5467 4.23855 14.9752 4.00176 14.379 4H5.5V20H18V7.621C17.9982 7.02476 17.7614 6.45326 17.341 6.0305ZM7 18.5V5.5H14V8H16.5V18.5H7Z"
+                                                        fill="currentColor"></path>
+                                                    <path
+                                                        d="M8.88999 12.7095L9.92999 13.7905L11 12.7615V16.5H12.5V12.7615L13.57 13.7905L14.61 12.7095L11.75 9.95953L8.88999 12.7095Z"
+                                                        fill="currentColor"></path>
+                                                </svg>
+                                                <button type="button" class="upload_file">파일 업로드</button>
+                                            </div>
+                                            <div>
+                                                <input type="file" name="folder" style="display:none;" id="folder"
+                                                    webkitdirectory multiple />
+                                                <svg viewBox="0 0 24 24" fill="none" class="dig-UIIcon dig-UIIcon--standard" width="24"
+                                                    height="24" focusable="false">
+                                                    <path
+                                                        d="M10.4635 7.00001L10.0855 6.24351C9.8997 5.86894 9.61268 5.5539 9.25698 5.33412C8.90128 5.11434 8.49112 4.99859 8.073 5.00001H3.5V16.75C3.5 17.3468 3.73705 17.919 4.15901 18.341C4.58097 18.763 5.15326 19 5.75 19H9.5V17.5H5.75C5.55109 17.5 5.36032 17.421 5.21967 17.2803C5.07902 17.1397 5 16.9489 5 16.75V6.50001H8.073C8.21234 6.49949 8.34904 6.53805 8.46756 6.61132C8.58609 6.68459 8.68168 6.78963 8.7435 6.91451L9.5365 8.50001H18.5V16.75C18.5 16.9489 18.421 17.1397 18.2803 17.2803C18.1397 17.421 17.9489 17.5 17.75 17.5H14V19H17.75C18.0455 19 18.3381 18.9418 18.611 18.8287C18.884 18.7157 19.1321 18.5499 19.341 18.341C19.5499 18.1321 19.7157 17.884 19.8287 17.6111C19.9418 17.3381 20 17.0455 20 16.75V7.00001H10.4635Z"
+                                                        fill="currentColor"></path>
+                                                    <path
+                                                        d="M14.61 15.2096L11.75 12.4596L8.88999 15.2096L9.92949 16.2906L11 15.2616V19.0001H12.5V15.2616L13.5705 16.2906L14.61 15.2096Z"
+                                                        fill="currentColor"></path>
+                                                </svg>
+                                                <button type="button" class="upload_folder">폴더 업로드</button>
+                                            </div>
+                                        </ul>
+
+                                    </ul>
+                                    
+                                    
+
+
+                                </div>
+                                
+                                <div class="fol-c"> 
+                                    {% if not deleteCategory %}
+                                    {% for folder in folders %}
+                                    <div class="com folder">
+                                        <div class="fol-b">
+                                            <button class="tsh fld">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </div>
+                                        <input type="hidden" value="{{folder.id}}">
+                                        <img src="#">
+                                        <h1>{{ folder.name }}</h1>
+                                    </div>
+                                    {% endfor %}
+                                    {% endif%}
+                                    {% for file in files %}
+                                    <div class="com file">
+                                        <div class="fol-b">
+                                            {% if not file.deletedAt %} 
+                                            <button class="fol-btn-s">
+                                                {% if file.favorite%}
+                                                <i class="fas fa-star checked"></i>
+                                                {% else %}
+                                                <i class="fas fa-star"></i>
+                                                {% endif %}
+                                            </button>
+                                            <button class="tsh">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                            {% else %}
+                                            <button class="restore">복구</button>
+                                            {% if file.folderId %}
+                                            <input type="hidden" class="h_2" value="1">
+                                            {% else %}
+                                            <input type="hidden" class="h_2" value="0">
+                                            {% endif %}
+                                            {% endif %}
+                                        </div>
+                                        <input type="hidden" class="h_1" value="{{file.id}}">
+                                        <img src="#">
+                                        <h1>{{ file.name }}</h1>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </article>
+                        <footer></footer>
+                    </section>
+                    <aside>
+
+                    </aside>
+                </div>
+            </main>
+        </div>
+        <!--footer 영역 -->
+        <footer>
+            클라우드 컴퓨팅 E조 [Footer 영역]
+        </footer>
+    </body>
 </html>
