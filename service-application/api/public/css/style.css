@@ -254,10 +254,11 @@ ul label
 } 
 
 /*메뉴 목록 다시 보여줌  */
-input:checked ~ #nav{
+:checked ~ #nav{
     position: relative; 
     left:auto;
 } 
+
 
 ul #nav{
     float:right;
@@ -295,4 +296,17 @@ ul div button{
 .sort li a:hover:not(.current2) {
     background-color: grey;
     color: white;
+}
+
+.teams{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.team{
+    border:1px solid black;
+    margin: 1rem;
+    min-width: 15rem;
+    min-height: 15rem;
 }

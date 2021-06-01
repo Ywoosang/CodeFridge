@@ -1,14 +1,21 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Code Fridge</title>
-        <meta charset="UTF-8">
-        <link href="../css/home.css" rel="stylesheet">
-        <link href="../css/style.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<title>Code Fridge</title>
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
 		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 	<script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
-    </head>
+	<!-- dev -->
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/home.css">
+	<script src='../js/home.js' defer></script>
+	<!-- publishing -->
+	<!-- <link rel="stylesheet" href="../public/css/style.css">
+	<link rel="stylesheet" href="../public/css/home.css">
+	<script src='../public/js/home.js' defer></script> -->
+</head>
     <body>
         <div class="container">
             <!-- Modal 렌더링 -->
@@ -18,20 +25,19 @@
                         <img src = "https://ifh.cc/g/zEqNzf.png" >
                     </a>
                 <!-- 좌측 사이드바 -->
-
                 <ul>
                     <li class="n-itm current"><i class="far fa-file"></i><a  href="/resource/all" >모두 보기</a></li>
                     <li class="n-itm"><i class="far fa-share-square"></i><a href="#">내 공유 목록</a></li>
                     <li class="n-itm"><i class="far fa-star"></i><a href="/resource/favorites">즐겨찾기</a></li>
                     <li class="n-itm"><i class="far fa-trash-alt"></i><a href="/resource/trash">휴지통</a></li>
                 </ul>
+                <!-- 깃 허브 링크 -->
                 <a href="https://github.com/Ywoosang/DropBox-2021" class="github"><i class="fab fa-github"></i></a>
             </nav>
             <main>
                 <header>
                     {% if not deleteCategory %}
                     <div class = "group">그룹명</div>
-
                     <div class="search">
                         <i class="fas fa-search"></i><input type="text">
                     </div>
