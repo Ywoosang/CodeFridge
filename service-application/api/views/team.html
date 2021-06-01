@@ -25,20 +25,9 @@
     <div class="teams"> 
     {% for team in teams %}
     <div class="team">
+        <img src="/img/noimg.gif">
         <h1 class='team-name'>{{team.name}}</h1>
         <a href="/team/{{team.id}}">입장하기</a>
-        <!-- <div>팀원 리스트</div>
-        <ul class="team-members">
-            {% for user in team.users %}
-            <li>{{user.nickname}}</li>
-            {% endfor %}
-            <!-- 팀원 명단 나옴 -->
-            <!-- <li></li> -->
-        <!-- </ul> --> -->
-        <!-- <div>
-            <input type="text" placeholder="아이디">
-            <div>초대하기</div>
-        </div> -->
     </div>
     {% endfor %}
 </div>
