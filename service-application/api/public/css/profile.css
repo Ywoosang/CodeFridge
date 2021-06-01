@@ -1,0 +1,53 @@
+.content{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+*{
+}
+.groupname{
+    border: 1px solid black;
+    background-color: white;
+    justify-content: center;
+    font-size: 40px;
+}
+
+.outer{
+    width: 90%;
+    height: 100vh;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner {
+    width: 90%;
+    height: 80%;
+    background: white;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.username{
+    font-size: 30px;
+    display: flex;
+}
+.userid{
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.change{
+    display: flex;
+    justify-content: flex-end;
+}
+.changebtn{
+    font-size: 20px;
+}
+form{
+    width: 90%;
+}
