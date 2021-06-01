@@ -30,7 +30,7 @@ module.exports = class User extends Sequelize.Model {
         type: Sequelize.STRING(20),
         allowNull: false,
         // 랜덤 값 생성 
-        defaultValue : Math.random().toString(36).substr(2,11),
+        defaultValue : 'codefridge'+parseInt(Math.random()*10000000).toString(),
       }
     }, {
       sequelize,
