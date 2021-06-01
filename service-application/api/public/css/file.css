@@ -1,3 +1,30 @@
+
+header {
+    height: 6rem;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+header > a {
+    background-color: #c3dce4;
+    margin: 2px;
+    padding: 4px 6px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+header > p {
+    position: absolute;
+    left: 75px;
+    margin: 0 auto;
+    font-size: 32px;
+    flex-shrink: 0;
+}
+
+header > a:hover {
+    background-color: #e4c3dc;
+}
+
 .container{
     display: flex;
     flex-direction: column;
@@ -7,7 +34,8 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
-    border-radius: 6px;
+    margin-top: 10px;
+    font-size: 20px;
 }
 
 .dl-1{
@@ -21,27 +49,55 @@
     justify-content: center;
     align-items: center;
 }
-.dl-1-down {
+
+.dl-1-btn {
     display: flex;
     justify-content: flex-end;
-    width: 75px;
-    position: relative;
-    left: 92%;
-    border-radius: 6px;
+}
+
+.dl-1-down {
+    display: flex;
+    width: 100px;
+    border-radius: 4px;
+    justify-content: center;
+    margin: 5px;
+    font-size: 20px;
 }
 .comment{
+    display: flex;
+    flex-direction: column;
     margin : 20px 0;
 }
+
+.date {
+    text-align: end;
+}
+
+.author {
+    text-align: end;
+}
+
 .com-reg{
     display: flex;
     flex-direction: column;
     margin-bottom: 120px;
-    align-items: flex-end;
-    border-radius: 6px;
+    border-radius: 4px;
 }
 
 .com-reg > button {
     margin-top: 10px;
-    width: 80px;
+    width: 100px;
     border-radius: 6px;
+    position: absolute;
+    bottom: 80px;
+    right: 20px;
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    header{
+        flex-direction: row;
+        height: 4rem;
+    }
 }
