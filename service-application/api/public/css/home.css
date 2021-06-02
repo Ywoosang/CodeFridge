@@ -154,7 +154,7 @@ article .com{
     display: flex;
     flex-direction: column; 
 }
-  
+
 article .com img{
     width: inherit;
     flex:1;

@@ -1,22 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <a href='/'>메인으로</a>
-    <form method="POST"> 
-    <div>이름: {{user.nickname}}</div>
-    <input type="text" name='name' value="{{user.nickname}}"> 
-    <div>아이디: {{user.nickId}}</div>
-    <input type="text" name="nickId" value="{{user.nickId}}">
-    <br>
-    <button type="submit">변경하기</button>
-    <div>마지막 프로필 수정일 {{user.updatedAt | dateform}}</div>
-    <div>가입일: {{user.createdAt | dateform }}</div>
-</form>
-</body>
+<html>
+    <head>
+        <title>profile</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+	<script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+    <link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/profile.css">
+    </head>
+    <body>
+        <!-- 큰틀 -->
+        <div class="container">
+            <!-- 사이드바 -->
+            <nav>
+                <a href="/resource/all"  target="_self">
+                    <img src = "https://ifh.cc/g/zEqNzf.png" >
+                </a>
+                <ul>
+                <li class="n-itm current"><i class="fas fa-user-alt fa-lg"></i><a href="/resource/all" >프로필</a></li>
+
+
+                <li class="n-itm"><i class="fas fa-cog fa-lg"></i><a href="#">설정</a></li>
+                <a href="https://github.com/Ywoosang/DropBox-2021" class="github"><i class="fab fa-github fa-2x"></i></a>
+            </ul>
+            </nav>
+            <main>
+
+
+            <header class = "groupname">프로필</header>
+            <!-- 메인화면 -->
+            <div class = "content">
+                <!-- 검색창 위치-->
+                    <div class = "outer">
+                        <div class = "inner">
+
+                            <form method="POST"> 
+                                <div class = "username">
+                                    이름: {{user.nickname}}
+                                
+                                </div>
+                                <input placeholder="변경할 이름입력" type="text" name='name' value="{{user.nickname}}"> 
+                                
+                                <hr class="one">
+
+                                <div class = "userid">
+                                    아이디: {{user.nickId}}
+                                </div>
+
+                                <input placeholder="변경할 아이디입력"type="text" name="nickId" value="{{user.nickId}}">
+                                
+
+                                <hr class="one">
+                                <div class="change">
+                                    <button class="changebtn" type="submit">
+                                        변경하기
+                                    </button>
+                                </div>
+                                <div>
+                                    마지막 프로필 수정일 {{user.updatedAt | dateform}}
+                                </div>
+
+                                <div>
+                                    가입일: {{user.createdAt | dateform }}
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+            </main>
+
+        <!--footer 영역 -->
+
+
+
+        </div>
+
+        <footer>
+            클라우드 컴퓨팅 E조 [Footer 영역]
+        </footer>
+    </body>
+
 </html>
