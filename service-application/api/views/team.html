@@ -12,22 +12,23 @@
 </head>
 <body>
     <header>
+        <p>Code Fridge</p>
         <a href="/auth/logout">로그아웃</a>
         <a href="/auth/profile">프로필로 가기</a> 
     </header>
-    <form method="POST"> 
-        <div>팀 생성</div>
-        <input type="text" name="name" required>
-        <button type="submit">생성하기</button>
+    <form method="POST" class="create_team"> 
+        
+        <div>
+            <div>팀 생성</div>
+            <input type="text" name="name" required placeholder="팀명을 입력하세요!">
+            <button type="submit">생성하기</button>
+        </div>
     </form>
 
-    <div>소속 개발 팀</div>
+    <h1>소속 개발 팀</h1>
     <div class="teams"> 
     {% for team in teams %}
     <div class="team">
-        <img src="/img/noimg.gif">
-        <h1 class='team-name'>{{team.name}}</h1>
-        <a href="/team/{{team.id}}">입장하기</a>
     </div>
     {% endfor %}
 </div>

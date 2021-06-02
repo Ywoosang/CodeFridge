@@ -3,10 +3,90 @@
     flex-wrap: wrap;
 }
 
-
 .team{
     border:1px solid black;
     margin: 1rem;
     min-width: 15rem;
     min-height: 15rem;
+    border-radius: 6px;
+}
+
+.team > h1 {
+    background-color: blanchedalmond;
+    height: 80px;
+}
+
+.team > a {
+    position: relative;
+    top: 70px;
+    left: 150px;
+}
+
+form.create_team > div {
+    width: 300px;
+    margin: 30px auto;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+form.create_team > div > div {
+    display: flex;
+    margin: 40px auto;
+    margin-bottom: 20px;
+    width: 250px;
+    padding: 10px;
+    font-size: 32px;
+    flex-shrink: 0;
+    justify-content: center;
+}
+
+form.create_team > div > input {
+    width: 200px;
+}
+
+form.create_team > div > button {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 32px;
+    flex-shrink: 0;
+}
+
+header {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+header > a {
+    background-color: #c3dce4;
+    margin: 2px;
+    padding: 4px 6px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+header > p {
+    position: absolute;
+    left: 75px;
+    margin: 0 auto;
+    font-size: 32px;
+    flex-shrink: 0;
+}
+
+header > a:hover {
+    background-color: #e4c3dc;
+}
+
+@media screen and (max-width: 768px) {
+    header{
+        flex-direction: row;
+        height: 4rem;
+    }
 }
