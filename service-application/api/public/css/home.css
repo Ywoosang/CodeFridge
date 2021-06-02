@@ -180,24 +180,3 @@ article .com button i{
     font-size: 1.1rem;
     pointer-events: none;
 }
-
-
-.inner aside {
-    flex: 1;
-}
-aside {
-    display: flex;
-    flex-direction: column;
-    padding-top: 2rem;
-}
-aside div{
-    display: flex;
-    align-items: center;
-    padding-left: 1rem;
-}
-aside div button{
-    border:none;
-    background-color: transparent;
-    font-size: 1rem;
-}
-
