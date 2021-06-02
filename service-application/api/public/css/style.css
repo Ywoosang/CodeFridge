@@ -104,12 +104,6 @@ main {
     flex: 8;
 }
 
-header {
-    height: 4rem;
-    display: flex;
-    align-items: center;
-}
-
 .inner {
     display: flex;
 }
