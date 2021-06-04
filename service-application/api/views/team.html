@@ -17,11 +17,15 @@
         <a href="/auth/profile">프로필로 가기</a> 
     </header>
     <form method="POST" class="create_team"> 
-        <div>
-            <div>팀 생성</div>
-            <input type="text" name="name" required placeholder="팀명을 입력하세요!">
-            <button type="submit">생성하기</button>
+        <div id="my_modal">
+            <div>
+                <div>팀 생성</div>
+                <input type="text" name="name" required placeholder="팀명을 입력하세요!">
+                <button type="submit">생성하기</button>
+            </div>
+            <a class="modal_close_btn">닫기</a>
         </div>
+        <button id="popup_open_btn">+</button>   
     </form>
 
     <h1>소속 개발 팀</h1>

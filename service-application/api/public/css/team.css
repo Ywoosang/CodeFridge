@@ -22,7 +22,7 @@
     left: 150px;
 }
 
-form.create_team > div {
+form.create_team > #my_modal > div {
     width: 300px;
     margin: 30px auto;
     border-radius: 6px;
@@ -34,7 +34,7 @@ form.create_team > div {
     flex-shrink: 0;
 }
 
-form.create_team > div > div {
+form.create_team > #my_modal> div > div {
     display: flex;
     margin: 40px auto;
     margin-bottom: 20px;
@@ -45,11 +45,11 @@ form.create_team > div > div {
     justify-content: center;
 }
 
-form.create_team > div > input {
+form.create_team > #my_modal > div > input {
     width: 200px;
 }
 
-form.create_team > div > button {
+form.create_team > #my_modal > div > button {
     display: flex;
     margin-top: 20px;
     margin-bottom: 30px;
@@ -82,6 +82,36 @@ header > p {
 
 header > a:hover {
     background-color: #e4c3dc;
+}
+
+#my_modal {
+    display: none;
+    width: 500px;
+    height: 400px;
+    padding: 20px 60px;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    border-radius: 3px;
+}
+
+#my_modal .modal_close_btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#my_modal .modal_close_btn:hover {
+    background-color: cornsilk;
+    cursor: pointer;
+}
+
+.create_team {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#popup_open_btn {
+    /*design*/
 }
 
 @media screen and (max-width: 768px) {
