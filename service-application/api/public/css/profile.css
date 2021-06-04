@@ -29,17 +29,21 @@
     border-radius: 100px;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .username{
     font-size: 30px;
     display: flex;
+    justify-content: space-between;
+    margin-top : 2%;
+    margin-bottom: 3%;
 }
 .userid{
     font-size: 30px;
     display: flex;
     justify-content: space-between;
+    margin-top : 2%;
+    margin-bottom: 3%;
 }
 .change{
     display: flex;
@@ -50,4 +54,5 @@
 }
 form{
     width: 90%;
+    margin-top:2%;
 }

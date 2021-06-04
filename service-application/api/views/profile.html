@@ -40,20 +40,21 @@
                             <form method="POST"> 
                                 <div class = "username">
                                     이름: {{user.nickname}}
-                                
+                                    <input placeholder="변경할 이름입력" type="text" name='name' value="{{user.nickname}}"> 
+                                    
                                 </div>
-                                <input placeholder="변경할 이름입력" type="text" name='name' value="{{user.nickname}}"> 
-                                
                                 <hr class="one">
+                                
 
                                 <div class = "userid">
                                     아이디: {{user.nickId}}
+                                    <input placeholder="변경할 아이디입력"type="text" name="nickId" value="{{user.nickId}}">
+                                    
                                 </div>
-
-                                <input placeholder="변경할 아이디입력"type="text" name="nickId" value="{{user.nickId}}">
-                                
-
                                 <hr class="one">
+                               
+
+
                                 <div class="change">
                                     <button class="changebtn" type="submit">
                                         변경하기

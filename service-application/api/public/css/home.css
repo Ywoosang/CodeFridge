@@ -132,11 +132,14 @@ header .profile .user img{
 article{
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
 }
 
 article .fol-w{
     display: flex;
     flex-direction: column;
+
+    
 }
 
 article .fol-w .fol-c{
@@ -153,12 +156,13 @@ article .com{
     height: 10rem;
     display: flex;
     flex-direction: column; 
+    border: 1px solid black;
 }
 
 article .com img{
     width: inherit;
     flex:1;
-    object-fit: contain;
+    object-fit: cover;
     overflow: hidden;
 }
 article .com h1{
@@ -169,6 +173,7 @@ article .com h1{
 }
 article .com .fol-b{
     display: flex;
+    justify-content: space-between;
 }
 article .com .fol-b .fol-btn-s .checked{
     color: rgb(236, 236, 62);
@@ -179,4 +184,23 @@ article .com button{
 article .com button i{
     font-size: 1.1rem;
     pointer-events: none;
+}
+
+.inner aside {
+    flex: 1;
+}
+aside {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+aside div{
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+}
+aside div button{
+    border:none;
+    background-color: transparent;
+    font-size: 1rem;
 }

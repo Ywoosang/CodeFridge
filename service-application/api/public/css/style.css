@@ -114,7 +114,7 @@ header .authtab .authtag{
 }
 
 header .asidemenu{
-    
+    display:flex;
 }
 
 .inner section{
@@ -149,6 +149,7 @@ nav .n-itm{
     border: 1px solid black;
     
 }
+/*
 nav li.current a{
     background-color: #f5576c;
     color :white;
@@ -157,7 +158,9 @@ nav li.current a{
 nav li a:hover:not(.current){
     color:white;
 }
+*/
 /*왼쪽 사이드바 관련*/
+/*
 ul li.current {
     background-color: #f5576c;
     color: white;
@@ -167,11 +170,18 @@ ul li:hover:not(.current) {
     background-color: #f093fb;
     color: white;
 }
-
+*/
 /* main */
 main {
     flex: 8;
     
+}
+
+header {
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .inner {
@@ -226,7 +236,8 @@ footer {
 
 /* 팀 관련*/
 .group{
-    border: 1px solid black;
+    
+    margin-left : 4%;
 }
 
 /*알림 아이콘*/

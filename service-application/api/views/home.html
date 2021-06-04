@@ -37,29 +37,28 @@
             <main>
                 <header>
                     {% if not deleteCategory %}
-                    <div class = "group">그룹명</div>
+                    <div class = "group">그룹명  </div>
                     <div class="search">
                         <i class="fas fa-search"></i><input type="text">
                     </div>
-                    
-                        <div class="logout"><button>로그아웃</button></div>
-                    <div class = "asidemenu">
-                        <div>
+                    <div class = "auth">
+                        <div class="logout">
+                            <button>로그아웃</button>
+                        </div>
+                        <div class = "asidemenu">
                             <a href = "#" class = "setting">
                                 <i class = "fas fa-cog fa-2x" ></i>
                             </a>
-
                             <a href ="/auth/profile#" class = "userprofile">
                                 <i class = "fas fa-user-alt fa-2x"></i>
                             </a>
-                        
-                        
                             <a href ="#" class = "bell">
                                 <i class = "fas fa-bell fa-2x">
                                     <span class ="number">1</span>
                                 </i>
                             </a>
                         </div>
+                    </div>
                     {% endif %}
                 </header>
                 <div class="inner">
