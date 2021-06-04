@@ -98,6 +98,26 @@ header .auth button{
     height: 2rem;
     font-size: 1rem;
 }
+<<<<<<< Updated upstream
+=======
+header .authtab{
+    display: flex;
+    margin-left: auto;
+}
+header .authtab button{
+    margin-right: 1rem;
+    height : 2.4rem;
+}
+
+header .authtab .authtag{
+    display: flex;
+}
+
+header .asidemenu{
+    display:flex;
+}
+
+>>>>>>> Stashed changes
 .inner section{
     display: flex;
     justify-content: center;
@@ -130,6 +150,7 @@ nav .n-itm{
     border: 1px solid black;
     
 }
+/*
 nav li.current a{
     background-color: #f5576c;
     color :white;
@@ -138,7 +159,9 @@ nav li.current a{
 nav li a:hover:not(.current){
     color:white;
 }
+*/
 /*왼쪽 사이드바 관련*/
+/*
 ul li.current {
     background-color: #f5576c;
     color: white;
@@ -148,7 +171,7 @@ ul li:hover:not(.current) {
     background-color: #f093fb;
     color: white;
 }
-
+*/
 /* main */
 main {
     flex: 8;
