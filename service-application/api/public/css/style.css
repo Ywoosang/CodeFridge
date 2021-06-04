@@ -7,48 +7,70 @@ body{
     margin : 0;
     color : #222;
     font-weight : 300;
+    
 }
+
 * {
     /* border: 1px solid red; */
     font-family: 'Noto Sans KR', sans-serif;
+    
 }
+
 *:focus { outline:none; }
 div>a:hover,ul>a:hover{
     color : #222;
+    
 }
+
 ul {
     margin:0;
     padding:0;
     list-style: none;
+    
 }
+
 a {
     text-decoration: none !important;
     color : #222;
+    
 }
+
 h1,h2,h3,h4,h5,h6{
     margin:0;
     font-weight: normal;
+    border: 1px solid black;
 }
+
+
 button {
     cursor:pointer;
     outline: none;
+    
 }
+
 p{
     margin:0;
+    
 }
+
 input,textarea,select{
     outline : none;
+    
 }
+
 * {
-    border: 1px solid black;
+    
     box-sizing: border-box;
 }
 
 /* CSS */
 .container {
+    border: 1px solid black;
     display: flex;
     position:relative; 
+
 }
+
 .modal{
     position:absolute;
     display: flex;
@@ -58,20 +80,43 @@ input,textarea,select{
     width: 100vw;
     height:100vh;
     z-index: 1;
+    
 }
 
 /* 헤더 */
 header{
+    border: 1px solid black;
     background-color: #95C5C1;
-    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    height: 4rem;
 }
+
 header .auth{
     margin-right : 2rem;
+    
 }
 header .auth button{
     height: 2rem;
     font-size: 1rem;
 }
+header .authtab{
+    display: flex;
+    margin-left: auto;
+}
+header .authtab button{
+    margin-right: 1rem;
+    height : 2.4rem;
+}
+
+header .authtab .authtag{
+    display: flex;
+}
+
+header .asidemenu{
+    display:flex;
+}
+
 .inner section{
     display: flex;
     justify-content: center;
@@ -81,47 +126,90 @@ header .auth button{
     display: flex;
 }
 
+/*좌측 사이드바*/
 nav {
+    border: 1px solid black;
     flex: 1;
     min-width: 10rem;
     background-color: #95C5C1;
     min-height: 100vh;
 }
-nav .logo {
-    margin: 1rem 0 2rem 0;
-    height: 4rem;
+
+/*로고*/
+nav img {
+    max-width: 100%;
+    border: 1px solid black;
 }
+/*사이드바 칸*/
 nav .n-itm{
-    padding : 5px;
+    padding : 3px;
     padding-left: 10%;
-    color: white;
     font-weight: 500;
     cursor: pointer;
+    border: 1px solid black;
     
 }
+/*
+nav li.current a{
+    background-color: #f5576c;
+    color :white;
+}
+
+nav li a:hover:not(.current){
+    color:white;
+}
+*/
+/*왼쪽 사이드바 관련*/
+/*
+ul li.current {
+    background-color: #f5576c;
+    color: white;
+}
+
+ul li:hover:not(.current) {
+    background-color: #f093fb;
+    color: white;
+}
+*/
 /* main */
 main {
     flex: 8;
+    
+}
+
+header {
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .inner {
     display: flex;
+    border: 1px solid black;
 }
 
 .inner section {
     flex: 5;
+    border: 1px solid black;
 }
 .inner section article {
     height: calc(100vh - 134px);
+    
 }
+
 article {
     display: flex;
     flex-wrap: wrap;
+    border: 1px solid black;
 }
-
+/* 하단 footer 영역*/
 footer {
+    border: 1px solid black;
     height: 70px;
 }
+
+/*반응형 관련*/
 @media screen and (max-width: 1024px) {
     .inner aside {
         display: none;
@@ -140,7 +228,108 @@ footer {
         display: flex;
         justify-content: flex-end;
     }
-    .inner section article .des{
-        display: none;
+    div .group{
+        justify-content: center;
+        border: 1px solid black;
     }
+}
+
+/* 팀 관련*/
+.group{
+    
+    margin-left : 4%;
+}
+
+/*알림 아이콘*/
+a.bell {
+    position: relative;
+    display: block;
+    height: 50%;
+    width: 50px;
+    cursor: pointer;
+}
+/*알림 숫자 관련*/
+.number{
+    position : absolute;
+    font-size: 0.6em;
+    right : 13px;
+    top : 15px;
+    color: #fff;
+    border-radius: 50%;
+    background-color : red;
+    padding:0 5px;
+}
+/* 업로드 버튼 위치*/
+ul label
+{
+    float:right;
+    border: 1px solid black;
+}
+
+/*업로드 메뉴 숨김*/
+#menu{display: none;} 
+
+/*메뉴위치 : 왼쪽으로 -20em(화면밖에 숨긴다) 절대위치, 너비 10em*/
+#nav{
+    position:absolute; 
+    left:-20em; 
+    width :10em;
+    
+} 
+
+/*메뉴 목록 다시 보여줌  */
+:checked ~ #nav{
+    position: relative; 
+    left:auto;
+} 
+
+ul #nav{
+    float:right;
+}
+
+
+/* 업로드 버튼 관련*/
+ul div{
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    border: 1px solid black;
+    
+}
+ul div button{
+    border:none;
+    background-color: transparent;
+    font-size: 1rem;
+    
+}
+
+
+/*정렬 방식 버튼 관련*/
+.sort li{
+    display:inline;
+    border: 1px solid black;
+}
+
+
+.sort li a.current2 {
+    background-color: grey;
+    color: white;
+}
+
+.sort li a:hover:not(.current2) {
+    background-color: grey;
+    color: white;
+}
+
+.teams{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.team{
+    border:1px solid black;
+    margin: 1rem;
+    min-width: 15rem;
+    min-height: 15rem;
 }
