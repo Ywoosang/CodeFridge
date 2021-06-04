@@ -2,6 +2,8 @@ const { File, Folder,Comment } = require('../models');
 const { Op } = require("sequelize");
 const { QueryTypes } = require('sequelize');
 const { sequelize } = require('../models')
+
+// renderHome  
 exports.getFolderContents = async (req, res, next) => {
     const folderId = req.query.id;
     try {
@@ -26,12 +28,8 @@ exports.getFolderContents = async (req, res, next) => {
         console.log(err);
     }
 }
-exports.getTestData = (req, res, next) => {
-    const sess = req.session;
-    const team = req.session.teamId;
-    res.json({ sess,team });
-}
 
+// renderHome 
 exports.getAllContents = async (req, res, next) => {
     try {
         const files = await File.findAll({
@@ -47,12 +45,14 @@ exports.getAllContents = async (req, res, next) => {
                 hierarchy: 1
             }
         });
-        res.render('home', { files, folders });
+        const all =true; 
+        res.render('home', { files, folders,all });
     } catch (err) {
         console.log(err);
     }
 }
 
+// renderHome  
 exports.getFavoriteContents = async (req, res, next) => {
     try {
         const teamId = req.session.teamId;
@@ -67,6 +67,66 @@ exports.getFavoriteContents = async (req, res, next) => {
         next(err);
     }
 }
+
+// renderHome 
+exports.getTrashContents = async (req, res, next) => {
+    try {
+        if (!req.user.id) return res.status(403).end();
+        console.log(req.user.id);
+        const teamId = req.session.teamId;
+        
+        const files = await File.findAll({
+            where: {
+                teamId,
+                deletedAt: { [Op.ne]: null },
+            },
+            paranoid: false
+        })
+        const folders = await Folder.findAll({
+            where: {
+                teamId,
+                deletedAt: { [Op.ne]: null },
+            },
+            paranoid: false
+        })
+        res.render('home', { folders, files })
+    } catch (err) {
+        next(err);
+    }
+}
+
+// 파일 복구 
+exports.restoreFile = (req, res, next) => {
+    console.log(req.query.id);
+    // 파일 아이디
+    const id = parseInt(req.query.id);
+    // 상위 폴더 여부 
+    const hasParentFolder = parseInt(req.query.parent);
+    // 클라이언트 전송 오류일 경우
+    if (!id) return res.redirect('error',{message:'올바른 파일인지 확인하세요.'});
+    if(hasParentFolder){
+        sequelize.query(`
+        UPDATE files a,folders b 
+        SET a.deletedAt=NULL,b.deletedAt=NULL 
+        WHERE a.folderId = b.id and a.id=${id}
+        `, { type: QueryTypes.UPDATE })
+            .then(() => {
+                res.end();
+            })
+    } else {
+        File.update({
+            deletedAt : null
+        },{
+            where :{
+                id 
+            },
+            paranoid: false
+        })
+    }
+    res.end();
+    // 조인 후 업데이트
+}
+
 
 exports.toggleStar = async (req, res, next) => {
     const id = parseInt(req.query.id);
@@ -115,10 +175,11 @@ exports.getSearchContents = async (req, res, next) => {
         });
         res.json({ files, folders })
     } catch (err) {
-        next(err)
+        next(err); 
     }
 }
 
+// renderHome 
 exports.deleteContent = async (req, res, next) => {
     try {
         const id = req.query.id;
@@ -151,65 +212,6 @@ exports.deleteContent = async (req, res, next) => {
     } catch (err) {
         next(err);
     }
-}
-
-exports.getTrashContents = async (req, res, next) => {
-    try {
-        if (!req.user.id) return res.status(403).end();
-        console.log(req.user.id);
-        const teamId = req.session.teamId;
-        
-        const files = await File.findAll({
-            where: {
-                teamId,
-                deletedAt: { [Op.ne]: null },
-            },
-            paranoid: false
-        })
-        const folders = await Folder.findAll({
-            where: {
-                teamId,
-                deletedAt: { [Op.ne]: null },
-            },
-            paranoid: false
-        })
-        const deleteCategory = true;
-        res.render('home', { folders, files, deleteCategory })
-    } catch (err) {
-        next(err);
-    }
-}
-
-// 파일 복구 
-exports.restoreFile = (req, res, next) => {
-    console.log(req.query.id);
-    // 파일 아이디
-    const id = parseInt(req.query.id);
-    // 상위 폴더 여부 
-    const hasParentFolder = parseInt(req.query.parent);
-    // 클라이언트 전송 오류일 경우
-    if (!id) return res.redirect('error',{message:'올바른 파일인지 확인하세요.'});
-    if(hasParentFolder){
-        sequelize.query(`
-        UPDATE files a,folders b 
-        SET a.deletedAt=NULL,b.deletedAt=NULL 
-        WHERE a.folderId = b.id and a.id=${id}
-        `, { type: QueryTypes.UPDATE })
-            .then(() => {
-                res.end();
-            })
-    } else {
-        File.update({
-            deletedAt : null
-        },{
-            where :{
-                id 
-            },
-            paranoid: false
-        })
-    }
-    res.end();
-    // 조인 후 업데이트
 }
 
 exports.getFilePage = async(req,res,next) =>{

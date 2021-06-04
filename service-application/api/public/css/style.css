@@ -87,7 +87,9 @@ input,textarea,select{
 header{
     border: 1px solid black;
     background-color: #95C5C1;
-    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    height: 4rem;
 }
 
 header .auth{
@@ -98,8 +100,6 @@ header .auth button{
     height: 2rem;
     font-size: 1rem;
 }
-<<<<<<< Updated upstream
-=======
 header .authtab{
     display: flex;
     margin-left: auto;
@@ -117,7 +117,6 @@ header .asidemenu{
     display:flex;
 }
 
->>>>>>> Stashed changes
 .inner section{
     display: flex;
     justify-content: center;
