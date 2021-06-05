@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+  <script src='/js/manage.js' defer></script>
+</head>
+
+<body>
+  <article class="profile">
+    <div class="img">
+      <div class="img-preview">
+        <!-- 이미지가 없을 때는 display :none  -->
+        <img id="img-preview" class="profile-img" src="{{ img }}" width="250" alt="미리보기">
+        <!-- name:url 여기에 이미지 링크를 저장해두고 submit 시 req.body.url 로 받음 -->
+      </div>
+      <button class="upload-btn" onclick="document.all.img.click()">이미지 선택</button>
+      <div class="upload">
+        <form action="/profile/img" method="POST" enctype="multipart/form-data">
+          <input id='img' type="file" name="img" accept="image/*" style="display:none;">
+          <button class="img-submit" type="submit" style="display:none;">이미지 업로드</button>
+        </form>
+      </div>
+      <button class="remove-btn">이미지 제거</button>
+    </div>
+    <div class="des">
+      <p class="name"> </p>
+    </div>
+  </article>
+  <article>
+    <ul>
+      {%for member in members %}
+      <li class=" ">
+        <div>이름: {{ member.nickname }}</div>
+        <div>직급: {{ member.rank }} </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </article>
+  <article>
+    <div>멤버 초대</div>
+    <input type="text" class="invite" placeholder="초대할 멤버 아이디">
+    <ul class='users'>
+      <li>
+         
+
+      </li>
+    </ul>
+  </article>
+</body>
+
+</html>

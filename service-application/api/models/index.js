@@ -5,6 +5,7 @@ const Folder = require('./folder');
 const Code = require('./code');
 const Comment = require('./comment'); 
 const Team = require('./team');
+const User_Team = require('./user_team'); 
 
 const db = {};
 const sequelize = new Sequelize(
@@ -28,6 +29,7 @@ db.File = File;
 db.Code = Code; 
 db.Comment= Comment; 
 db.Team = Team; 
+db.User_Team= User_Team
 
 // 테이블 실제로 생성
 User.init(sequelize);
@@ -36,6 +38,7 @@ Folder.init(sequelize);
 Code.init(sequelize);
 Comment.init(sequelize); 
 Team.init(sequelize); 
+User_Team.init(sequelize);
 
 // 관계 설정
 User.associate(db);
