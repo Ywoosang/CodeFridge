@@ -21,8 +21,13 @@ module.exports = class File extends Sequelize.Model {
         allowNull: false,
       },
       mimetype : {
-        type: Sequelize.STRING(50),
+        type: Sequelize.STRING(100),
         allowNull:false,
+      },
+      size : {
+        type : Sequelize.INTEGER(20),
+        allowNull: false,
+        defaultValue : 0,
       }
     }, {
       sequelize,
