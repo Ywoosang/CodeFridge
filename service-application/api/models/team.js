@@ -8,6 +8,11 @@ module.exports = class Team extends Sequelize.Model {
             type: Sequelize.STRING(30),
             allowNull: false,
           },
+          img : {
+            type : Sequelize.TEXT,
+            allowNull: 'false',
+            defaultValue : '/img/noimg.gif'
+          }
     }, {
       sequelize,
       // createdAt 
