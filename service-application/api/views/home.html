@@ -32,7 +32,11 @@
                 <li class="n-itm"><i class="far fa-star"></i><a href="/resource/favorites">즐겨찾기</a></li>
                 <li class="n-itm"><i class="far fa-trash-alt"></i><a href="/resource/trash">휴지통</a></li>
                 {% if size %}
-                <li><b>{{size}}MB /5GB</b></li>
+                <li><div class="bar">
+                    <div class="bar_"></div>
+                </div></li>
+                <li><b class="file_size">{{size}}MB /5GB</b></li>
+                <input type="hidden" value="{{size}}" class="total-size">
                 {% endif %}
             </ul>
             <!-- 깃 허브 링크 -->

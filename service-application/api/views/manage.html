@@ -7,16 +7,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="../css/manage.css">
+  <link rel="stylesheet" href="../css/style.css">
   <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
   <script src='/js/manage.js' defer></script>
 </head>
 
 <body>
+  <header>
+    <p>Code Fridge</p>
+    <a href="/auth/logout">로그아웃</a>
+    <a href="/auth/profile">프로필로 가기</a>
+  </header>
+  <div class="block">
+  <div class="block1">
   <article class="profile">
-    <h1>팀 이름: {{team.name}}</h1>
-    <form action="/team/manage/name" method="POST" >
+    <h1 class="team_name">팀 이름: {{team.name}}</h1>
+    <form action="/team/manage/name" method="POST" class="change_team_name" >
       <input  type="text" name="teamName" required>
-      <button type="submit">팀 이름 업데이트</button>
+      <button type="submit" class="teamNameBtn">팀 이름 업데이트</button>
     </form>
     <div class="img">
       
@@ -32,19 +40,21 @@
       <p class="name"> </p>
     </div>
   </article>
-  <article>
-    <h2>팀원 내역</h2>
+  <article class="cowoker">
+    <h2 class="cowoker_list">팀원 내역</h2>
     <ul>
       {%for member in members %}
       <li class=" ">
-        <div>이름: {{ member.nickname }}</div>
-        <div>직급: {{ member.rank }} </div>
+        <div class="cowoker_name">이름: {{ member.nickname }}</div>
+        <div class="cowoker_rank">직급: {{ member.rank }} </div>
       </li>
       {% endfor %}
     </ul>
   </article>
-  <article>
-    <h2>멤버 초대</h2>
+</div>
+<div class="block2">
+  <article class="invite_cowoker">
+    <h2 class="invite_cowoker_name">멤버 초대</h2>
     <input type="text" class="invite" placeholder="초대할 멤버 아이디">
     <ul class='users'>
       <li>
@@ -53,6 +63,8 @@
       </li>
     </ul>
   </article>
+</div>
+  <div>
 </body>
 
 </html>

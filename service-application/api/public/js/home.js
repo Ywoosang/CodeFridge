@@ -6,6 +6,10 @@ const uploadFileBtn = $('.upload_file');
 const uploadFolderInput = $('#folder');
 const uploadFileInput = $('#file');
 const logoutBtn = $('.logout button');
+const totalSize = $('.total-size').value;
+const bar = $('.bar_');
+const totalSize_ = totalSize/5*1.2 + '%';
+bar.style.width = totalSize_;
 
 // 이벤트 리스너 등록 
 
