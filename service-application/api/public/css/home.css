@@ -1,3 +1,7 @@
+* {
+    border: 1px solid red;
+}
+
 .modal .upload{
     max-width: 35rem;
     width: 50%;
@@ -130,7 +134,6 @@ header .profile .user img{
 }
 article{
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
 }
 

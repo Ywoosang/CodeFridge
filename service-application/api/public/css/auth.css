@@ -13,7 +13,6 @@
 }
 
 
-
 .icon img {
     top: 0.1px;
     width:160px;
@@ -23,6 +22,7 @@
     position: absolute;
 
 }
+
 article {
     background-color: #324d5c;
 }
@@ -42,32 +42,27 @@ header .auth a {
 
 }
 .background{
+    flex:1;
+    
+    flex-direction: column;
+    max-height: 100%;
+    display: block;
     display: flex;
     flex-direction: column;
-    right:50px; 
-    max-width: 35%;
-    max-height: 100%;
-    width: 30%; 
-    display: block;
-    flex-direction: column;
     background-color: #324d5c;
-    background-size: cover;
     background-position: center;
-    position:absolute;
     text-align: center;
 }
 /* .상단부 */
 .log-background{
-    display: flex;
+    width:100%;
+    flex:1;
     flex-direction: column;
     align-items: center;
 }
 
 .log-background  .title{
     text-align: center;
-    border: 1px solid lightgray;
-    background-color: #FFFFFF;
-    
 }
 .log-background .title p{
     flex:1;
@@ -76,7 +71,6 @@ header .auth a {
     
 }
 .wrap-item{
-    flex:1;
     /* input 요소 가운데 정렬 */
     text-align: center;
     border: 1px solid lightgray;
@@ -85,10 +79,8 @@ header .auth a {
     background-color: #e5edee;
     border-top-left-radius:10px;
     border-top-right-radius:10px;
-
     border-bottom-left-radius:10px;
     border-bottom-right-radius:10px;
-    width: 325px;
 }
 
 .wrap-item .item input{
@@ -107,7 +99,6 @@ header .auth a {
 .check-box{
     display: flex;
     position: relative;
-    width:296px;
     justify-content: flex-start;
     margin:0 auto;
     margin-top: 10px;
@@ -131,7 +122,6 @@ header .auth a {
     display: block;
     flex:1;
     border-radius: 4px;
-    width:296px;
     margin:0 auto;
     text-align: center;
     
@@ -152,7 +142,6 @@ header .auth a {
     border-bottom: none;
     line-height: 60px;
     height: 60px;
-
     background-color: #e5edee;
 }
 .sns-join .title p{
@@ -173,7 +162,6 @@ header .auth a {
     background-color: #e5edee;
 }
 .sns-join .wrap-item2 a{
-    width: 300px;
     height: 35px;
     line-height: 35px;
     border: 1px solid lightgray;
