@@ -1,49 +1,17 @@
-const multer = require('multer');
-const AWS = require('aws-sdk');
-const multerS3 = require('multer-s3');
 const path = require('path');
 const { File,Folder,Code } = require('../models'); 
+const { upload } = require('../index')
  
-// AWS Config 
-AWS.config.update({
-    accessKeyId : process.env.S3_ACCESS_KEY_ID,
-    secretAccessKey : process.env.S3_SECRET_ACCESS_KEY,
-    // s3 : region 상관없음
-    region: 'ap-northeast-2',
-});
-
-// multer 
-const storage = multerS3({
-    s3: new AWS.S3(),
-    bucket : 'ywoosang-s3',
-    async key(req,file,cb) {
-       try{
-        // S3 저장할때 Date 붙여서 구분
-        const filePathName = `${Date.now()}-${file.originalname}`;
-        req.data = filePathName;
-        cb(null,filePathName); 
-       } catch(err){
-            console.log(err);            
-       }
-    }}); 
-
-const upload = multer({
-    storage,
-    preservePath: true,
-}).single('file');
+const s3Upload = upload.single('file'); 
+ 
 
 // controller
 exports.fileUpload = async(req , res , next ) => {
-    upload(req, res, async (err) => {
+    s3Upload(req, res, async (err) => {
         try {
-            if (err instanceof multer.MulterError) {
-                console.log(err)
-                return res.status(404).json({ message: "올바른 파일을 업로드해주세요" });
-            }
             if(err){
                 console.log(err); 
             }
-       
             if(!req.user.id){
                 return res.json({msg:'expired'});
             } 
@@ -58,6 +26,7 @@ exports.fileUpload = async(req , res , next ) => {
             // 소유자 아이디
             const ownerId = req.user.id; 
             // 파일 정보
+            const size = f.size;
             const fileName = path.basename(f.originalname);   
             const filePath = f.originalname.split('/');
             const codeNumber =  req.body.num.substr(0,9);
@@ -113,7 +82,8 @@ exports.fileUpload = async(req , res , next ) => {
                     name : fileName,
                     awsKey : key,
                     teamId,
-                    mimetype
+                    mimetype,
+                    size,
                 }); 
                 return res.json({ msg: 'uploaded',file });
             };
@@ -148,7 +118,8 @@ exports.fileUpload = async(req , res , next ) => {
                 name : fileName,
                 awsKey:key,
                 teamId,
-                mimetype
+                mimetype,
+                size,
             }); 
             return res.json({ msg: 'uploaded',file });
         } catch (err) {
