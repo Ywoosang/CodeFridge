@@ -7,9 +7,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
 		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-	<script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
-    <link rel="stylesheet" href="../css/style.css">
-	<link rel="stylesheet" href="../css/profile.css">
+        <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/profile.css">
+        <style>
+            #my_modal{
+                position:fixed;
+                top :0;
+                left:0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            #my_modal .modal_close_btn{
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+        </style>
     </head>
     <body>
         <!-- 큰틀 -->
@@ -17,7 +34,7 @@
             <!-- 사이드바 -->
             <nav>
                 <a href="/resource/all"  target="_self">
-                    <img src = "https://ifh.cc/g/zEqNzf.png" >
+                    <img src = "https://ifh.cc/g/zHZVZJ.png" >
                 </a>
                 <ul>
                 <li class="n-itm current"><i class="fas fa-user-alt fa-lg"></i><a href="/resource/all" >프로필</a></li>
@@ -38,28 +55,64 @@
                         <div class = "inner">
 
                             <form method="POST"> 
-                                <div class = "username">
-                                    이름: {{user.nickname}}
-                                    <input placeholder="변경할 이름입력" type="text" name='name' value="{{user.nickname}}"> 
-                                    
+
+                                <div class = "userpicture">
+                                    사진
+                                    <div class = "placehold">사진을 추가할 수 있습니다.</div> 
+                                        <a href = "#">
+                                        <i class = "fas fa-user-alt fa-2x"></i>
+                                        </a>
                                 </div>
                                 <hr class="one">
-                                
 
-                                <div class = "userid">
-                                    아이디: {{user.nickId}}
-                                    <input placeholder="변경할 아이디입력"type="text" name="nickId" value="{{user.nickId}}">
-                                    
+                                <div class="openBtn">
+                                    <div class = "username">
+                                        이름: {{user.nickname}}
+                                    </div>
+                                </div> 
+                                <div class="modal hidden">
+                                    <div class="bg"></div>
+                                    <div class = "modalBox">
+                                        <input placeholder="변경할 이름입력" type="text" name='name' value="{{user.nickname}}"> 
+                                        <div class = "twobtn">
+                                            <div class="change">
+                                                <button class="changebtn" type="submit">
+                                                    변경하기
+                                                </button>
+                                            </div>
+                                            <button class="closeBtn">✖</button>
+                                        </div>  
+
+                                    </div>
+                                </div>
+                                
+                                <hr class="one">
+                                
+                                <div class="openBtn2">
+                                    <div class = "userid">
+                                        아이디: {{user.nickId}}
+                                    </div>
+                                </div> 
+                                <div class="modal2 hidden2">
+                                    <div class="bg2"></div>
+                                    <div class = "modalBox2">
+                                        <input placeholder="변경할 아이디입력"type="text" name="nickId" value="{{user.nickId}}"> 
+                                        <div class = "twobtn">
+                                            <div class="change">
+                                                <button class="changebtn2" type="submit">
+                                                    변경하기
+                                                </button>
+                                            </div>
+                                            <button class="closeBtn2">✖</button>
+                                        </div>  
+
+                                    </div>
                                 </div>
                                 <hr class="one">
                                
 
 
-                                <div class="change">
-                                    <button class="changebtn" type="submit">
-                                        변경하기
-                                    </button>
-                                </div>
+                                
                                 <div>
                                     마지막 프로필 수정일 {{user.updatedAt | dateform}}
                                 </div>
@@ -82,6 +135,36 @@
         <footer>
             클라우드 컴퓨팅 E조 [Footer 영역]
         </footer>
+        <script>
+            const open= ()=>{
+                document.querySelector(".modal").classList.remove("hidden");
+            }
+            const open2= ()=>{
+                document.querySelector(".modal2").classList.remove("hidden2");
+            }
+
+            const close= ()=>{
+                document.querySelector(".modal").classList.add("hidden");
+            }
+            const close2= ()=>{
+                document.querySelector(".modal2").classList.add("hidden2");
+            }
+            document.querySelector(".openBtn").addEventListener("click", open);
+            document.querySelector(".closeBtn").addEventListener("click", close);
+            document.querySelector(".changebtn").addEventListener("click", close);
+            document.querySelector(".bg").addEventListener("click", close);
+
+            document.querySelector(".openBtn2").addEventListener("click", open2);
+            document.querySelector(".closeBtn2").addEventListener("click", close2);
+            document.querySelector(".changebtn2").addEventListener("click", close2);
+            document.querySelector(".bg2").addEventListener("click", close2);
+            
+
+           
+
+            
+        </script>
+
     </body>
 
 </html>
