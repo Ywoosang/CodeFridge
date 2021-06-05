@@ -26,11 +26,16 @@ module.exports = class User extends Sequelize.Model {
         type: Sequelize.STRING(20),
         allowNull:true
       },
+      img : {
+        type: Sequelize.TEXT,
+        allowNull:true,
+        defaultValue : '/img/user.png'
+      },
       nickId : {
         type: Sequelize.STRING(20),
         allowNull: false,
         // 랜덤 값 생성 
-        defaultValue : 'codefridge'+parseInt(Math.random()*10000000).toString(),
+        defaultValue : 'CodeFridge'+new Date().getUTCMilliseconds().toString(),
       }
     }, {
       sequelize,
