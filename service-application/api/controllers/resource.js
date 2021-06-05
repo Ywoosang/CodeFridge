@@ -36,7 +36,7 @@ exports.getAllContents = async (req, res, next) => {
             where: {
                 teamId : req.session.teamId,
                 folderId: null
-            }
+            },
         });
         //  객체 (오브젝트) 형식
         const folders = await Folder.findAll({
@@ -45,8 +45,49 @@ exports.getAllContents = async (req, res, next) => {
                 hierarchy: 1
             }
         });
-        const all =true; 
-        res.render('home', { files, folders,all });
+        let size = await sequelize.query('select SUM(size) from files',{
+            type: QueryTypes.SELECT
+        }); 
+        size = parseInt(size[0]["SUM(size)"])/(1024*1024);
+        size = size.toFixed(3); 
+        res.render('home', { files, folders,size });
+    } catch (err) {
+        console.log(err);
+    }
+}
+exports.getImgContents = async(req,res,next) => { 
+    try {
+        const files = await File.findAll({
+            where: {
+                teamId : req.session.teamId,
+                mimetype : {
+                    [Op.like] : "%" + "image" + "%"
+                }                
+            },
+        });
+        //  객체 (오브젝트) 형식
+        let size = await sequelize.query('select SUM(size) from files',{
+            type: QueryTypes.SELECT
+        }); 
+        res.render('home', {  files,   });
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+exports.getPdfContents = async(req,res,next) => {
+    try {
+        const files = await File.findAll({
+            where: {
+                teamId : req.session.teamId,
+                mimetype : "application/pdf"
+            },
+        });
+        let size = await sequelize.query('select SUM(size) from files',{
+            type: QueryTypes.SELECT
+        }); 
+        //  객체 (오브젝트) 형식
+        res.render('home', { files });
     } catch (err) {
         console.log(err);
     }
@@ -56,13 +97,14 @@ exports.getAllContents = async (req, res, next) => {
 exports.getFavoriteContents = async (req, res, next) => {
     try {
         const teamId = req.session.teamId;
+
         const files = await File.findAll({
             where: {
                 teamId,
                 favorite: 1
             }
         });
-        res.render('home', { files })
+        res.render('home', { files  });
     } catch (err) {
         next(err);
     }
@@ -89,7 +131,7 @@ exports.getTrashContents = async (req, res, next) => {
             },
             paranoid: false
         })
-        res.render('home', { folders, files })
+        res.render('home', { folders, files });
     } catch (err) {
         next(err);
     }
@@ -230,7 +272,7 @@ exports.getFilePage = async(req,res,next) =>{
     }
     // 댓글 단 사용자 정보 가져오기 위해 조인 
     const comments = await sequelize.query(`
-    SELECT usr.nickname,com.createdAt,com.content 
+    SELECT usr.nickname,usr.img,com.createdAt,com.content 
     FROM comments com  
     JOIN users usr ON usr.id = com.ownerId 
     WHERE com.fileId =${id};
