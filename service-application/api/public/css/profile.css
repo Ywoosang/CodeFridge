@@ -25,64 +25,90 @@
     width: 90%;
     height: 80%;
     background: white;
-    border-radius: 100px;
-    display: flex;
+    border-radius: 8px;
+    display: block;
     justify-content: center;
+    border: 1px solid black;
+    padding-left: 4%;
+    padding-right: 4%;
 }
-
+.inner .img{
+  margin-top : 3%;
+}
+.inner .img-help
+{
+  font-size: 12px;
+}
 .username{
-    font-size: 30px;
     display: flex;
     justify-content: space-between;
     margin-top : 2%;
     margin-bottom: 3%;
 }
 .userid{
-    font-size: 30px;
     display: flex;
     justify-content: space-between;
     margin-top : 2%;
     margin-bottom: 3%;
 }
-.userpicture{
-    font-size: 30px;
-    display: flex;
-    justify-content: space-between;
-    margin-top : 2%;
-    margin-bottom: 3%;
 
-}
 .change{
     display: flex;
     justify-content: flex-end;
 }
 .changebtn{
-    font-size: 20px;
 }
 form{
     width: 90%;
     margin-top:2%;
 }
 
-form div.userid:hover:not(.current) {
+.inner .userid:hover:not(.current) {
     background-color: gray;
     color: white;
 }
 
-form div.username:hover:not(.current) {
+.inner .username:hover:not(.current) {
     background-color: gray;
     color: white;
 }
-form div.userpicture:hover:not(.current) {
+.inner .img .img-preview:hover:not(.current) {
     background-color: gray;
     color: white;
 }
 
+.inner .img .img-preview{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.inner .img .img-preview .img-txt{
+  width: 20%;
+}
+.inner .img .img-preview .img-help{
+  flex-grow: 2;
+}
+.inner .username .username-txt{
+  width: 20%;
+}
+
+.inner .username .username-help{
+  flex-grow: 2;
+}
+.inner .userid .userid-txt{
+  width: 20%;
+}
+
+.inner .userid .userid-help{
+  flex-grow: 2;
+}
 button {
     background-color: #F9B514;
     border-radius: 4px;
     cursor: pointer;
   }
+
 /*username*/
   .modal {
     position: fixed;
@@ -93,6 +119,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+    
   }
 
   .modal .bg {
@@ -121,6 +148,8 @@ button {
   .twobtn{
       display :flex;
       justify-content: space-between;
+      width : 350px;
+
   }
   #my_modal {
     position: fixed;
@@ -173,4 +202,49 @@ button {
   .modalBox2 button {
     display: block;
     margin: 0 auto;
+  }
+
+
+  .modal3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .hidden3 {
+    display: none;
+  }
+
+  .modal3 .bg3 {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .modalBox3 {
+    position: absolute;
+    background-color: #fff;
+    width: 400px;
+    height: 200px;
+    padding: 15px;
+  }
+
+  .modalBox3 button {
+    display: block;
+    margin: 0 auto;
+  }
+  .upload .Btntwo{
+    display : flex;
+    justify-content: space-between;
+    width: 350px;
+  }
+  .inner .profile-img{
+    width: 10%;
+    height: 10%;
   }
