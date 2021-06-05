@@ -1,5 +1,6 @@
 const { User,Team, sequelize } = require('../models/'); 
 const { QueryTypes } = require('sequelize');
+
 exports.mainPage = async(req,res,next) =>{
     const teams = await Team.findAll({
         include:[
@@ -62,10 +63,12 @@ exports.getUsers = async(req,res,next) =>{
     try{
 //  HAVING not exist (SELECT TMP.UserId FROM user_team TMP WHERE TMP.TeamId=${teamId} and TMP.UserId=${userId}) ;
         const users = await sequelize.query(`
-        select  U.nickname,U.id,UT.UserId,U.nickId 
-        from user_team UT left join users U on U.id = UT.UserId 
-        where U.nickId like "%${nickId}%" 
-        group by U.nickname,U.id,UT.UserId,U.nickId 
+        SELECT  U.nickname,U.id,UT.UserId,U.nickId 
+        FROM user_team UT 
+        RIGHT OUTER JOIN users U 
+        ON U.id = UT.UserId 
+        WHERE U.nickId like "%${nickId}%" 
+        GROUP BY U.nickname,U.id,UT.UserId,U.nickId 
         `,{
             type: QueryTypes.SELECT
         }); 
@@ -78,6 +81,7 @@ exports.getUsers = async(req,res,next) =>{
 exports.manageTeam = async(req,res,next) => {
     const teamId = req.session.teamId;
     try{
+    const team = await Team.findByPk(teamId); 
     const members = await sequelize.query(`
     SELECT U.nickname,U.nickId,UT.rank,T.name,T.id 
     FROM users U 
@@ -85,11 +89,53 @@ exports.manageTeam = async(req,res,next) => {
     LEFT JOIN teams T ON UT.TeamId = T.id 
     WHERE T.id =${teamId} AND UT.rank IS NOT NULL;
     `,{ type: QueryTypes.SELECT });
-    res.render('manage',{ members }); 
+    res.render('manage',{ members,team }); 
     }catch(err){
         next(err); 
     }   
 }
+
+//
+exports.changeTeamImage = async(req,res,next) => {
+    const teamId = req.session.teamId;
+    const img = req.file.location;
+    try{
+        
+    if(!img) return res.redirect('/error?message="이미지 파일을 업로드하세요"')
+    await Team.update({
+        img,
+        updatedAt : new Date(),
+    },{
+        where : {
+            id : teamId
+        }
+    }); 
+    res.redirect('/team/manage')
+    }catch(err){
+        next(err); 
+    }   
+}
+
+exports.changeTeamName = async(req,res,next) => {
+    const teamId = req.session.teamId;
+    const name = req.body.teamName;
+    try{
+    if(!name) return res.redirect('/error?message="팀 이름을 입력하세요"'); 
+    if(name.length> 15) return res.redirect('/error?message="팀 이름은 10 자 이내여야 합니다."'); 
+    await Team.update({
+        name,
+        updatedAt : new Date(),
+    },{
+        where : {
+            id : teamId
+        }
+    }); 
+    res.redirect('/team/manage')
+    }catch(err){
+        next(err); 
+    }   
+}
+
 
 exports.enrollNewMember =  async(req,res,next) => {
     const rank = req.body.rank;
