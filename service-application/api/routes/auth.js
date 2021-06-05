@@ -137,6 +137,9 @@ router.post('/profile/image', upload.single('file'),async (req, res, next) => {
     try {
         const id = req.user.id;
         const img = req.file.location;
+        if (!img) {
+            return res.redirect('/error?message="올바르지 않은 이미지입니다."');
+        }
         await User.update({
             img,
             updatedAt: new Date(),

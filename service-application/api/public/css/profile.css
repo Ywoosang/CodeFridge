@@ -6,19 +6,21 @@
 }
 
 .groupname{
-    border: 1px solid black;
+    margin-top: 3rem;
     background-color: white;
+    font-weight: 500;
     justify-content: center;
     font-size: 40px;
 }
 
 .outer{
     width: 90%;
-    height: 100vh;
+    margin-top: 3rem;
     background: white;
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .inner {
@@ -31,6 +33,7 @@
     border: 1px solid black;
     padding-left: 4%;
     padding-right: 4%;
+    padding-bottom: 130px;
 }
 .inner .img{
   margin-top : 3%;
@@ -56,25 +59,34 @@
     display: flex;
     justify-content: flex-end;
 }
-.changebtn{
+
+.p-text {
+  font-size : 0.8rem;
+  margin : 1rem;
 }
+
 form{
     width: 90%;
     margin-top:2%;
 }
 
-.inner .userid:hover:not(.current) {
-    background-color: gray;
-    color: white;
+.inner {
+  padding-top: 1.8rem;
 }
 
-.inner .username:hover:not(.current) {
-    background-color: gray;
-    color: white;
+.inner .userid:hover  {
+  background-color: rgb(226, 226, 226);
+  color: white;
 }
-.inner .img .img-preview:hover:not(.current) {
-    background-color: gray;
-    color: white;
+
+.inner .username:hover {
+  background-color: rgb(226, 226, 226);
+  color: white;
+}
+
+.inner .img .img-preview:hover {
+  background-color: rgb(226, 226, 226);
+  color: white;
 }
 
 .inner .img .img-preview{
@@ -86,9 +98,11 @@ form{
 .inner .img .img-preview .img-txt{
   width: 20%;
 }
+
 .inner .img .img-preview .img-help{
   flex-grow: 2;
 }
+
 .inner .username .username-txt{
   width: 20%;
 }
@@ -96,6 +110,7 @@ form{
 .inner .username .username-help{
   flex-grow: 2;
 }
+
 .inner .userid .userid-txt{
   width: 20%;
 }
@@ -103,6 +118,18 @@ form{
 .inner .userid .userid-help{
   flex-grow: 2;
 }
+
+.inner .p-comp{
+  margin:0;
+} 
+
+.inner .p-comp div{
+  height : 5.4rem;
+  line-height: 5.4rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 button {
     background-color: #F9B514;
     border-radius: 4px;
@@ -119,7 +146,6 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    
   }
 
   .modal .bg {
@@ -203,8 +229,6 @@ button {
     display: block;
     margin: 0 auto;
   }
-
-
   .modal3 {
     position: fixed;
     top: 0;
@@ -244,7 +268,11 @@ button {
     justify-content: space-between;
     width: 350px;
   }
+
+
   .inner .profile-img{
-    width: 10%;
-    height: 10%;
+    object-fit: cover; 
+    width : 5.3rem;
+    height: 5.3rem;
+    border-radius: 50%;
   }

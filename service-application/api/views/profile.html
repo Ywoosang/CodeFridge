@@ -36,7 +36,26 @@
                 <!-- 검색창 위치-->
                 <div class="outer">
                     <div class="inner">
-                        <div class="img">
+                        <div class="modal3 hidden3">
+                            <div class="bg3"></div>
+                            <div class="modalBox3">
+                                <form method="POST" action="/auth/profile/image"  enctype="multipart/form-data">
+                                    <div class="upload">
+                                        <input type="file" name="file" id="file" class='user-img'accept="image/*">
+                                        <div class="Btntwo">
+                                            <div>
+                                                <button class="img-submit" type="submit">이미지 업로드</button>
+                                            </div>
+                                            <div>
+                                                <button class="closeBtn3"type="reset">취소</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!--  -->
+                        <div class="img p-comp">
                             <div class="img-preview">
                                 <!-- 이미지가 없을 때는 display :none  -->
                                 <div class="img-txt">사진</div>
@@ -47,31 +66,13 @@
                                     alt="미리보기">
                                 <!-- name:url 여기에 이미지 링크를 저장해두고 submit 시 req.body.url 로 받음 -->
                             </div>
-                            <div class="modal3 hidden3">
-                                <div class="bg3"></div>
-                                <div class="modalBox3">
-                                    <form method="POST" action="/auth/profile/image"  enctype="multipart/form-data">
-                                        <div class="upload">
-                                            <input type="file" name="file" id="file" class='user-img'accept="image/*">
-                                            <div class="Btntwo">
-                                                <div>
-                                                    <button class="img-submit" type="submit">이미지 업로드</button>
-                                                </div>
-                                                <div>
-                                                    <button class="closeBtn3"type="reset">취소</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
                         </div>
-                        <hr class="one">
-                        <div class="openBtn">
+                        <div class="openBtn p-comp">
                             <div class="username">
                                 <div class = "username-txt">이름</div>
                                 <div class="username-help">{{user.nickname}}</div>
-                                <div>></div>
+                                <!-- 화살표 -->
+                                <div> <i class="fa fa-chevron-right"></i> </div>
                             </div>
                         </div>
                         <div class="modal hidden">
@@ -85,21 +86,18 @@
                                                 변경하기
                                             </button>
                                         </div>
-
                                         <div>
                                         <button class="closeBtn"type="reset">취소</button>
                                         </div>
-
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <hr class="one">
-                        <div class="openBtn2">
+                        <div class="openBtn2 p-comp">
                             <div class=userid>
                                 <div class="userid-txt">아이디</div>
                                 <div class="userid-help">{{user.nickId}}</div>
-                                <div>></div>
+                                <div><i class="fa fa-chevron-right"></i></div>
                             </div>
                         </div>
                         <div class="modal2 hidden2">
@@ -112,7 +110,6 @@
                                             <button class="changebtn2" type="submit">
                                                 변경하기
                                             </button>
-                                            
                                         </div>
                                         <div>
                                         <button class="closeBtn2" type = "reset">취소</button>
@@ -121,24 +118,17 @@
                                 </form>
                             </div>
                         </div>
-                        <hr class="one">
-
-                        <div>
-                            마지막 프로필 수정일 {{user.updatedAt | dateform}}
+                        <div class="p-text">
+                            마지막 프로필 수정일: <br> {{user.updatedAt | dateform}}
                         </div>
-
-                        <div>
-                            가입일: {{user.createdAt | dateform }}
+                        <div class="p-text">
+                            가입일: <br> {{user.createdAt | dateform }}
                         </div>
-
                     </div>
                 </div>
             </div>
         </main>
     </div>
-    <footer>
-        클라우드 컴퓨팅 E조 [Footer 영역]
-    </footer>
 </body>
 
 </html>
