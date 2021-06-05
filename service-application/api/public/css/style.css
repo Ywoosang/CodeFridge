@@ -59,13 +59,12 @@ input,textarea,select{
 }
 
 * {
-    
     box-sizing: border-box;
 }
 
 /* CSS */
 .container {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     position:relative; 
 
@@ -85,7 +84,7 @@ input,textarea,select{
 
 /* 헤더 */
 header{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     background-color: #95C5C1;
     display: flex;
     align-items: center;
@@ -186,12 +185,10 @@ header {
 
 .inner {
     display: flex;
-    border: 1px solid black;
 }
 
 .inner section {
     flex: 5;
-    border: 1px solid black;
 }
 .inner section article {
     height: calc(100vh - 134px);
@@ -201,11 +198,9 @@ header {
 article {
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid black;
 }
 /* 하단 footer 영역*/
 footer {
-    border: 1px solid black;
     height: 70px;
 }
 

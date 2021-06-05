@@ -94,6 +94,16 @@ header > a:hover {
     margin: 0 auto;
     font-size: 20px;
 }
+.comment .img {
+    display: flex;
+    justify-content: flex-end;
+}
+.comment .img img{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
 
 @media screen and (max-width: 768px) {
     header{

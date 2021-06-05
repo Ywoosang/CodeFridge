@@ -19,7 +19,6 @@
     font-size: 0.8rem;
     font-weight: 500;
     padding-left: 0.5rem;
-    border: 1px solid black;
     border-bottom: none;
     display: flex;
 }
@@ -138,8 +137,7 @@ article{
 article .fol-w{
     display: flex;
     flex-direction: column;
-
-    
+    background-color: #ddd;    
 }
 
 article .fol-w .fol-c{
@@ -150,13 +148,17 @@ article .fol-w .fol-c{
 
 /* article */
 article .com{
+    border-radius: 8px;
+    background-color: white;
     margin: 10px;
     text-align: center;
     width: 6rem;
     height: 10rem;
     display: flex;
     flex-direction: column; 
-    border: 1px solid black;
+}
+article .com:hover{
+
 }
 
 article .com img{

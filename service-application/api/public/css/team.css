@@ -9,18 +9,15 @@
     min-width: 15rem;
     min-height: 15rem;
     border-radius: 6px;
+    display: flex;
+    flex-direction: column;
 }
 
 .team > h1 {
     background-color: blanchedalmond;
     height: 80px;
 }
-
-.team > a {
-    position: relative;
-    top: 70px;
-    left: 150px;
-}
+ 
 
 form.create_team > #my_modal > div {
     width: 300px;
@@ -113,6 +110,28 @@ header > a:hover {
 #popup_open_btn {
     /*design*/
 }
+
+/* 조정할 것 */
+.team .team-img {
+    width: 20rem;
+    height: 10rem;
+    object-fit: cover;
+}
+.team .enter{
+    width: 5rem;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: lightblue;
+}
+.team .enter:hover{
+    background-color: chartreuse;
+}
+
+
+
 
 @media screen and (max-width: 768px) {
     header{
