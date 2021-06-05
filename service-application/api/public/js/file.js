@@ -1,5 +1,10 @@
 // 에디터 설정
-$(document).ready(function() {
+
+setTimeout(()=>{
+    renderNote()
+},300)
+
+function renderNote() {
     $('#summernote').summernote({
         toolbar: [
             ['style', ['style']],
@@ -19,7 +24,7 @@ $(document).ready(function() {
             }
         }
     });
-});
+} 
 
 const form = document.querySelector('form');
 const content = document.querySelector('#summernote');
