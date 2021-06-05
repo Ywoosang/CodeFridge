@@ -12,7 +12,6 @@ AWS.config.update({
 });
 
 const s3 = new AWS.S3(); 
- 
 exports.fileDownload = async(req,res,next) =>{ 
     try{
         const id = req.query.id;
@@ -21,7 +20,6 @@ exports.fileDownload = async(req,res,next) =>{
                 id
             }
         });
-       
         const Key = file.awsKey;
         // 버킷의 데이터를 읽어온다. 
         // const data =    .
@@ -30,7 +28,6 @@ exports.fileDownload = async(req,res,next) =>{
             Key 
         }).createReadStream(); 
         res.setHeader('Content-disposition', 'attachment; filename=' + getDownloadFilename(req,file.name));
-        
         function getDownloadFilename(req, filename) {
             var header = req.headers['user-agent'];
             if (header.includes("MSIE") || header.includes("Trident")) { 
