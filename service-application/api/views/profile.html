@@ -1,170 +1,116 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>profile</title>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-        <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
-        <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="../css/profile.css">
-        <style>
-            #my_modal{
-                position:fixed;
-                top :0;
-                left:0;
-                width: 100%;
-                height: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            #my_modal .modal_close_btn{
-                position: absolute;
-                top: 10px;
-                right: 10px;
-            }
-        </style>
-    </head>
-    <body>
-        <!-- 큰틀 -->
-        <div class="container">
-            <!-- 사이드바 -->
-            <nav>
-                <a href="/resource/all"  target="_self">
-                    <img src = "https://ifh.cc/g/zHZVZJ.png" >
-                </a>
-                <ul>
-                <li class="n-itm current"><i class="fas fa-user-alt fa-lg"></i><a href="/resource/all" >프로필</a></li>
 
+<head>
+    <title>profile</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/profile.css">
+    <script src="../js/profile.js" defer></script>
+</head>
 
+<body>
+    <!-- 큰틀 -->
+    <div class="container">
+        <!-- 사이드바 -->
+        <nav>
+            <a href="/resource/all" target="_self">
+                <img src="https://ifh.cc/g/zHZVZJ.png">
+            </a>
+            <ul>
+                <li class="n-itm current"><i class="fas fa-user-alt fa-lg"></i><a href="/resource/all">프로필</a></li>
                 <li class="n-itm"><i class="fas fa-cog fa-lg"></i><a href="#">설정</a></li>
-                <a href="https://github.com/Ywoosang/DropBox-2021" class="github"><i class="fab fa-github fa-2x"></i></a>
+                <a href="https://github.com/Ywoosang/DropBox-2021" class="github"><i
+                        class="fab fa-github fa-2x"></i></a>
             </ul>
-            </nav>
-            <main>
-
-
-            <header class = "groupname">프로필</header>
+        </nav>
+        <main>
+            <header class="groupname">프로필</header>
             <!-- 메인화면 -->
-            <div class = "content">
+            <div class="content">
                 <!-- 검색창 위치-->
-                    <div class = "outer">
-                        <div class = "inner">
-
-                            <form method="POST"> 
-
-                                <div class = "userpicture">
-                                    사진
-                                    <div class = "placehold">사진을 추가할 수 있습니다.</div> 
-                                        <a href = "#">
-                                        <i class = "fas fa-user-alt fa-2x"></i>
-                                        </a>
+                <div class="outer">
+                    <div class="inner">
+                        <div class="img">
+                                <div class="img-preview">
+                                    <!-- 이미지가 없을 때는 display :none  -->
+                                    <img id="img-preview" class="profile-img" src="{{ user.img }}" width="250"
+                                        alt="미리보기">
+                                    <!-- name:url 여기에 이미지 링크를 저장해두고 submit 시 req.body.url 로 받음 -->
                                 </div>
-                                <hr class="one">
-
-                                <div class="openBtn">
-                                    <div class = "username">
-                                        이름: {{user.nickname}}
-                                    </div>
-                                </div> 
-                                <div class="modal hidden">
-                                    <div class="bg"></div>
-                                    <div class = "modalBox">
-                                        <input placeholder="변경할 이름입력" type="text" name='name' value="{{user.nickname}}"> 
-                                        <div class = "twobtn">
-                                            <div class="change">
-                                                <button class="changebtn" type="submit">
-                                                    변경하기
-                                                </button>
-                                            </div>
-                                            <button class="closeBtn">✖</button>
-                                        </div>  
-
-                                    </div>
-                                </div>
-                                
-                                <hr class="one">
-                                
-                                <div class="openBtn2">
-                                    <div class = "userid">
-                                        아이디: {{user.nickId}}
-                                    </div>
-                                </div> 
-                                <div class="modal2 hidden2">
-                                    <div class="bg2"></div>
-                                    <div class = "modalBox2">
-                                        <input placeholder="변경할 아이디입력"type="text" name="nickId" value="{{user.nickId}}"> 
-                                        <div class = "twobtn">
-                                            <div class="change">
-                                                <button class="changebtn2" type="submit">
-                                                    변경하기
-                                                </button>
-                                            </div>
-                                            <button class="closeBtn2">✖</button>
-                                        </div>  
-
-                                    </div>
-                                </div>
-                                <hr class="one">
-                               
-
-
-                                
-                                <div>
-                                    마지막 프로필 수정일 {{user.updatedAt | dateform}}
-                                </div>
-
-                                <div>
-                                    가입일: {{user.createdAt | dateform }}
+                            <form method="POST" action="/auth/profile/image"  enctype="multipart/form-data">
+                                <div class="upload">
+                                    <input type="file" name="file" id="file" class='user-img'accept="image/*">
+                                    <button class="img-submit" type="submit">이미지 업로드</button>
                                 </div>
                             </form>
                         </div>
+                        <div class="openBtn">
+                            <div class="username">
+                                이름: {{user.nickname}}
+                            </div>
+                        </div>
+                        <div class="modal hidden">
+                            <div class="bg"></div>
+                            <div class="modalBox">
+                                <form method="POST" action="/auth/profile/name">
+                                    <input placeholder="변경할 이름입력" type="text" name='name' value="{{user.nickname}}">
+                                    <div class="twobtn">
+                                        <div class="change">
+                                            <button class="changebtn" type="submit">
+                                                변경하기
+                                            </button>
+                                        </div>
+                                        <button class="closeBtn">✖</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <hr class="one">
+                        <div class="openBtn2">
+                            <div class="userid">
+                                아이디: {{user.nickId}}
+                            </div>
+                        </div>
+                        <div class="modal2 hidden2">
+                            <div class="bg2"></div>
+                            <div class="modalBox2">
+                                <form method="POST" action="/auth/profile/id">
+                                    <input placeholder="변경할 아이디입력" type="text" name="nickId" value="{{user.nickId}}">
+                                    <div class="twobtn">
+                                        <div class="change">
+                                            <button class="changebtn2" type="submit">
+                                                변경하기
+                                            </button>
+                                        </div>
+                                        <button class="closeBtn2">✖</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <hr class="one">
+
+                        <div>
+                            마지막 프로필 수정일 {{user.updatedAt | dateform}}
+                        </div>
+
+                        <div>
+                            가입일: {{user.createdAt | dateform }}
+                        </div>
+
                     </div>
+                </div>
             </div>
-            </main>
-
-        <!--footer 영역 -->
-
-
-
-        </div>
-
-        <footer>
-            클라우드 컴퓨팅 E조 [Footer 영역]
-        </footer>
-        <script>
-            const open= ()=>{
-                document.querySelector(".modal").classList.remove("hidden");
-            }
-            const open2= ()=>{
-                document.querySelector(".modal2").classList.remove("hidden2");
-            }
-
-            const close= ()=>{
-                document.querySelector(".modal").classList.add("hidden");
-            }
-            const close2= ()=>{
-                document.querySelector(".modal2").classList.add("hidden2");
-            }
-            document.querySelector(".openBtn").addEventListener("click", open);
-            document.querySelector(".closeBtn").addEventListener("click", close);
-            document.querySelector(".changebtn").addEventListener("click", close);
-            document.querySelector(".bg").addEventListener("click", close);
-
-            document.querySelector(".openBtn2").addEventListener("click", open2);
-            document.querySelector(".closeBtn2").addEventListener("click", close2);
-            document.querySelector(".changebtn2").addEventListener("click", close2);
-            document.querySelector(".bg2").addEventListener("click", close2);
-            
-
-           
-
-            
-        </script>
-
-    </body>
+        </main>
+    </div>
+    <footer>
+        클라우드 컴퓨팅 E조 [Footer 영역]
+    </footer>
+</body>
 
 </html>

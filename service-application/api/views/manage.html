@@ -6,32 +6,34 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="../css/manage.css">
   <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
   <script src='/js/manage.js' defer></script>
 </head>
 
 <body>
   <article class="profile">
+    <h1>팀 이름: {{team.name}}</h1>
+    <form action="/team/manage/name" method="POST" >
+      <input  type="text" name="teamName" required>
+      <button type="submit">팀 이름 업데이트</button>
+    </form>
     <div class="img">
-      <div class="img-preview">
-        <!-- 이미지가 없을 때는 display :none  -->
-        <img id="img-preview" class="profile-img" src="{{ img }}" width="250" alt="미리보기">
-        <!-- name:url 여기에 이미지 링크를 저장해두고 submit 시 req.body.url 로 받음 -->
-      </div>
-      <button class="upload-btn" onclick="document.all.img.click()">이미지 선택</button>
+      
+      <img class="team-img" src="{{team.img}}">
       <div class="upload">
-        <form action="/profile/img" method="POST" enctype="multipart/form-data">
-          <input id='img' type="file" name="img" accept="image/*" style="display:none;">
-          <button class="img-submit" type="submit" style="display:none;">이미지 업로드</button>
+        <form action="/team/manage/image" method="POST" enctype="multipart/form-data">
+          <input id='img' type="file" name="file" accept="image/*">
+          <button class="img-submit" type="submit">이미지 업로드</button>
         </form>
       </div>
-      <button class="remove-btn">이미지 제거</button>
     </div>
     <div class="des">
       <p class="name"> </p>
     </div>
   </article>
   <article>
+    <h2>팀원 내역</h2>
     <ul>
       {%for member in members %}
       <li class=" ">
@@ -42,7 +44,7 @@
     </ul>
   </article>
   <article>
-    <div>멤버 초대</div>
+    <h2>멤버 초대</h2>
     <input type="text" class="invite" placeholder="초대할 멤버 아이디">
     <ul class='users'>
       <li>

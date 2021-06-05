@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/style.css">
-	<link rel="stylesheet" href="../css/team.css">
+    <link rel="stylesheet" href="../css/team.css">
     <script src='../js/team.js' defer></script>
-    
 </head>
+
 <body>
     <header>
         <p>Code Fridge</p>
         <a href="/auth/logout">로그아웃</a>
-        <a href="/auth/profile">프로필로 가기</a> 
+        <a href="/auth/profile">프로필로 가기</a>
     </header>
-    <form method="POST" class="create_team"> 
+    <form method="POST" class="create_team">
         <div id="my_modal">
             <div>
                 <div>팀 생성</div>
@@ -25,19 +26,19 @@
             </div>
             <a class="modal_close_btn">닫기</a>
         </div>
-        <button id="popup_open_btn">+</button>   
+        <button id="popup_open_btn">+</button>
     </form>
 
     <h1>소속 개발 팀</h1>
-    <div class="teams"> 
-    {% for team in teams %}
-    <div class="team">
-        <img src="/img/noimg.gif">
-        <div>{{team.name}}</div>
-        <a href="/team/{{team.id}}">입장하기</a>
+    <div class="teams">
+        {% for team in teams %}
+        <div class="team">
+            <img class="team-img" src="{{team.img}}"> 
+            <h1>팀이름 : {{team.name}}</h1>
+            <a href="/team/{{team.id}}" class='enter'>입장하기</a>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-</div>
-    <footer></footer>
 </body>
+
 </html>
