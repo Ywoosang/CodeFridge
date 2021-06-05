@@ -209,6 +209,14 @@ footer {
     .inner aside {
         display: none;
     }
+    .wrap-item{
+        margin-top: 5%;
+        margin-right: 5%;
+        height: 95%;
+    }
+
+
+
 }
 @media screen and (max-width: 768px) {
     nav {
