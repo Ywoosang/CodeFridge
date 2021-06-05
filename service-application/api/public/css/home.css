@@ -77,6 +77,30 @@ nav .github{
     color : white;
 }
 
+nav .bar {
+    margin: 10px auto;
+    width: 140px;
+    height: 20px;
+    border: none;
+    background-color: white;
+    border-radius: 10px;
+}
+ .bar_ {
+    border-radius: 10px;
+    height: 20px;
+    border: none;
+    margin: 0;
+    margin-left: -16px;
+    background: linear-gradient(to right, #e66465, #9198e5);
+ }
+
+.file_size {
+    margin: 0 auto;
+    position: absolute;
+    left: 40px;
+    
+}
+
 /* header */
 header .search{
     flex: 2;
