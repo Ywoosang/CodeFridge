@@ -4,7 +4,7 @@
   "description": "Sistema ERP, proyecto de chirinos",
   "main": "app.js",
   "scripts": {
-    "start": "pm2 start app.js",
+    "start": "pm2 start index.js",
     "dev": "nodemon server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
