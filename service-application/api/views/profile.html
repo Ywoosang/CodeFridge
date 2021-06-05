@@ -20,75 +20,103 @@
         <!-- 사이드바 -->
         <nav>
             <a href="/resource/all" target="_self">
-                <img src="https://ifh.cc/g/zHZVZJ.png">
+                <img src="https://ifh.cc/g/70wwOB.png">
             </a>
             <ul>
                 <li class="n-itm current"><i class="fas fa-user-alt fa-lg"></i><a href="/resource/all">프로필</a></li>
-                <li class="n-itm"><i class="fas fa-cog fa-lg"></i><a href="#">설정</a></li>
+                <li class="n-itm"><i class="fas fa-cog fa-lg"></i><a href="/team/manage">설정</a></li>
                 <a href="https://github.com/Ywoosang/DropBox-2021" class="github"><i
                         class="fab fa-github fa-2x"></i></a>
             </ul>
         </nav>
         <main>
-            <header class="groupname">프로필</header>
+            <header class="groupname">개인 정보</header>
             <!-- 메인화면 -->
             <div class="content">
                 <!-- 검색창 위치-->
                 <div class="outer">
                     <div class="inner">
                         <div class="img">
-                                <div class="img-preview">
-                                    <!-- 이미지가 없을 때는 display :none  -->
-                                    <img id="img-preview" class="profile-img" src="{{ user.img }}" width="250"
-                                        alt="미리보기">
-                                    <!-- name:url 여기에 이미지 링크를 저장해두고 submit 시 req.body.url 로 받음 -->
+                            <div class="img-preview">
+                                <!-- 이미지가 없을 때는 display :none  -->
+                                <div class="img-txt">사진</div>
+                                <div class = "img-help">
+                                    사진을 추가하여 계정을 맞춤설정할 수 있습니다.
                                 </div>
-                            <form method="POST" action="/auth/profile/image"  enctype="multipart/form-data">
-                                <div class="upload">
-                                    <input type="file" name="file" id="file" class='user-img'accept="image/*">
-                                    <button class="img-submit" type="submit">이미지 업로드</button>
+                                <img id="img-preview" class="profile-img" src="{{ user.img }}" width="250"
+                                    alt="미리보기">
+                                <!-- name:url 여기에 이미지 링크를 저장해두고 submit 시 req.body.url 로 받음 -->
+                            </div>
+                            <div class="modal3 hidden3">
+                                <div class="bg3"></div>
+                                <div class="modalBox3">
+                                    <form method="POST" action="/auth/profile/image"  enctype="multipart/form-data">
+                                        <div class="upload">
+                                            <input type="file" name="file" id="file" class='user-img'accept="image/*">
+                                            <div class="Btntwo">
+                                                <div>
+                                                    <button class="img-submit" type="submit">이미지 업로드</button>
+                                                </div>
+                                                <div>
+                                                    <button class="closeBtn3"type="reset">취소</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                            </form>
+                            </div>
                         </div>
+                        <hr class="one">
                         <div class="openBtn">
                             <div class="username">
-                                이름: {{user.nickname}}
+                                <div class = "username-txt">이름</div>
+                                <div class="username-help">{{user.nickname}}</div>
+                                <div>></div>
                             </div>
                         </div>
                         <div class="modal hidden">
                             <div class="bg"></div>
                             <div class="modalBox">
                                 <form method="POST" action="/auth/profile/name">
-                                    <input placeholder="변경할 이름입력" type="text" name='name' value="{{user.nickname}}">
+                                    <input placeholder="변경할 이름입력" style = "width:350px;" type="text" name='name' value="{{user.nickname}}">
                                     <div class="twobtn">
-                                        <div class="change">
+                                        <div>
                                             <button class="changebtn" type="submit">
                                                 변경하기
                                             </button>
                                         </div>
-                                        <button class="closeBtn">✖</button>
+
+                                        <div>
+                                        <button class="closeBtn"type="reset">취소</button>
+                                        </div>
+
                                     </div>
                                 </form>
                             </div>
                         </div>
                         <hr class="one">
                         <div class="openBtn2">
-                            <div class="userid">
-                                아이디: {{user.nickId}}
+                            <div class=userid>
+                                <div class="userid-txt">아이디</div>
+                                <div class="userid-help">{{user.nickId}}</div>
+                                <div>></div>
                             </div>
                         </div>
                         <div class="modal2 hidden2">
                             <div class="bg2"></div>
                             <div class="modalBox2">
                                 <form method="POST" action="/auth/profile/id">
-                                    <input placeholder="변경할 아이디입력" type="text" name="nickId" value="{{user.nickId}}">
+                                    <input placeholder="변경할 아이디입력" style="width:350px;"type="text" name="nickId" value="{{user.nickId}}">
                                     <div class="twobtn">
-                                        <div class="change">
+                                        <div>
                                             <button class="changebtn2" type="submit">
                                                 변경하기
                                             </button>
+                                            
                                         </div>
-                                        <button class="closeBtn2">✖</button>
+                                        <div>
+                                        <button class="closeBtn2" type = "reset">취소</button>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
