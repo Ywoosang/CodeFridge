@@ -1,3 +1,11 @@
+li a {
+  font-size: 24px;;
+}
+
+li i {
+  
+}
+
 .content{
     display: flex;
     justify-content: center;
