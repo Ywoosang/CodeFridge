@@ -5,6 +5,8 @@
     background-position: center;
 }
 
+
+
 .title p b {
     background-color: #e5edee;
     color:#000000;
@@ -61,6 +63,7 @@ header .auth a {
     
 }
 .wrap-item{
+    padding-top:1rem;
     margin-right: 5%;
     /* input 요소 가운데 정렬 */
     height: auto;
@@ -72,12 +75,14 @@ header .auth a {
     border-top-right-radius:10px;
     border-bottom-left-radius:10px;
     border-bottom-right-radius:10px;
+
 }
 
 .wrap-item .item input{
     border-radius:5px;
-    height: 41px;
+    height: 5vh;
     border: 1px solid lightgray;
+    width: 70%;
 }
 .wrap-item .item{
     /* input 사이 간격 */
@@ -94,6 +99,7 @@ header .auth a {
     margin:0 auto;
     margin-top: 10px;
     margin-bottom: 10px;
+    margin-left: 5vw;
 }
 .check-box input{
     width: 14px;
@@ -117,6 +123,7 @@ header .auth a {
     border-radius: 4px;
     margin:0 auto;
     text-align: center;
+    margin-bottom:2vh;
     
 }
 .a-btn:hover{
@@ -156,6 +163,7 @@ header .auth a {
     border-bottom-right-radius:10px;
     background-color: #e5edee;
     margin-right: 5%;
+    margin-bottom: 2vh;
 
 }
 .sns-join .wrap-item2 a{
@@ -165,10 +173,14 @@ header .auth a {
     font-weight: bold;
     border-radius: 5px;
     width: 70%;
+    margin-top: 0.25vh;
+    margin-bottom: 0.25vh;
+
 
 }
 /* 깃허브 로그인 */
 .wrap-item2 a:nth-child(1){
+    margin-top: 1vh;
     background-color: rgb(24, 24, 24);
     color: white;
 }
@@ -203,12 +215,27 @@ header .auth a {
 .wrap-item2 a:nth-child(5){
     background-color: #1EC800;
     color: white;
+    margin-bottom: 1vh;
+
 }
 .wrap-item2 a:nth-child(5):hover{
     background-color: #21db00;
+
 }
 .wrap-item2 a b{
     font-family: "TmoneyRoundWindExtraBold";
     font-weight: bold;
+}
+
+a .icon2 {
+    text-align: center;
+}
+
+a .icon2 img {
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    padding-top: 4px; 
+    border-top: 4px;
 }
  
