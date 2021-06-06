@@ -60,7 +60,10 @@
                 <!-- <a href="{{file.fileUrl}}" class="dl-1-down">다운로드</a> -->
                 <a href="/s3/file?id={{file.id}}" class="dl-1-down"><i class="fas fa-cloud-download-alt" style="color: white; font-size: 32px; margin-top: 10px;"></i></a>
                 {% if pdf %}
-                <a href="/s3/file/preview?id={{file.id}}" class="dl-1-pre">미리보기</a>
+                <a href="/s3/file/preview?id={{file.id}}" class="dl-1-pre"><span class="fa-stack fa-lg">
+                    <i class="far fa-file fa-stack-2x" style="color: white; margin-top: 12px;"></i>
+                    <i class="fas fa-eye fa-stack-1x" style="color: white; margin-top: 12px;"></i>
+                  </span></a>
                 {% endif %}
             </div>
         </div>
