@@ -1,5 +1,8 @@
 
 header {
+    position: absolute;
+    width: 100%;
+    margin: 0;
     height: 6rem;
     align-items: center;
     flex-shrink: 0;
