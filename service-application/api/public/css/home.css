@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 * {
@@ -6,6 +7,8 @@
 
 >>>>>>> Stashed changes
 
+=======
+>>>>>>> chisub
 
 .modal .upload{
     max-width: 35rem;
@@ -70,7 +73,7 @@
 }
 
 /* nav */
-nav .n-itm .far{
+nav .n-itm .far,nav .n-itm .fa{
     width : 20px;
     margin-right: 0.3rem;
 }
@@ -80,6 +83,30 @@ nav .github{
     padding-left: 1rem;
     font-size: 27px;
     color : white;
+}
+
+nav .bar {
+    margin: 10px auto;
+    width: 140px;
+    height: 20px;
+    border: none;
+    background-color: white;
+    border-radius: 10px;
+}
+ .bar_ {
+    border-radius: 10px;
+    height: 20px;
+    border: none;
+    margin: 0;
+    margin-left: -16px;
+    background: linear-gradient(to right, #e66465, #9198e5);
+ }
+
+.file_size {
+    margin: 0 auto;
+    position: absolute;
+    left: 40px;
+    
 }
 
 /* header */
@@ -139,7 +166,6 @@ header .profile .user img{
 }
 article{
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
 }
 
@@ -218,6 +244,7 @@ aside div{
     align-items: center;
     padding-left: 1rem;
 }
+
 aside div button{
     border:none;
     background-color: transparent;
@@ -227,6 +254,18 @@ body{
     background-color: #95C5C1;
 }
 .inner{
+<<<<<<< HEAD
     overflow:auto;
     background-color: #324d5c;
 }
+=======
+    overflow:auto;   
+}
+.team-name {
+    font-weight: 700;
+    text-align: center;
+    margin: 0.3rem 0 1rem 0rem;
+    font-size: 1.2rem;
+}
+
+>>>>>>> chisub

@@ -1,5 +1,166 @@
 .team-img{
-    object-fit: contain;
+    object-fit: cover;
     width : 20rem;
     height:  10rem;
+    margin: 10px auto;
+}
+
+body {
+    background-color: #324d5c;
+}
+
+.block {
+    display: flex;
+    border: solid 1px;
+    margin: 50px 50px;
+    width: 1700px;
+    height: 1200px;
+    background-color: aliceblue;
+    border-radius: 30px;
+}
+
+header {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+header > a {
+    background-color: #c3dce4;
+    margin: 2px;
+    padding: 4px 6px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+header > p {
+    position: absolute;
+    left: 75px;
+    margin: 0 auto;
+    font-size: 32px;
+    flex-shrink: 0;
+}
+
+header > a:hover {
+    background-color: #e4c3dc;
+}
+
+.block1 {
+    width: 600px;
+    height: 1100px;
+    margin: 50px 140px;
+    background-color: #fcfdf3;
+    border-radius: 80px;
+    border: groove;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+    border: groove;
+    margin: 50px 50px;
+    background-color: white;
+}
+
+.team_name {
+    margin: 20px auto;
+    width: 200px;
+    height: 60px;
+    font-size: 32px;
+    border: none;
+    border-bottom: solid 1px;
+    text-align: center;
+}
+
+.change_team_name {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.teamNameBtn {
+    margin: 10px auto;
+    width: 200px;
+}
+
+.img {
+    margin: 10px auto;
+    border: solid 1px;
+    display: flex;
+    flex-direction: column;
+    height: 180px;
+}
+
+.upload {
+    display: flex;
+    flex-direction: column;
+}
+
+.cowoker {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 400px;
+    border: groove;
+    margin: 50px 50px;
+    background-color: white;
+}
+
+.cowoker_list {
+    margin: 30px auto;
+    width: 200px;
+    height: 60px;
+    font-size: 32px;
+    border: none;
+    border-bottom: solid 1px;
+    text-align: center;
+}
+
+.cowoker_name {
+    border-radius: 10px;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.cowoker_rank {
+    border-radius: 10px;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.block2 {
+    width: 600px;
+    height: 1100px;
+    border: groove;
+    margin: 50px 100px;
+    background-color: #fcfdf3;
+    border-radius: 80px;
+}
+
+.invite_cowoker {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 80%;
+    border: groove;
+    margin: 50px;
+    background-color: white;
+}
+
+.invite_cowoker_name {
+    margin: 30px auto;
+    width: 200px;
+    height: 60px;
+    font-size: 32px;
+    border: none;
+    border-bottom: solid 1px;
+    text-align: center;
+}
+
+.invite {
+    margin: 0 auto;
+    width: 80%;
 }

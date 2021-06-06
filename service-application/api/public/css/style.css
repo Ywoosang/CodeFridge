@@ -7,28 +7,32 @@ body{
     margin : 0;
     color : #222;
     font-weight : 300;
+<<<<<<< HEAD
     background-color: #324d5c;
     
+=======
+    background-color: #324D5C;
+>>>>>>> chisub
 }
 
 * {
-    /* border: 1px solid red; */
     font-family: 'Noto Sans KR', sans-serif;
-    
 }
 
 *:focus { outline:none; }
 div>a:hover,ul>a:hover{
     color : #222;
-    
 }
 
 ul {
     margin:0;
     padding:0;
     list-style: none;
+<<<<<<< HEAD
     
     
+=======
+>>>>>>> chisub
 }
 
 a {
@@ -40,7 +44,6 @@ a {
 h1,h2,h3,h4,h5,h6{
     margin:0;
     font-weight: normal;
-    border-top: 1px solid black;
 }
 
 
@@ -57,7 +60,6 @@ p{
 
 input,textarea,select{
     outline : none;
-    
 }
 
 * {
@@ -95,12 +97,8 @@ header{
 
 header .auth{
     margin-right : 2rem;
-    
 }
-header .auth button{
-    height: 2rem;
-    font-size: 1rem;
-}
+ 
 header .authtab{
     display: flex;
     margin-left: auto;
@@ -116,6 +114,9 @@ header .authtab .authtag{
 
 header .asidemenu{
     display:flex;
+}
+header .asidemenu a{
+    margin: 0 0.1rem;
 }
 
 .inner section{
@@ -149,6 +150,7 @@ nav .n-itm{
     padding-left: 10%;
     font-weight: 500;
     cursor: pointer;
+<<<<<<< HEAD
 }
 nav .n-itm:hover{
     background-color: #8fbdb9;
@@ -169,17 +171,16 @@ nav li a:hover:not(.current){
 ul li.current {
     background-color: #f5576c;
     color: white;
+=======
+nav .n-itm:hover{
+    background-color: #8fbdb9;
+}
+>>>>>>> chisub
 }
 
-ul li:hover:not(.current) {
-    background-color: #f093fb;
-    color: white;
-}
-*/
 /* main */
 main {
     flex: 8;
-    
 }
 
 header {
@@ -217,6 +218,11 @@ footer {
     .inner aside {
         display: none;
     }
+    .wrap-item{
+        margin-top: 5%;
+        margin-right: 5%;
+        height: 95%;
+    }
 }
 @media screen and (max-width: 768px) {
     nav {
@@ -233,7 +239,6 @@ footer {
     }
     div .group{
         justify-content: center;
-        border: 1px solid black;
     }
 }
 
@@ -241,11 +246,6 @@ footer {
 .group{
     
     margin-left : 3%;
-}
-
-
-.upload_div{
-    border:1px solid black;
 }
 
 /*알림 아이콘*/
@@ -273,7 +273,10 @@ ul label
     float:left;
     width:100px;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> chisub
 /*업로드 메뉴 숨김*/
 #menu{
     display: none;
@@ -294,7 +297,6 @@ ul label
 :checked ~ #nav{
     display: block;
     right: auto;
-    background-color: #fff;
 } 
 .sort{
     display: flex;
@@ -322,25 +324,6 @@ ul div button{
     width: 150px;
 }
 
-
-/*정렬 방식 버튼 관련
-.sort li{
-    display:inline;
-    border: 1px solid black;
-}
-
-
-.sort li a.current2 {
-    background-color: grey;
-    color: white;
-}
-
-.sort li a:hover:not(.current2) {
-    background-color: grey;
-    color: white;
-}
-
-*/
 .teams{
     display: flex;
     flex-wrap: wrap;
@@ -348,7 +331,6 @@ ul div button{
 
 
 .team{
-    border:1px solid black;
     margin: 1rem;
     min-width: 15rem;
     min-height: 15rem;

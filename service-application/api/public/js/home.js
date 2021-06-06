@@ -6,15 +6,12 @@ const uploadFileBtn = $('.upload_file');
 const uploadFolderInput = $('#folder');
 const uploadFileInput = $('#file');
 const logoutBtn = $('.logout button');
+const totalSize = $('.total-size').value;
+const bar = $('.bar_');
+const totalSize_ = totalSize/5*1.2 + '%';
+bar.style.width = totalSize_;
 
 // 이벤트 리스너 등록 
-
-// 로그아웃
-if(logoutBtn){
-    logoutBtn.addEventListener('click', () => {
-        location.href = `${window.origin}/auth/logout`;
-    });
-}
  
 uploadFolderBtn.addEventListener('click', () => {
     uploadFolderInput.click();
@@ -208,7 +205,6 @@ const setEvent = () => {
         }
     }));
     const deleteBtns = document.querySelectorAll('.tsh');
-    console.log(deleteBtns);
     deleteBtns.forEach(el => el.addEventListener('click', (e) => {
         console.log(e.target);
         const id = e.target.parentNode.parentNode.querySelector('input').value;
@@ -226,7 +222,6 @@ const setEvent = () => {
                 console.log(err);
             })
     }))
-
 }
 
 // 검색기능 구현

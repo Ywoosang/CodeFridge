@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- dev -->
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/home.css">
@@ -26,13 +27,26 @@
             </a>
             <!-- 좌측 사이드바 -->
             <ul>
+<<<<<<< HEAD
                 <a href="/resource/all"><li class="n-itm current"><i class="far fa-file"></i>모두 보기</li></a>
                 <a href="/resource/image"><li class="n-itm"><i class="far fa-share-square"></i>이미지 모음</li></a>
                 <a href="/resource/pdf"><li class="n-itm"><i class="far fa-share-square"></i>문서 모음</li></a>
                 <a href="/resource/favorites"><li class="n-itm"><i class="far fa-star"></i>즐겨찾기</li></a>
                 <a href="/resource/trash"><li class="n-itm"><i class="far fa-trash-alt"></i>휴지통</li></a>
+=======
+                <li class="team-name">{{teamName}}</li>
+                <a href="/resource/all"><li class="n-itm current"><i class="far fa-file"></i>모두 보기</li></a>
+                <a href="/resource/image"><li class="n-itm"><i class="far fa-share-square"></i>이미지 모음</li></a>
+                <a href="/resource/pdf"><li class="n-itm"><i class="far fa-share-square"></i>문서 모음</li></a>
+                <a href="/resource/favorites"><li class="n-itm"><i class="far fa-star"></i>즐겨찾기</li></a>
+                <a href="/resource/trash"><li class="n-itm"><i class="far fa-trash-alt"></i>휴지통</li></a>
+>>>>>>> chisub
                 {% if size %}
-                <li><b>{{size}}MB /5GB</b></li>
+                <li><div class="bar">
+                    <div class="bar_"></div>
+                </div></li>
+                <li><b class="file_size">{{size}}MB /5GB</b></li>
+                <input type="hidden" value="{{size}}" class="total-size">
                 {% endif %}
             </ul>
             <!-- 깃 허브 링크 -->
@@ -40,30 +54,27 @@
         </nav>
         <main>
             <header>
-                {% if not deleteCategory %}
-                <div class="group">그룹명 {{team.name}} </div>
+               
                 <div class="search">
                     <i class="fas fa-search"></i><input type="text">
                 </div>
                 <div class="auth">
-                    <div class="logout">
-                        <button>로그아웃</button>
-                    </div>
                     <div class="asidemenu">
-                        <a href="/team/manage" class="setting">
+                     
+                        <a href="/auth/logout" title="로그아웃" class="logout">
+                            <i class="fa fa-sign-out fa-2x"></i>
+                        </a>
+                        <a href="/team/manage"  title="팀 관리" class="setting">
                             <i class="fas fa-cog fa-2x"></i>
                         </a>
-
-                        <a href="/auth/profile" class="userprofile">
+                        <a href="/auth/profile" title="프로필" class="userprofile">
                             <i class="fas fa-user-alt fa-2x"></i>
                         </a>
-                        <a href="/team" class="bell">
+                        <a href="/team" title="팀 목록" >
                             <i class="fas fa-users fa-2x"></i>
-                            
                         </a>
                     </div>
                 </div>
-                {% endif %}
             </header>
             <div class="inner">
                 <section>
@@ -73,15 +84,16 @@
                             <div>
                                 <ul class="sort" style= " background-color: #324d5c;  ">
                                     <!--  메뉴아이콘 -->
-
                                     <label for="menu" onclick >
+<<<<<<< HEAD
                                         <i class="fas fa-plus fa-lg" style="border: 1px solid black; padding: 6px; background-color: white;" >
                                             
+=======
+<i class="fas fa-plus fa-lg" style="border: 1px solid black; padding: 6px; background-color: white;" >
+>>>>>>> chisub
                                             업로드
-                                                    
                                         </i> 
                                     </label>
-
                                     <!-- 메뉴 토글-->
                                     <input type="checkbox" id="menu">
                                     <!-- 메뉴 -->
@@ -175,6 +187,10 @@
             </div>
         </main>
     </div>
+<<<<<<< HEAD
+=======
+    
+>>>>>>> chisub
 </body>
 
 </html>
