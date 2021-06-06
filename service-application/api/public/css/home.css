@@ -1,6 +1,3 @@
-* {
-    border: 1px solid red;
-}
 
 .modal .upload{
     max-width: 35rem;
@@ -65,7 +62,7 @@
 }
 
 /* nav */
-nav .n-itm .far{
+nav .n-itm .far,nav .n-itm .fa{
     width : 20px;
     margin-right: 0.3rem;
 }
@@ -228,6 +225,7 @@ aside div{
     align-items: center;
     padding-left: 1rem;
 }
+
 aside div button{
     border:none;
     background-color: transparent;
@@ -235,7 +233,12 @@ aside div button{
 }
 
 .inner{
-    overflow:auto;
-    
+    overflow:auto;   
+}
+.team-name {
+    font-weight: 700;
+    text-align: center;
+    margin: 0.3rem 0 1rem 0rem;
+    font-size: 1.2rem;
 }
 

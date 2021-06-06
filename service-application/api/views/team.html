@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title>Document</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/team.css">
@@ -20,6 +22,7 @@
         </div>
         <a href="/auth/logout">로그아웃</a>
         <a href="/auth/profile">프로필로 가기</a>
+ 
     </header>
     <form method="POST" class="create_team">
         <div id="my_modal">
@@ -28,19 +31,20 @@
                 <input type="text" name="name" required placeholder="팀명을 입력하세요!">
                 <button type="submit">생성하기</button>
             </div>
-            <a class="modal_close_btn">닫기</a>
+            <a class="modal_close_btn"><i class="far fa-window-close"></i></a>
         </div>
-        <button id="popup_open_btn">+</button>
+        <div class="add_team">
+            <h1 class="development_team">소속 개발 팀</h1>
+            <i class="fas fa-plus-square" id="popup_open_btn"></i>
+        </div>
     </form>
-
-    <h1>소속 개발 팀</h1>
+  
     <div class="teams">
         {% for team in teams %}
-        <div class="team">
+        <a class="team" href="/team/{{team.id}}" class='enter'>
             <img class="team-img" src="{{team.img}}"> 
-            <h1>팀이름 : {{team.name}}</h1>
-            <a href="/team/{{team.id}}" class='enter'>입장하기</a>
-        </div>
+            <h1 class="description">{{team.name}}</h1>
+        </a>
         {% endfor %}
     </div>
 </body>

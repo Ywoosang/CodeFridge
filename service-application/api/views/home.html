@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- dev -->
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/home.css">
@@ -26,9 +27,10 @@
             </a>
             <!-- 좌측 사이드바 -->
             <ul>
+                <li class="team-name">{{teamName}}</li>
                 <li class="n-itm current"><i class="far fa-file"></i><a href="/resource/all">모두 보기</a></li>
-                <li class="n-itm"><i class="far fa-share-square"></i><a href="/resource/image">이미지 모음</a></li>
-                <li class="n-itm"><i class="far fa-share-square"></i><a href="/resource/pdf">문서 모음</a></li>
+                <li class="n-itm"><i class="fa fa-file-image-o"></i><a href="/resource/image">이미지 모음</a></li>
+                <li class="n-itm"><i class="fa fa-file-pdf-o"></i><a href="/resource/pdf">문서 모음</a></li>
                 <li class="n-itm"><i class="far fa-star"></i><a href="/resource/favorites">즐겨찾기</a></li>
                 <li class="n-itm"><i class="far fa-trash-alt"></i><a href="/resource/trash">휴지통</a></li>
                 {% if size %}
@@ -44,28 +46,27 @@
         </nav>
         <main>
             <header>
-                {% if not deleteCategory %}
-                <div class="group">그룹명 {{team.name}} </div>
+               
                 <div class="search">
                     <i class="fas fa-search"></i><input type="text">
                 </div>
                 <div class="auth">
-                    <div class="logout">
-                        <button>로그아웃</button>
-                    </div>
                     <div class="asidemenu">
-                        <a href="/team/manage" class="setting">
+                     
+                        <a href="/auth/logout" title="로그아웃" class="logout">
+                            <i class="fa fa-sign-out fa-2x"></i>
+                        </a>
+                        <a href="/team/manage"  title="팀 관리" class="setting">
                             <i class="fas fa-cog fa-2x"></i>
                         </a>
-                        <a href="/auth/profile" class="userprofile">
+                        <a href="/auth/profile" title="프로필" class="userprofile">
                             <i class="fas fa-user-alt fa-2x"></i>
                         </a>
-                        <a href="/team" class="bell">
+                        <a href="/team" title="팀 목록" >
                             <i class="fas fa-users fa-2x"></i>
                         </a>
                     </div>
                 </div>
-                {% endif %}
             </header>
             <div class="inner">
                 <section>
@@ -76,7 +77,7 @@
                                 <ul class="sort" style="background-color: white; ">
                                     <!--  메뉴아이콘 -->
                                     <label for="menu" onclick >
-                                        <i class="fas fa-plus fa-lg" style="border: 1px solid black; padding: 6px" >
+                                        <i class="fas fa-plus fa-lg"   >
                                             업로드
                                         </i> 
                                     </label>
