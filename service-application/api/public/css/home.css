@@ -164,7 +164,7 @@ article .com:hover{
 article .com img{
     width: inherit;
     flex:1;
-    object-fit: cover;
+    object-fit: scale-down;
     overflow: hidden;
 }
 article .com h1{
@@ -206,3 +206,9 @@ aside div button{
     background-color: transparent;
     font-size: 1rem;
 }
+
+.inner{
+    overflow:auto;
+    
+}
+

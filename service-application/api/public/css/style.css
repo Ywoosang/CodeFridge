@@ -38,7 +38,7 @@ a {
 h1,h2,h3,h4,h5,h6{
     margin:0;
     font-weight: normal;
-    border: 1px solid black;
+    border-top: 1px solid black;
 }
 
 
@@ -185,6 +185,7 @@ header {
 
 .inner {
     display: flex;
+    
 }
 
 .inner section {
@@ -232,7 +233,12 @@ footer {
 /* 팀 관련*/
 .group{
     
-    margin-left : 4%;
+    margin-left : 3%;
+}
+
+
+.upload_div{
+    border:1px solid black;
 }
 
 /*알림 아이콘*/
@@ -257,49 +263,62 @@ a.bell {
 /* 업로드 버튼 위치*/
 ul label
 {
-    float:right;
-    border: 1px solid black;
+    float:left;
+    width:100px;
 }
-
+.upload_div{
+    border:1px solid black;
+}
 /*업로드 메뉴 숨김*/
-#menu{display: none;} 
+#menu{
+    display: none;
+
+} 
 
 /*메뉴위치 : 왼쪽으로 -20em(화면밖에 숨긴다) 절대위치, 너비 10em*/
 #nav{
+    /*
     position:absolute; 
     left:-20em; 
     width :10em;
-    
+    */
+    display: none;
 } 
 
 /*메뉴 목록 다시 보여줌  */
 :checked ~ #nav{
-    position: relative; 
-    left:auto;
+    display: block;
+    right: auto;
+    background-color: #fff;
 } 
-
+.sort{
+    display: flex;
+    height: 75px;
+    align-items: center;
+}
 ul #nav{
     float:right;
 }
-
+.dummy{
+    height:37px;
+}
 
 /* 업로드 버튼 관련*/
 ul div{
     display: flex;
     align-items: center;
     padding-left: 1rem;
-    border: 1px solid black;
     
 }
 ul div button{
     border:none;
     background-color: transparent;
     font-size: 1rem;
-    
+    width: 150px;
 }
 
 
-/*정렬 방식 버튼 관련*/
+/*정렬 방식 버튼 관련
 .sort li{
     display:inline;
     border: 1px solid black;
@@ -316,6 +335,7 @@ ul div button{
     color: white;
 }
 
+*/
 .teams{
     display: flex;
     flex-wrap: wrap;
@@ -327,4 +347,11 @@ ul div button{
     margin: 1rem;
     min-width: 15rem;
     min-height: 15rem;
+}
+
+.upload_file_div{
+    border:1px solid black;
+}
+.upload_folder_div{
+    border:1px solid black;
 }
