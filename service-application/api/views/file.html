@@ -24,26 +24,42 @@
 
 </head>
 
-<body style="background-color:#F8F8F8">
-    <header style="display: flex;">
-        <p>Code Fridge</p>
-        <a href="/auth/logout">로그아웃</a>
-        <a href="/auth/profile">프로필로 가기</a> 
-        <a href="/resource/all">홈으로 가기</a> 
+<body style="background-color:#324d5c">
+    <header>
+        <div class="icon">
+            <a href="/resource/all" target="_self">
+                <img src="https://ifh.cc/g/70wwOB.png">
+            </a>
+        </div>
+        <div class="auth">
+            <div class="asidemenu">
+             
+                <a href="/auth/logout" title="로그아웃" class="logout" style="color: black;">
+                    <i class="fa fa-sign-out fa-2x"></i>
+                </a>
+                <a href="/auth/profile" title="프로필" class="userprofile" style="color: black;">
+                    <i class="fas fa-user-alt fa-2x"></i>
+                </a>
+                <a href="/team" title="팀 목록" style="color: black;">
+                    <i class="fas fa-users fa-2x"></i>
+                </a>
+            </div>
+        </div>
+    
     </header>
     
-    <div class="container">
+    <div class="container" style="background-color: #324d5c;">
         <div class="head">
-            <div>파일 다운로드 페이지</div> 
-            <a href='/'>홈으로 가기</a>
+            <!--<div>파일 다운로드 페이지</div>-->
+            <a href='/'><i class="fas fa-home" style="color: white; font-size: 32px; margin-top: 10px;"></i></a>
         </div>
         <div class="dl-1">
-            <div class="dl-1-im">
-                파일명: {{file.name}}
+            <div class="dl-1-im" style="color: white;">
+                {{file.name}}
             </div>
             <div class="dl-1-btn">
                 <!-- <a href="{{file.fileUrl}}" class="dl-1-down">다운로드</a> -->
-                <a href="/s3/file?id={{file.id}}" class="dl-1-down">다운로드</a>
+                <a href="/s3/file?id={{file.id}}" class="dl-1-down"><i class="fas fa-cloud-download-alt" style="color: white; font-size: 32px; margin-top: 10px;"></i></a>
                 {% if pdf %}
                 <a href="/s3/file/preview?id={{file.id}}" class="dl-1-pre">미리보기</a>
                 {% endif %}
