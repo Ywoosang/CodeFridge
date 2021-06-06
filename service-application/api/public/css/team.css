@@ -5,6 +5,8 @@ body {
 .teams{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    padding: 3rem;
 }
 
 .team{
@@ -18,7 +20,7 @@ body {
 }
 
 .team > h1 {
-    background-color: blanchedalmond;
+    background-color:white;
     height: 80px;
 }
  
@@ -162,7 +164,6 @@ header .logout_profile .profile {
     width: 20rem;
     height: 10rem;
     object-fit: cover;
-    border-radius: 10px;
 }
 .team .enter{
     width: 5rem;
@@ -174,14 +175,8 @@ header .logout_profile .profile {
     background-color: lightblue;
     margin: 0px auto;
 }
-.team .enter:hover{
-    background-color: chartreuse;
-}
 
-.team .description {
-    border-radius: 10px;
-}
-
+ 
 
 
 

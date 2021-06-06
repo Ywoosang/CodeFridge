@@ -162,7 +162,6 @@ article{
 article .fol-w{
     display: flex;
     flex-direction: column;
-    /*background-color: #ddd; */
     background-color: #324d5c;   
 }
 
@@ -170,6 +169,7 @@ article .fol-w .fol-c{
     flex:1;
     display: flex;
     flex-wrap: wrap;
+    z-index: 1001;
 }
 
 /* article */
@@ -202,7 +202,6 @@ article .com h1{
 article .com .fol-b{
     display: flex;
     justify-content: space-between;
-
     border-bottom: 1px solid black;
 }
 article .com .fol-b .fol-btn-s .checked{
@@ -220,6 +219,7 @@ article .com button i{
     font-size: 1.1rem;
     pointer-events: none;
 }
+ 
 
 .inner aside {
     flex: 1;
@@ -244,7 +244,8 @@ body{
     background-color: #95C5C1;
 }
 .inner{
-
+    border : 1px solid #ddd;
+    height: calc(100vh - 4rem);
     overflow:auto;  
     background-color: #324d5c; 
 }
@@ -254,4 +255,14 @@ body{
     margin: 0.3rem 0 1rem 0rem;
     font-size: 1.2rem;
 }
+.sort .f-btn{
+    color: white;
+    background-color: transparent;
+    margin-left: 1rem;
 
+}
+.sort .f-btn i{
+    font-weight: 500;
+    font-size: 2rem;
+}
+ 
