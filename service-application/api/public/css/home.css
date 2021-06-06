@@ -1,5 +1,3 @@
-
-
 .modal .upload{
     max-width: 35rem;
     width: 50%;
@@ -167,9 +165,9 @@ article .fol-w{
 
 article .fol-w .fol-c{
     flex:1;
+    padding-left: 2rem;
     display: flex;
     flex-wrap: wrap;
-    z-index: 1001;
 }
 
 /* article */
@@ -232,7 +230,7 @@ aside {
 aside div{
     display: flex;
     align-items: center;
-    padding-left: 1rem;
+    padding-left: 2rem;
 }
 
 aside div button{
@@ -240,9 +238,11 @@ aside div button{
     background-color: transparent;
     font-size: 1rem;
 }
+
 body{
     background-color: #95C5C1;
 }
+
 .inner{
     border : 1px solid #ddd;
     height: calc(100vh - 4rem);
@@ -255,12 +255,13 @@ body{
     margin: 0.3rem 0 1rem 0rem;
     font-size: 1.2rem;
 }
+
 .sort .f-btn{
     color: white;
     background-color: transparent;
-    margin-left: 1rem;
-
+    margin-left: 2.5rem;
 }
+
 .sort .f-btn i{
     font-weight: 500;
     font-size: 2rem;

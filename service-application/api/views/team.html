@@ -31,7 +31,6 @@
                 </a>
             </div>
         </div>
- 
     </header>
     <form method="POST" class="create_team">
         <div id="my_modal">
@@ -51,7 +50,7 @@
         {% for team in teams %}
         <a class="team" href="/team/{{team.id}}" class='enter'>
             <img class="team-img" src="{{team.img}}"> 
-            <h1 class="description">{{team.name}}</h1>
+            <h1 class="description" style="font-size:1.3rem; padding:0.3rem;">{{team.name}}</h1>
         </a>
         {% endfor %}
     </div>
