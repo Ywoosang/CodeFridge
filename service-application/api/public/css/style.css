@@ -32,6 +32,7 @@ ul {
     margin:0;
     padding:0;
     list-style: none;
+    
 }
 
 a {
@@ -138,12 +139,17 @@ nav {
     min-width: 10rem;
     background-color: #95C5C1;
     min-height: 100vh;
+
 }
 nav .t-img{
     display: flex;
     height: 4rem;
     border-bottom:1px solid rgb(209, 209, 209);
+    display: inline-block;
+    text-align: left;
 }
+
+
 
 /*로고*/
 nav img {
