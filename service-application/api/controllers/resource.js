@@ -1,7 +1,7 @@
 const { File, Folder,Comment } = require('../models');
 const { Op } = require("sequelize");
 const { QueryTypes } = require('sequelize');
-const { sequelize } = require('../models')
+const { sequelize } = require('../models');
 
 // renderHome  
 exports.getFolderContents = async (req, res, next) => {
@@ -23,7 +23,10 @@ exports.getFolderContents = async (req, res, next) => {
                 codeNumber: crrFolder.codeNumber,
             }
         })
-        res.render('home', { folders, files });
+        const teamName = req.data.teamName;
+ 
+        const size = req.data.size;
+        res.render('home', { folders, files,size,teamName});
     } catch (err) {
         console.log(err);
     }
@@ -45,12 +48,10 @@ exports.getAllContents = async (req, res, next) => {
                 hierarchy: 1
             }
         });
-        let size = await sequelize.query('select SUM(size) from files',{
-            type: QueryTypes.SELECT
-        }); 
-        size = parseInt(size[0]["SUM(size)"])/(1024*1024);
-        size = size.toFixed(3); 
-        res.render('home', { files, folders,size });
+        const teamName = req.data.teamName;
+        const size = req.data.size;
+        console.log('팀이름',req.data)
+        res.render('home', { files, folders,size,teamName });
     } catch (err) {
         console.log(err);
     }
@@ -66,10 +67,9 @@ exports.getImgContents = async(req,res,next) => {
             },
         });
         //  객체 (오브젝트) 형식
-        let size = await sequelize.query('select SUM(size) from files',{
-            type: QueryTypes.SELECT
-        }); 
-        res.render('home', {  files,   });
+        const teamName = req.data.teamName;
+        const size = req.data.size;
+        res.render('home', {  files, size,teamName });
     } catch (err) {
         console.log(err);
     }
@@ -83,11 +83,10 @@ exports.getPdfContents = async(req,res,next) => {
                 mimetype : "application/pdf"
             },
         });
-        let size = await sequelize.query('select SUM(size) from files',{
-            type: QueryTypes.SELECT
-        }); 
+        const teamName = req.data.teamName;
+        const size = req.data.size;
         //  객체 (오브젝트) 형식
-        res.render('home', { files });
+        res.render('home', { files,size,teamName });
     } catch (err) {
         console.log(err);
     }
@@ -104,7 +103,9 @@ exports.getFavoriteContents = async (req, res, next) => {
                 favorite: 1
             }
         });
-        res.render('home', { files  });
+        const teamName = req.data.teamName;
+        const size = req.data.size;
+        res.render('home', { files,size,teamName });
     } catch (err) {
         next(err);
     }
@@ -131,7 +132,9 @@ exports.getTrashContents = async (req, res, next) => {
             },
             paranoid: false
         })
-        res.render('home', { folders, files });
+        const teamName = req.data.teamName;
+        const size = req.data.size;
+        res.render('home', { folders, files,teamName,size});
     } catch (err) {
         next(err);
     }
