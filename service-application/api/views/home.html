@@ -22,12 +22,11 @@
         <!-- Modal 렌더링 -->
         <nav>
             <!-- 로고 이미지-->
-            <a href="/resource/all" target="_self">
+            <a href="/resource/all" class="t-img" target="_self">
                 <img src="https://ifh.cc/g/70wwOB.png">
             </a>
             <!-- 좌측 사이드바 -->
             <ul>
-
                 <li class="team-name">{{teamName}}</li>
                 <a href="/resource/all"><li class="n-itm current"><i class="far fa-file"></i>모두 보기</li></a>
                 <a href="/resource/image"><li class="n-itm"><i class="far fa-share-square"></i>이미지 모음</li></a>
@@ -48,13 +47,11 @@
         </nav>
         <main>
             <header>
-               
                 <div class="search">
                     <i class="fas fa-search"></i><input type="text">
                 </div>
                 <div class="auth">
                     <div class="asidemenu">
-                     
                         <a href="/auth/logout" title="로그아웃" class="logout">
                             <i class="fa fa-sign-out fa-2x"></i>
                         </a>
@@ -78,12 +75,8 @@
                             <div>
                                 <ul class="sort" style= " background-color: #324d5c;  ">
                                     <!--  메뉴아이콘 -->
-                                    <label for="menu" onclick >
-
-                                        <i class="fas fa-plus fa-lg" style=" padding: 6px; background-color: white;" >
-
-                                            업로드
-                                        </i> 
+                                    <label class="f-btn" for="menu" onclick >
+                                        <i class="fa fa-cloud-upload"></i>
                                     </label>
                                     <!-- 메뉴 토글-->
                                     <input type="checkbox" id="menu">
@@ -146,7 +139,7 @@
                                             {% endif %}
                                         </button>
                                         <button class="tsh">
-                                            <i class="far fa-trash-alt fa-border" ></i>
+                                            <i class="fas fa-trash-alt fa-border" ></i>
                                         </button>
                                         {% else %}
                                         <button class="restore">복구</button>
