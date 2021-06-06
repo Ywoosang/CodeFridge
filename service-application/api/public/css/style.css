@@ -23,7 +23,6 @@ ul {
     margin:0;
     padding:0;
     list-style: none;
-    
 }
 
 a {
@@ -88,12 +87,8 @@ header{
 
 header .auth{
     margin-right : 2rem;
-    
 }
-header .auth button{
-    height: 2rem;
-    font-size: 1rem;
-}
+ 
 header .authtab{
     display: flex;
     margin-left: auto;
@@ -110,6 +105,9 @@ header .authtab .authtag{
 header .asidemenu{
     display:flex;
 }
+header .asidemenu a{
+    margin: 0 0.1rem;
+}
 
 .inner section{
     display: flex;
@@ -122,7 +120,6 @@ header .asidemenu{
 
 /*좌측 사이드바*/
 nav {
-    border: 1px solid black;
     flex: 1;
     min-width: 10rem;
     background-color: #95C5C1;
@@ -132,7 +129,6 @@ nav {
 /*로고*/
 nav img {
     max-width: 100%;
-    border: 1px solid black;
 }
 /*사이드바 칸*/
 nav .n-itm{
@@ -140,13 +136,11 @@ nav .n-itm{
     padding-left: 10%;
     font-weight: 500;
     cursor: pointer;
-    border: 1px solid black;
-    
 }
+
 /* main */
 main {
     flex: 8;
-    
 }
 
 header {
@@ -158,7 +152,6 @@ header {
 
 .inner {
     display: flex;
-    
 }
 
 .inner section {
@@ -188,9 +181,6 @@ footer {
         margin-right: 5%;
         height: 95%;
     }
-
-
-
 }
 @media screen and (max-width: 768px) {
     nav {
@@ -207,7 +197,6 @@ footer {
     }
     div .group{
         justify-content: center;
-        border: 1px solid black;
     }
 }
 
@@ -215,11 +204,6 @@ footer {
 .group{
     
     margin-left : 3%;
-}
-
-
-.upload_div{
-    border:1px solid black;
 }
 
 /*알림 아이콘*/
@@ -247,9 +231,6 @@ ul label
     float:left;
     width:100px;
 }
-.upload_div{
-    border:1px solid black;
-}
 /*업로드 메뉴 숨김*/
 #menu{
     display: none;
@@ -270,7 +251,6 @@ ul label
 :checked ~ #nav{
     display: block;
     right: auto;
-    background-color: #fff;
 } 
 .sort{
     display: flex;
@@ -298,25 +278,6 @@ ul div button{
     width: 150px;
 }
 
-
-/*정렬 방식 버튼 관련
-.sort li{
-    display:inline;
-    border: 1px solid black;
-}
-
-
-.sort li a.current2 {
-    background-color: grey;
-    color: white;
-}
-
-.sort li a:hover:not(.current2) {
-    background-color: grey;
-    color: white;
-}
-
-*/
 .teams{
     display: flex;
     flex-wrap: wrap;
@@ -324,7 +285,6 @@ ul div button{
 
 
 .team{
-    border:1px solid black;
     margin: 1rem;
     min-width: 15rem;
     min-height: 15rem;
