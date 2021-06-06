@@ -253,6 +253,7 @@ body{
     height: calc(100vh - 4rem);
     overflow:auto;  
     background-color: #324d5c; 
+    
 }
 .team-name {
     font-weight: 700;
