@@ -1,5 +1,8 @@
 
 header {
+    position: absolute;
+    width: 100%;
+    margin: 0;
     height: 6rem;
     align-items: center;
     flex-shrink: 0;
@@ -75,6 +78,10 @@ header .asidemenu a{
     display: flex;
     flex-direction: column;
     margin : 20px 0;
+}
+
+.comment_body {
+    margin: 10px 10px;
 }
 
 .date {
