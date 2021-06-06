@@ -166,6 +166,19 @@
                                     <img src="/img/zip.png">
                                     {% elseif file.mimetype == "video/mp4" %} 
                                     <img src="/img/video.png">
+                                    {% elseif file.mimetype == "text/markdown" %} 
+                                    <img src="/img/markdown.png">
+                                    {% elseif file.mimetype == "application/json" %} 
+                                    <img src="/img/json.png">
+                                    <!--  -->
+                                    {% elseif file.mimetype == "text/javascript" %} 
+                                    <img src="/img/js.png">
+                                    {% elseif file.mimetype == "text/html" %} 
+                                    <img src="/img/html.png">
+                                    {% elseif file.mimetype == "text/css" %} 
+                                    <img src="/img/css.png">
+                                    {% elseif file.mimetype == "application/x-yaml" %} 
+                                    <img src="/img/yml.png">
                                     {% else %}
                                     <img src="/img/file.png">
                                     {% endif %}

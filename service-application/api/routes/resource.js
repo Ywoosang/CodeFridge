@@ -15,7 +15,7 @@ router.get('/file/:id',isLoggedIn,isTeamMember,resourceController.getFilePage);
 router.post('/file/:id',isLoggedIn,isTeamMember,resourceController.getNewFilePage)
 router.post('/file',isLoggedIn,isTeamMember,resourceController.restoreFile);
 // 
-router.get('/image',isLoggedIn,resourceController.getImgContents);
-router.get('/pdf',isLoggedIn,resourceController.getPdfContents);
+router.get('/image',isLoggedIn,isTeamMember,resourceController.getImgContents);
+router.get('/pdf',isLoggedIn,isTeamMember,resourceController.getPdfContents);
 
 module.exports = router;

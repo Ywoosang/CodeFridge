@@ -23,13 +23,15 @@
                 <img src="https://ifh.cc/g/70wwOB.png">
             </a>
             <ul>
-
-                <a href="#"><li class="n-itm"><i class="fas fa-user-alt fa-lg"></i>  프로필</li></a>
-                <a href="/team/manage"><li class="n-itm"><i class="fas fa-cog fa-lg"></i>  설정</li> </a>
-
+                <a href="#">
+                    <li class="n-itm"><i class="fas fa-user-alt fa-lg"></i> 프로필</li>
+                </a>
+                <a href="/team/manage">
+                    <li class="n-itm"><i class="fas fa-cog fa-lg"></i> 설정</li>
+                </a>
                 <a href="https://github.com/Ywoosang/DropBox-2021" class="github">
-                    <div class="giticon">
-                        <i class="fab fa-github fa-2x"></i> Github
+                    <div class="giticon" style="margin-top: 5rem;">
+                        <i class="fab fa-github fa-2x"> </i> <span style="margin-left: 5px;"> Github</span>
                     </div>
                 </a>
             </ul>
@@ -44,15 +46,15 @@
                         <div class="modal3 hidden3">
                             <div class="bg3"></div>
                             <div class="modalBox3">
-                                <form method="POST" action="/auth/profile/image"  enctype="multipart/form-data">
+                                <form method="POST" action="/auth/profile/image" enctype="multipart/form-data">
                                     <div class="upload">
-                                        <input type="file" name="file" id="file" class='user-img'accept="image/*">
+                                        <input type="file" name="file" id="file" class='user-img' accept="image/*">
                                         <div class="Btntwo">
                                             <div>
                                                 <button class="img-submit" type="submit">이미지 업로드</button>
                                             </div>
                                             <div>
-                                                <button class="closeBtn3"type="reset">취소</button>
+                                                <button class="closeBtn3" type="reset">취소</button>
                                             </div>
                                         </div>
                                     </div>
@@ -64,17 +66,16 @@
                             <div class="img-preview">
                                 <!-- 이미지가 없을 때는 display :none  -->
                                 <div class="img-txt">사진</div>
-                                <div class = "img-help">
+                                <div class="img-help">
                                     사진을 추가하여 계정을 맞춤설정할 수 있습니다.
                                 </div>
-                                <img id="img-preview" class="profile-img" src="{{ user.img }}" width="250"
-                                    alt="미리보기">
+                                <img id="img-preview" class="profile-img" src="{{ user.img }}" width="250" alt="미리보기">
                                 <!-- name:url 여기에 이미지 링크를 저장해두고 submit 시 req.body.url 로 받음 -->
                             </div>
                         </div>
                         <div class="openBtn p-comp">
                             <div class="username">
-                                <div class = "username-txt">이름</div>
+                                <div class="username-txt">이름</div>
                                 <div class="username-help">{{user.nickname}}</div>
                                 <!-- 화살표 -->
                                 <div> <i class="fa fa-chevron-right"></i> </div>
@@ -84,7 +85,8 @@
                             <div class="bg"></div>
                             <div class="modalBox">
                                 <form method="POST" action="/auth/profile/name">
-                                    <input placeholder="변경할 이름입력" style = "width:350px;" type="text" name='name' value="{{user.nickname}}">
+                                    <input placeholder="변경할 이름입력" style="width:350px;" type="text" name='name'
+                                        value="{{user.nickname}}">
                                     <div class="twobtn">
                                         <div>
                                             <button class="changebtn" type="submit">
@@ -92,7 +94,7 @@
                                             </button>
                                         </div>
                                         <div>
-                                        <button class="closeBtn"type="reset">취소</button>
+                                            <button class="closeBtn" type="reset">취소</button>
                                         </div>
                                     </div>
                                 </form>
@@ -109,7 +111,8 @@
                             <div class="bg2"></div>
                             <div class="modalBox2">
                                 <form method="POST" action="/auth/profile/id">
-                                    <input placeholder="변경할 아이디입력" style="width:350px;"type="text" name="nickId" value="{{user.nickId}}">
+                                    <input placeholder="변경할 아이디입력" style="width:350px;" type="text" name="nickId"
+                                        value="{{user.nickId}}">
                                     <div class="twobtn">
                                         <div>
                                             <button class="changebtn2" type="submit">
@@ -117,7 +120,7 @@
                                             </button>
                                         </div>
                                         <div>
-                                        <button class="closeBtn2" type = "reset">취소</button>
+                                            <button class="closeBtn2" type="reset">취소</button>
                                         </div>
                                     </div>
                                 </form>

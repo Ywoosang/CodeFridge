@@ -256,13 +256,48 @@ function searchContent () {
             </button>
             </div>
             <input type="hidden" value="${folder.id}">
-            <img src="#">
+            <img src="/img/folder.png">
             <h1>${folder.name}</h1>
             </div>
            `
                 contentsWrapper.appendChild(div);
             });
+            console.log(files)
             files.forEach(file => {
+                let src;
+                const mimetypes = [
+                    "image/gif", "image/png", "image/jpeg", "image/bmp", "image/webp"]
+                if(mimetypes.includes(file.mimetype)){
+                    src = file.fileUrl; 
+                }else if (file.mimetype == "application/pdf"){
+                    src = "/img/pdf.png"; 
+                } else if (file.mimetype == "application/zip"){
+                    src = "/img/zip.png"; 
+                }
+                 else if (file.mimetype == "video/mp4"){
+                    src="/img/video.png";
+                 }
+                 else if (file.mimetype == "text/markdown"){
+                    src="/img/markdown.png"
+                 }
+                 else if (file.mimetype == "application/json"){
+                    src="/img/json.png"; 
+                 }
+                 else if (file.mimetype == "text/javascript"){
+                    src="/img/js.png"
+                 }
+                 else if (file.mimetype == "text/html"){
+                    src="/img/html.png"
+                 }
+                 else if (file.mimetype == "text/css"){
+                    src="/img/css.png"
+                 }
+                 else if (file.mimetype == "application/x-yaml"){
+                    src="/img/yml.png"
+                 }
+                 else {
+                    src="/img/file.png"; 
+                 }
                 const div = document.createElement('div');
                 div.classList.add('com');
                 div.classList.add('file');
@@ -276,7 +311,7 @@ function searchContent () {
                     </button>
                 </div>
                 <input type="hidden" value="${file.id}">
-                <img src="#">
+                <img src="${src}">
                 <h1>${file.name}</h1>
             `
                 if (file.favorite) {
