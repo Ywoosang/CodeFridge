@@ -80,6 +80,7 @@ nav .bar {
     border: none;
     background-color: white;
     border-radius: 10px;
+    
 }
  .bar_ {
     border-radius: 10px;
@@ -88,13 +89,13 @@ nav .bar {
     margin: 0;
     margin-left: -16px;
     background: linear-gradient(to right, #e66465, #9198e5);
+    
  }
 
 .file_size {
-    margin: 0 auto;
-    position: absolute;
-    left: 40px;
-    
+    padding : 3px;
+    padding-left: 10%;
+    font-weight: 500; 
 }
 
 /* header */
@@ -181,9 +182,7 @@ article .com{
     display: flex;
     flex-direction: column; 
 }
-article .com:hover{
 
-}
 
 article .com img{
     width: inherit;
@@ -206,16 +205,21 @@ article .com .fol-b .fol-btn-s .checked{
     /*color: rgb(236, 236, 62);    */
     color:#ffd700;
 }
+
+
 article .com .fas{
     color:white;
 }
 article .com button{
     padding: 0;
-    background-color: gray;
+    /*background-color: gray;*/
+    
+    
 }
 article .com button i{
-    font-size: 1.1rem;
+    font-size: 1rem;
     pointer-events: none;
+    padding: 1;
 }
  
 
