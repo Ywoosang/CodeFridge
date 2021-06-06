@@ -3,16 +3,17 @@ li a {
 }
 
 
+  
 .giticon{
   color:black;
   font-weight: 500;
 }
 
 .giticon i {
-  
   font-size: 24px;
   font-weight: bold;
 }
+
 .giticon:hover{
   background-color: #8fbdb9;
 }
