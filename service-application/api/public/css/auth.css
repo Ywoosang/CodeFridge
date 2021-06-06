@@ -1,8 +1,6 @@
 .fridge {
     max-width: 65%;
-    max-height: 100%;
     background-color: #324d5c;
-    height: 100vh;
     background-size: cover;
     background-position: center;
 }
@@ -12,7 +10,6 @@
     color:#000000;
 }
 
-
 .icon img {
     top: 0.1px;
     width:160px;
@@ -20,7 +17,6 @@
     margin-left:20px;
     text-align: center;
     position: absolute;
-
 }
 
 article {
@@ -29,7 +25,6 @@ article {
 
 .outer {
     width: 100%;
-    height: 100%;
     background-color: #324d5c;
 
 }
@@ -43,10 +38,7 @@ header .auth a {
 }
 .background{
     flex:1;
-    
     flex-direction: column;
-    max-height: 100%;
-    display: block;
     display: flex;
     flex-direction: column;
     background-color: #324d5c;
@@ -54,24 +46,23 @@ header .auth a {
     text-align: center;
 }
 /* .상단부 */
-.log-background{
+.background .log-background{
+    margin-top: 9rem;
     width:100%;
-    height: 100%;
-    flex:1;
     flex-direction: column;
-    align-items: center;
 }
 
-.log-background  .title{
+.background .log-background  .title{
     text-align: center;
 }
-.log-background .title p{
+.background .log-background .title p{
     flex:1;
     font-size: 17px;
     color: gray;
     
 }
 .wrap-item{
+    margin-right: 5%;
     /* input 요소 가운데 정렬 */
     height: auto;
     text-align: center;
@@ -113,7 +104,6 @@ header .auth a {
 }
 .check-box p{
     /* border: 1px solid red; */
-
     margin-left: 10px;
     font-size: 12px;
 }
@@ -133,14 +123,13 @@ header .auth a {
 .a-btn:hover{
     background-color: #286090;
 }
-
-
-
+.sns-join  {
+    flex:1;
+}
 /*sns 로그인 부분 */
 .sns-join .title{
     margin-top: 10%;
     margin-right: 5%;
-
     flex:1;
     text-align: center;
     border: 1px solid lightgray;
@@ -222,6 +211,5 @@ header .auth a {
 .wrap-item2 a b{
     font-family: "TmoneyRoundWindExtraBold";
     font-weight: bold;
-
 }
  

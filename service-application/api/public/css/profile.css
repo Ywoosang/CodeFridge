@@ -1,26 +1,24 @@
 .content{
-    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .groupname{
+  background-color:#324D5C;
     margin-top: 3rem;
-    background-color: white;
     font-weight: 500;
     justify-content: center;
     font-size: 40px;
+    color:white
 }
 
 .outer{
     width: 90%;
     margin-top: 3rem;
-    background: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
 .inner {

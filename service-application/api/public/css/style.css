@@ -7,19 +7,16 @@ body{
     margin : 0;
     color : #222;
     font-weight : 300;
-    
+    background-color: #324D5C;
 }
 
 * {
-    /* border: 1px solid red; */
     font-family: 'Noto Sans KR', sans-serif;
-    
 }
 
 *:focus { outline:none; }
 div>a:hover,ul>a:hover{
     color : #222;
-    
 }
 
 ul {
@@ -38,7 +35,6 @@ a {
 h1,h2,h3,h4,h5,h6{
     margin:0;
     font-weight: normal;
-    border-top: 1px solid black;
 }
 
 
@@ -55,7 +51,6 @@ p{
 
 input,textarea,select{
     outline : none;
-    
 }
 
 * {
@@ -148,28 +143,6 @@ nav .n-itm{
     border: 1px solid black;
     
 }
-/*
-nav li.current a{
-    background-color: #f5576c;
-    color :white;
-}
-
-nav li a:hover:not(.current){
-    color:white;
-}
-*/
-/*왼쪽 사이드바 관련*/
-/*
-ul li.current {
-    background-color: #f5576c;
-    color: white;
-}
-
-ul li:hover:not(.current) {
-    background-color: #f093fb;
-    color: white;
-}
-*/
 /* main */
 main {
     flex: 8;
