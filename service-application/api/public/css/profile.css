@@ -2,11 +2,16 @@ li a {
   font-size: 16px;;
 }
 
-.giticon i {
-  padding-left: 0px;
-  font-size: 24px;
+.giticon{
+  margin-top:10rem;
+  font-weight: 500;
 }
 
+.giticon i {
+  padding-left: 0.3rem;
+  font-size: 24px;
+  font-weight: bold;
+}
 
 .content{
     display: flex;
