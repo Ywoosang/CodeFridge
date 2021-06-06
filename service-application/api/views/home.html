@@ -126,7 +126,7 @@
                                         </button>
                                     </div>
                                     <input type="hidden" value="{{folder.id}}">
-                                    <img src="/img/folder.svg">
+                                    <img src="/img/folder.png">
                                     <h1>{{ folder.name }}</h1>
                                 </div>
                                 {% endfor %}
@@ -143,9 +143,7 @@
                                             {% endif %}
                                         </button>
                                         <button class="tsh">
-
                                             <i class="fas fa-trash-alt fa-border" style = "font-size:16px;display:block; background-color:gray; width: 100%; text-align: center;" ></i>
-
                                         </button>
                                         {% else %}
                                         <button class="restore">복구</button>
@@ -158,14 +156,18 @@
                                     </div>
                                     <input type="hidden" class="h_1" value="{{file.id}}">
                                     {% set mimetypes = [
-                                        "image/gif", "image/png", "image/jpe", "image/bmp", "image/webp"
+                                        "image/gif", "image/png", "image/jpeg", "image/bmp", "image/webp"
                                     ]%}
                                     {% if file.mimetype in  mimetypes %}
                                     <img src="{{file.fileUrl}}">
                                     {% elseif file.mimetype == "application/pdf" %}
                                     <img src="/img/pdf.png">
+                                    {% elseif file.mimetype == "application/zip" %}
+                                    <img src="/img/zip.png">
+                                    {% elseif file.mimetype == "video/mp4" %} 
+                                    <img src="/img/video.png">
                                     {% else %}
-                                    <img src="#">
+                                    <img src="/img/file.png">
                                     {% endif %}
                                     <h1>{{ file.name }}</h1>
                                 </div>
