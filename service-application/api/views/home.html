@@ -45,7 +45,7 @@
         <main>
             <header>
                 {% if not deleteCategory %}
-                <div class="group">그룹명 {{user.nickname}} </div>
+                <div class="group">그룹명 {{team.name}} </div>
                 <div class="search">
                     <i class="fas fa-search"></i><input type="text">
                 </div>
@@ -62,7 +62,8 @@
                             <i class="fas fa-user-alt fa-2x"></i>
                         </a>
                         <a href="/team" class="bell">
-                            팀 목록
+                            <i class="fas fa-users fa-2x"></i>
+                            
                         </a>
                     </div>
                 </div>
@@ -74,14 +75,22 @@
                         <div class="fol-w">
                             <!-- 정렬 -->
                             <div>
-                                <ul class="sort">
+                                <ul class="sort" style="background-color: white; ">
                                     <!--  메뉴아이콘 -->
-                                    <label for="menu" onclick><i class="fas fa-plus fa-lg"> 업로드 </i> </label>
+
+                                    <label for="menu" onclick >
+                                        <i class="fas fa-plus fa-lg" style="border: 1px solid black; padding: 6px" >
+                                            
+                                            업로드
+                                                    
+                                        </i> 
+                                    </label>
+
                                     <!-- 메뉴 토글-->
-                                    <input type="checkbox" id="menu" />
+                                    <input type="checkbox" id="menu">
                                     <!-- 메뉴 -->
                                     <ul id="nav">
-                                        <div>
+                                        <div class = "upload_file_div">
                                             <input name="image" type="file" id="file" style="display:none;" multiple>
                                             <svg viewBox="0 0 24 24" fill="none" class="dig-UIIcon dig-UIIcon--standard"
                                                 width="24" height="24" focusable="false">
@@ -94,7 +103,7 @@
                                             </svg>
                                             <button type="button" class="upload_file">파일 업로드</button>
                                         </div>
-                                        <div>
+                                        <div class = "upload_folder_div">
                                             <input type="file" name="folder" style="display:none;" id="folder"
                                                 webkitdirectory multiple />
                                             <svg viewBox="0 0 24 24" fill="none" class="dig-UIIcon dig-UIIcon--standard"
