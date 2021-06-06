@@ -5,6 +5,7 @@ body {
 .teams{
     display: flex;
     flex-wrap: wrap;
+    padding: 2rem 5rem;
 }
 
 .team{
@@ -15,12 +16,11 @@ body {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    font-size: 1rem;
+    background-color: white;
 }
+ 
 
-.team > h1 {
-    background-color: blanchedalmond;
-    height: 80px;
-}
  
 
 form.create_team > #my_modal > div {
@@ -39,7 +39,7 @@ form.create_team > #my_modal > div {
 form.create_team > #my_modal> div > div {
     display: flex;
     margin: 40px auto;
-    margin-bottom: 20px;
+    font-weight: 400;
     width: 250px;
     padding: 10px;
     font-size: 32px;
@@ -55,7 +55,7 @@ form.create_team > #my_modal > div > button {
     display: flex;
     margin-top: 20px;
     margin-bottom: 30px;
-    font-size: 32px;
+    font-size: 1rem;
     flex-shrink: 0;
 }
 
@@ -73,7 +73,7 @@ header .logout_profile .logout {
 }
 
 header .logout_profile .profile {
-    margin: 0 auto; /*0 넣으면 가운데*/
+    margin: 0 auto; 
     text-align: center;
     position: absolute;
     right:80px; /* */
@@ -82,10 +82,8 @@ header .logout_profile .profile {
 
 .add_team {
     display: flex;
-    border-bottom: solid 2px wheat;
     width: 100%;
     height: 100px;
-    background-color: #3c6074;
 }
 
 .development_team {
@@ -95,6 +93,7 @@ header .logout_profile .profile {
     border: none;
     margin-left: 100px;
     color: white;
+    font-size : 1.5rem;
 }
 
 .icon img {
@@ -104,7 +103,6 @@ header .logout_profile .profile {
     margin-left:20px;
     text-align: center;
     position: absolute;
-
 }
 
 #my_modal {
@@ -123,13 +121,24 @@ header .logout_profile .profile {
     right: 10px;
 }
 
-#my_modal .modal_close_btn:hover {
-    background-color: cornsilk;
+#my_modal .modal_close_btn i{
+    position: absolute;
     cursor: pointer;
+    top: 10px;
+    right: 10px;
+    width:2rem;
+    height:2rem;
+}
+
+#my_modal .modal_close_btn i::before{
+    position:absolute;
+    width:2rem;
+    height:2rem;
+    font-size: 2rem;
 }
 
 .fa-window-close {
-    font-size: 30px;
+    font-size: 1.7rem;
 }
 
 .create_team {
@@ -138,31 +147,22 @@ header .logout_profile .profile {
 }
 
 #popup_open_btn {
-    width: 48px;
-    height: 48px;
     text-align: center;
-    font-size: 48px;
-    font-style:normal;
+    font-style:normal; font-size : 1.5rem;
     line-height: 48px;
     border:0px;
     padding:0px;
-    margin: 25px 20px;
-    color: thistle;
-    font-size: 50px;
-}
-
-#popup_open_btn:hover {
+    margin: 1.7rem 20px;
+    color: white;
     cursor: pointer;
-    color: teal;
- 
 }
+ 
 
 /* 조정할 것 */
 .team .team-img {
     width: 20rem;
     height: 10rem;
     object-fit: cover;
-    border-radius: 10px;
 }
 .team .enter{
     width: 5rem;
@@ -174,14 +174,8 @@ header .logout_profile .profile {
     background-color: lightblue;
     margin: 0px auto;
 }
-.team .enter:hover{
-    background-color: chartreuse;
-}
 
-.team .description {
-    border-radius: 10px;
-}
-
+ 
 
 
 

@@ -20,9 +20,17 @@
                 <img src="https://ifh.cc/g/70wwOB.png">
             </a>
         </div>
-        <a href="/auth/logout">로그아웃</a>
-        <a href="/auth/profile">프로필로 가기</a>
- 
+        <div class="auth">
+            <div class="asidemenu">
+             
+                <a href="/auth/logout" title="로그아웃" class="logout">
+                    <i class="fa fa-sign-out fa-2x"></i>
+                </a>
+                <a href="/auth/profile" title="프로필" class="userprofile">
+                    <i class="fas fa-user-alt fa-2x"></i>
+                </a>
+            </div>
+        </div>
     </header>
     <form method="POST" class="create_team">
         <div id="my_modal">
@@ -38,12 +46,11 @@
             <i class="fas fa-plus-square" id="popup_open_btn"></i>
         </div>
     </form>
-  
     <div class="teams">
         {% for team in teams %}
         <a class="team" href="/team/{{team.id}}" class='enter'>
             <img class="team-img" src="{{team.img}}"> 
-            <h1 class="description">{{team.name}}</h1>
+            <h1 class="description" style="font-size:1.3rem; padding:0.3rem;">{{team.name}}</h1>
         </a>
         {% endfor %}
     </div>

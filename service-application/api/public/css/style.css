@@ -7,7 +7,8 @@ body{
     margin : 0;
     color : #222;
     font-weight : 300;
-    background-color: #324D5C;
+    background-color: #324d5c;
+
 }
 
 * {
@@ -43,6 +44,8 @@ a {
 h1,h2,h3,h4,h5,h6{
     margin:0;
     font-weight: normal;
+    border-top: 1px solid black;
+    overflow: hidden;
 }
 
 
@@ -92,6 +95,8 @@ header{
     display: flex;
     align-items: center;
     height: 4rem;
+    z-index: 1001;
+    border-bottom:1px solid rgb(209, 209, 209);
 }
 
 header .auth{
@@ -121,18 +126,26 @@ header .asidemenu a{
 .inner section{
     display: flex;
     justify-content: center;
+    
 }
 .inner section article{
     flex:1;
     display: flex;
+    
 }
-
+* {
+}
 /*좌측 사이드바*/
 nav {
     flex: 1;
     min-width: 10rem;
     background-color: #95C5C1;
     min-height: 100vh;
+}
+nav .t-img{
+    display: flex;
+    height: 4rem;
+    border-bottom:1px solid rgb(209, 209, 209);
 }
 
 /*로고*/
@@ -145,6 +158,10 @@ nav .n-itm{
     padding-left: 10%;
     font-weight: 500;
     cursor: pointer;
+}
+nav .n-itm:hover{
+    background-color: #8fbdb9;
+
 }
 
 /* main */
@@ -174,6 +191,8 @@ header {
 article {
     display: flex;
     flex-wrap: wrap;
+
+    
 }
 /* 하단 footer 영역*/
 footer {
@@ -223,27 +242,11 @@ a.bell {
     width: 50px;
     cursor: pointer;
 }
-/*알림 숫자 관련*/
-.number{
-    position : absolute;
-    font-size: 0.6em;
-    right : 13px;
-    top : 15px;
-    color: #fff;
-    border-radius: 50%;
-    background-color : red;
-    padding:0 5px;
-}
+ 
 /* 업로드 버튼 위치*/
-ul label
-{
-    float:left;
-    width:100px;
-}
 /*업로드 메뉴 숨김*/
 #menu{
     display: none;
-
 } 
 
 /*메뉴위치 : 왼쪽으로 -20em(화면밖에 숨긴다) 절대위치, 너비 10em*/
@@ -261,7 +264,7 @@ ul label
     display: block;
     right: auto;
 } 
-.sort{
+ul.sort{
     display: flex;
     height: 75px;
     align-items: center;
@@ -278,13 +281,13 @@ ul div{
     display: flex;
     align-items: center;
     padding-left: 1rem;
-    
+    color: white;
 }
 ul div button{
     border:none;
     background-color: transparent;
     font-size: 1rem;
-    width: 150px;
+    color:white;
 }
 
 .teams{
@@ -299,9 +302,4 @@ ul div button{
     min-height: 15rem;
 }
 
-.upload_file_div{
-    border:1px solid black;
-}
-.upload_folder_div{
-    border:1px solid black;
-}
+ 

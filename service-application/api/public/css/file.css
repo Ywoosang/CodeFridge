@@ -3,26 +3,34 @@ header {
     height: 6rem;
     align-items: center;
     flex-shrink: 0;
+    border: solid;
 }
 
-header > a {
-    background-color: #c3dce4;
-    margin: 2px;
-    padding: 4px 6px;
-    border-radius: 4px;
-    flex-shrink: 0;
+header .auth{
+    margin-right : 2rem;
+    width: 110px;
+    margin: 13px;
+    margin-left: 90%;
+}
+ 
+header .authtab{
+    display: flex;
+    margin-left: auto;
+}
+header .authtab button{
+    margin-right: 1rem;
+    height : 2.4rem;
 }
 
-header > p {
-    position: absolute;
-    left: 75px;
-    margin: 0 auto;
-    font-size: 32px;
-    flex-shrink: 0;
+header .authtab .authtag{
+    display: flex;
 }
 
-header > a:hover {
-    background-color: #e4c3dc;
+header .asidemenu{
+    display:flex;
+}
+header .asidemenu a{
+    margin: 0 0.1rem;
 }
 
 .container{
@@ -71,10 +79,16 @@ header > a:hover {
 
 .date {
     text-align: end;
+    margin-right: 10px;
 }
 
 .author {
     text-align: end;
+    margin-right: 10px;
+}
+
+.img {
+    margin-right: 10px;
 }
 
 .com-reg{
