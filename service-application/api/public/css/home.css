@@ -1,3 +1,12 @@
+<<<<<<< Updated upstream
+=======
+* {
+   /* border: 1px solid red;*/
+}
+
+>>>>>>> Stashed changes
+
+
 .modal .upload{
     max-width: 35rem;
     width: 50%;
@@ -137,7 +146,8 @@ article{
 article .fol-w{
     display: flex;
     flex-direction: column;
-    background-color: #ddd;    
+    /*background-color: #ddd; */
+    background-color: #324d5c;   
 }
 
 article .fol-w .fol-c{
@@ -176,12 +186,19 @@ article .com h1{
 article .com .fol-b{
     display: flex;
     justify-content: space-between;
+
+    border-bottom: 1px solid black;
 }
 article .com .fol-b .fol-btn-s .checked{
-    color: rgb(236, 236, 62);
+    /*color: rgb(236, 236, 62);    */
+    color:#ffd700;
+}
+article .com .fas{
+    color:white;
 }
 article .com button{
     padding: 0;
+    background-color: gray;
 }
 article .com button i{
     font-size: 1.1rem;
@@ -206,9 +223,10 @@ aside div button{
     background-color: transparent;
     font-size: 1rem;
 }
-
+body{
+    background-color: #95C5C1;
+}
 .inner{
     overflow:auto;
-    
+    background-color: #324d5c;
 }
-
