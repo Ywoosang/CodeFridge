@@ -8,7 +8,6 @@ body{
     color : #222;
     font-weight : 300;
     background-color: #324d5c;
-
 }
 
 * {
@@ -96,7 +95,7 @@ header{
     align-items: center;
     height: 4rem;
     z-index: 1001;
-    border-bottom:1px solid rgb(209, 209, 209);
+    border-bottom: rgb(207, 207, 207);
 }
 
 header .auth{
@@ -132,8 +131,6 @@ header .asidemenu a{
     flex:1;
     display: flex;
     
-}
-* {
 }
 /*좌측 사이드바*/
 nav {
@@ -230,7 +227,6 @@ footer {
 
 /* 팀 관련*/
 .group{
-    
     margin-left : 3%;
 }
 

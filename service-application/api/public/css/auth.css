@@ -5,8 +5,6 @@
     background-position: center;
 }
 
-
-
 .title p b {
     background-color: #e5edee;
     color:#000000;
@@ -35,7 +33,11 @@ header .auth a {
     position: absolute;
     right:80px; /* */
     top: 20px;
-
+    background-color: white;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid black;
+    font-weight: bold;
+    border-radius: 3px;
 }
 .background{
     flex:1;

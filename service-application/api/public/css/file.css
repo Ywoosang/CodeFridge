@@ -3,7 +3,7 @@ header {
     height: 6rem;
     align-items: center;
     flex-shrink: 0;
-    border: solid;
+    z-index: 1001;
 }
 
 header .auth{
