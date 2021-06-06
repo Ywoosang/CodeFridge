@@ -40,7 +40,7 @@
   <div class="block">
   <div class="block1">
   <article class="profile">
-    <h1 class="team_name">팀 이름: {{team.name}}</h1>
+    <h1 class="team_name" style="width: 300px;">{{team.name}}</h1>
     <form action="/team/manage/name" method="POST" class="change_team_name" >
       <input  type="text" name="teamName" required>
       <button type="submit" class="teamNameBtn">팀 이름 업데이트</button>
@@ -64,8 +64,8 @@
     <ul>
       {%for member in members %}
       <li class=" ">
-        <div class="cowoker_name">이름: {{ member.nickname }}</div>
-        <div class="cowoker_rank">직급: {{ member.rank }} </div>
+        <div class="cowoker_name" style="color: black;">이름: {{ member.nickname }}</div>
+        <div class="cowoker_rank" style="color: black;">직급: {{ member.rank }} </div>
       </li>
       {% endfor %}
     </ul>
