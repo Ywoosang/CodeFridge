@@ -181,6 +181,7 @@ header {
 
 .inner {
     display: flex;
+    
 }
 
 .inner section {
@@ -189,11 +190,13 @@ header {
 .inner section article {
     height: calc(100vh - 134px);
     
+    
 }
 
 article {
     display: flex;
     flex-wrap: wrap;
+    
 
     
 }
@@ -285,6 +288,11 @@ ul div{
     padding-left: 1rem;
     color: white;
 }
+ul .f-btn:hover{
+    color:rgb(38, 220, 193);
+}
+
+
 ul div button{
     border:none;
     background-color: transparent;

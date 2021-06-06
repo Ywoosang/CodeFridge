@@ -1,12 +1,16 @@
 li a {
   font-size: 16px;;
 }
-
+.giticon{
+  color:black;
+}
 .giticon i {
   padding-left: 0px;
   font-size: 24px;
 }
-
+.giticon:hover{
+  background-color: #8fbdb9;
+}
 
 .content{
     display: flex;
