@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <title>Document</title>
   <link rel="stylesheet" href="../css/manage.css">
   <link rel="stylesheet" href="../css/style.css">
@@ -14,10 +16,27 @@
 
 <body>
   <header>
-    <p>Code Fridge</p>
-    <a href="/auth/logout">로그아웃</a>
-    <a href="/auth/profile">프로필로 가기</a>
-  </header>
+    <div class="icon">
+        <a href="/resource/all" target="_self">
+            <img src="https://ifh.cc/g/70wwOB.png">
+        </a>
+    </div>
+    <div class="auth">
+        <div class="asidemenu">
+         
+            <a href="/auth/logout" title="로그아웃" class="logout">
+                <i class="fa fa-sign-out fa-2x"></i>
+            </a>
+            <a href="/auth/profile" title="프로필" class="userprofile">
+                <i class="fas fa-user-alt fa-2x"></i>
+            </a>
+            <a href="/team" title="팀 목록" >
+                <i class="fas fa-users fa-2x"></i>
+            </a>
+        </div>
+    </div>
+
+</header>
   <div class="block">
   <div class="block1">
   <article class="profile">

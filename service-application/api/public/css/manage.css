@@ -50,9 +50,8 @@ header > a:hover {
     width: 600px;
     height: 1100px;
     margin: 50px 140px;
-    background-color: #fcfdf3;
     border-radius: 80px;
-    border: groove;
+    border: none;
 }
 
 .profile {
@@ -134,9 +133,8 @@ header > a:hover {
 .block2 {
     width: 600px;
     height: 1100px;
-    border: groove;
+    border: none;
     margin: 50px 100px;
-    background-color: #fcfdf3;
     border-radius: 80px;
 }
 
