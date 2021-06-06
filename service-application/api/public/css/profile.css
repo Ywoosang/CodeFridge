@@ -1,12 +1,17 @@
 li a {
   font-size: 16px;;
 }
+
+
 .giticon{
   color:black;
+  font-weight: 500;
 }
+
 .giticon i {
-  padding-left: 0px;
+  
   font-size: 24px;
+  font-weight: bold;
 }
 .giticon:hover{
   background-color: #8fbdb9;

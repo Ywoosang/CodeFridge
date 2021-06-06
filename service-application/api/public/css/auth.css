@@ -228,15 +228,24 @@ header .auth a {
     font-weight: bold;
 }
 
-a .icon2 {
+a .icon2,a .icon3 {
     text-align: center;
 }
 
 a .icon2 img {
+    width: 24px;
+    height: 23px;
+    text-align: center;
+    padding-top: 4px; 
+    border-top: 4px;
+}
+
+a .icon3 img {
     width: 24px;
     height: 24px;
     text-align: center;
     padding-top: 4px; 
     border-top: 4px;
 }
+ 
  
