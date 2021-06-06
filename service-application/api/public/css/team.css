@@ -138,6 +138,14 @@ header .logout_profile .profile {
 }
 
 #popup_open_btn {
+    width: 48px;
+    height: 48px;
+    text-align: center;
+    font-size: 48px;
+    font-style:normal;
+    line-height: 48px;
+    border:0px;
+    padding:0px;
     margin: 25px 20px;
     color: thistle;
     font-size: 50px;
@@ -146,6 +154,7 @@ header .logout_profile .profile {
 #popup_open_btn:hover {
     cursor: pointer;
     color: teal;
+ 
 }
 
 /* 조정할 것 */
