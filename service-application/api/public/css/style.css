@@ -7,7 +7,8 @@ body{
     margin : 0;
     color : #222;
     font-weight : 300;
-    background-color: #324D5C;
+    background-color: #324d5c;
+
 }
 
 * {
@@ -43,6 +44,8 @@ a {
 h1,h2,h3,h4,h5,h6{
     margin:0;
     font-weight: normal;
+    border-top: 1px solid black;
+    overflow: hidden;
 }
 
 
@@ -121,10 +124,12 @@ header .asidemenu a{
 .inner section{
     display: flex;
     justify-content: center;
+    
 }
 .inner section article{
     flex:1;
     display: flex;
+    
 }
 
 /*좌측 사이드바*/
@@ -133,6 +138,8 @@ nav {
     min-width: 10rem;
     background-color: #95C5C1;
     min-height: 100vh;
+
+   
 }
 
 /*로고*/
@@ -145,6 +152,10 @@ nav .n-itm{
     padding-left: 10%;
     font-weight: 500;
     cursor: pointer;
+}
+nav .n-itm:hover{
+    background-color: #8fbdb9;
+
 }
 
 /* main */
@@ -174,6 +185,8 @@ header {
 article {
     display: flex;
     flex-wrap: wrap;
+
+    
 }
 /* 하단 footer 영역*/
 footer {
@@ -240,6 +253,8 @@ ul label
     float:left;
     width:100px;
 }
+
+
 /*업로드 메뉴 숨김*/
 #menu{
     display: none;
@@ -278,6 +293,7 @@ ul div{
     display: flex;
     align-items: center;
     padding-left: 1rem;
+    background-color: white;
     
 }
 ul div button{
