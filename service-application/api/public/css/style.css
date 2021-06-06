@@ -7,12 +7,8 @@ body{
     margin : 0;
     color : #222;
     font-weight : 300;
-<<<<<<< HEAD
     background-color: #324d5c;
-    
-=======
-    background-color: #324D5C;
->>>>>>> chisub
+
 }
 
 * {
@@ -28,11 +24,6 @@ ul {
     margin:0;
     padding:0;
     list-style: none;
-<<<<<<< HEAD
-    
-    
-=======
->>>>>>> chisub
 }
 
 a {
@@ -44,6 +35,8 @@ a {
 h1,h2,h3,h4,h5,h6{
     margin:0;
     font-weight: normal;
+    border-top: 1px solid black;
+    overflow: hidden;
 }
 
 
@@ -150,32 +143,10 @@ nav .n-itm{
     padding-left: 10%;
     font-weight: 500;
     cursor: pointer;
-<<<<<<< HEAD
 }
 nav .n-itm:hover{
     background-color: #8fbdb9;
-}
 
-/*
-nav li.current a{
-    background-color: #f5576c;
-    color :white;
-}
-
-nav li a:hover:not(.current){
-    color:white;
-}
-*/
-/*왼쪽 사이드바 관련*/
-/*
-ul li.current {
-    background-color: #f5576c;
-    color: white;
-=======
-nav .n-itm:hover{
-    background-color: #8fbdb9;
-}
->>>>>>> chisub
 }
 
 /* main */
@@ -273,10 +244,8 @@ ul label
     float:left;
     width:100px;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> chisub
+
 /*업로드 메뉴 숨김*/
 #menu{
     display: none;
@@ -315,6 +284,7 @@ ul div{
     display: flex;
     align-items: center;
     padding-left: 1rem;
+    background-color: white;
     
 }
 ul div button{

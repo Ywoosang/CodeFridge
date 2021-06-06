@@ -1,14 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-* {
-   /* border: 1px solid red;*/
-}
 
->>>>>>> Stashed changes
-
-=======
->>>>>>> chisub
 
 .modal .upload{
     max-width: 35rem;
@@ -254,12 +244,9 @@ body{
     background-color: #95C5C1;
 }
 .inner{
-<<<<<<< HEAD
-    overflow:auto;
-    background-color: #324d5c;
-}
-=======
-    overflow:auto;   
+
+    overflow:auto;  
+    background-color: #324d5c; 
 }
 .team-name {
     font-weight: 700;
@@ -268,4 +255,3 @@ body{
     font-size: 1.2rem;
 }
 
->>>>>>> chisub
