@@ -1,4 +1,4 @@
-const { User,Team, sequelize } = require('../models/'); 
+const { User,Team, sequelize,User_Team } = require('../models/'); 
 const { QueryTypes } = require('sequelize');
 
 exports.mainPage = async(req,res,next) =>{
@@ -140,26 +140,35 @@ exports.changeTeamName = async(req,res,next) => {
 exports.enrollNewMember =  async(req,res,next) => {
     const rank = req.body.rank;
     const memberId = req.body.userId; 
+    const teamId = req.session.teamId;
     if(!memberId || !rank) return res.status(400).end(); 
     try{
-        const isTeamMember = await sequelize.query(`
-        SELECT UserId 
-        FROM user_team 
-        WHERE TeamId =${req.session.teamId} AND UserId=${memberId};
-        `,{type : QueryTypes.SELECT});
-        console.log(isTeamMember !== [] && isTeamMember.length >0);
-        if(isTeamMember !==[] && isTeamMember.length >0) return res.json({
-            message : `이미 멤버입니다.`,
+        //
+        const isTeamMember = await User_Team.findOne({
+            where :{
+                TeamId : teamId,
+                UserId : memberId,
+            }
         })
+        // const isTeamMember = await sequelize.query(`
+        // SELECT UserId 
+        // FROM user_team 
+        // WHERE TeamId =${req.session.teamId} AND UserId=${memberId};
+        // `,{type : QueryTypes.SELECT});
+        console.log(isTeamMember);
+        if(isTeamMember !== null) return res.json({message : `이미 멤버입니다.`});
+        
         const team = await Team.findOne({
-            id : req.session.teamId 
+            where : {
+                id : teamId
+            }
         });
         const user = await User.findOne({
             where : {
                 id :memberId
             }
         });
-        team.addUser(user,{
+        await team.addUser(user,{
             through: { 
                 rank 
             }
