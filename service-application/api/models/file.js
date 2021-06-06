@@ -8,7 +8,7 @@ module.exports = class File extends Sequelize.Model {
         allowNull: false,
       },
       name: {
-        type: Sequelize.STRING(50),
+        type: Sequelize.STRING(300),
         allowNull: false,
       },
       favorite : {

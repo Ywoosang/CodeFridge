@@ -251,9 +251,9 @@ function searchContent () {
                 div.innerHTML =
                     ` 
             <div class="fol-b">
-            <button class="tsh fld">
-                <i class="fas fa-trash-alt"></i>
-            </button>
+                <button class="tsh fld">
+                    <i class="fas fa-trash-alt fa-border" style = "font-size:14px;display:block; background-color:gray; width: 97%; text-align: center;"></i>
+                </button>
             </div>
             <input type="hidden" value="${folder.id}">
             <img src="/img/folder.png">
@@ -301,16 +301,19 @@ function searchContent () {
                 const div = document.createElement('div');
                 div.classList.add('com');
                 div.classList.add('file');
+                let favorite = ""
+                if(file.favorate) favorite = "checked"; 
                 div.innerHTML = `
+            
                 <div class="fol-b">
                     <button class="fol-btn-s">
-                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star fa-border ${favorite}" style = "font-size:14px;display:block; background-color:gray; width: 97%;"></i>
                     </button>
-                    <button class="tsh">
-                        <i class="fas fa-trash-alt"></i>
+                    <button class="tsh" >
+                        <i class="fas fa-trash-alt fa-border" style = "font-size:16px;display:block; background-color:gray; width: 100%; text-align: center;"></i>
                     </button>
                 </div>
-                <input type="hidden" value="${file.id}">
+                <input type="hidden" class="h_1" value="${file.id}">
                 <img src="${src}">
                 <h1>${file.name}</h1>
             `
