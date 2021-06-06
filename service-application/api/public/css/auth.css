@@ -47,7 +47,7 @@ header .auth a {
 }
 /* .상단부 */
 .background .log-background{
-    margin-top: 9rem;
+    margin-top: 7rem;
     width:100%;
     flex-direction: column;
 }
@@ -109,7 +109,7 @@ header .auth a {
 }
 .a-btn{
     color:white;
-    width: 80%;
+    width: 70%;
     height: 35px;
     background-color: #0059AB;
     border: none;
@@ -165,7 +165,7 @@ header .auth a {
     border: 1px solid lightgray;
     font-weight: bold;
     border-radius: 5px;
-    width: 80%;
+    width: 70%;
 
 }
 /* 깃허브 로그인 */
