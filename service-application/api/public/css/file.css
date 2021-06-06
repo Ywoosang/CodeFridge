@@ -84,6 +84,9 @@ header .asidemenu a{
 
 .comment_info {
     display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .comment_body {
@@ -92,21 +95,15 @@ header .asidemenu a{
 }
 
 .date {
-    text-align: end;
-    margin-top: auto;
     width: 160px;
 }
 
 .author {
-    text-align: end;
-    margin-top: auto;
-    margin-right: 10px;
-    width: 100px;
+    width: 160px;
 }
 
 .img {
     margin-top: auto;
-    margin-right: 13px;
 }
 
 .com-reg{
