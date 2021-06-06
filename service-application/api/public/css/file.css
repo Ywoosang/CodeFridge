@@ -3,7 +3,7 @@ header {
     position: absolute;
     width: 100%;
     margin: 0;
-    height: 6rem;
+    height: 7rem;
     align-items: center;
     flex-shrink: 0;
     z-index: 1001;
@@ -34,6 +34,7 @@ header .asidemenu{
 }
 header .asidemenu a{
     margin: 0 0.1rem;
+    margin-top: 8px;
 }
 
 .container{
@@ -76,26 +77,36 @@ header .asidemenu a{
 }
 .comment{
     display: flex;
-    flex-direction: column;
     margin : 20px 0;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+.comment_info {
+    display: flex;
 }
 
 .comment_body {
-    margin: 10px 10px;
+    margin-left: 10px;
+    width: 200%;
 }
 
 .date {
     text-align: end;
-    margin-right: 10px;
+    margin-top: auto;
+    width: 160px;
 }
 
 .author {
     text-align: end;
+    margin-top: auto;
     margin-right: 10px;
+    width: 100px;
 }
 
 .img {
-    margin-right: 10px;
+    margin-top: auto;
+    margin-right: 13px;
 }
 
 .com-reg{
