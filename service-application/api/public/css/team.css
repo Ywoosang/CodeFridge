@@ -108,7 +108,15 @@ header > a:hover {
 }
 
 #popup_open_btn {
-    /*design*/
+    width: 48px;
+    height: 48px;
+    text-align: center;
+    font-size: 48px;
+    font-style:normal;
+
+    line-height: 48px;
+    border:0px;
+    padding:0px;
 }
 
 /* 조정할 것 */
