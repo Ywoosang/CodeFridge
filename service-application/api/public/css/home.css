@@ -1,4 +1,3 @@
-
 .modal .upload{
     max-width: 35rem;
     width: 50%;
@@ -161,11 +160,12 @@ article{
 article .fol-w{
     display: flex;
     flex-direction: column;
-    background-color: #ddd;    
+    background-color: #324d5c;   
 }
 
 article .fol-w .fol-c{
     flex:1;
+    padding-left: 2rem;
     display: flex;
     flex-wrap: wrap;
 }
@@ -200,17 +200,24 @@ article .com h1{
 article .com .fol-b{
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid black;
 }
 article .com .fol-b .fol-btn-s .checked{
-    color: rgb(236, 236, 62);
+    /*color: rgb(236, 236, 62);    */
+    color:#ffd700;
+}
+article .com .fas{
+    color:white;
 }
 article .com button{
     padding: 0;
+    background-color: gray;
 }
 article .com button i{
     font-size: 1.1rem;
     pointer-events: none;
 }
+ 
 
 .inner aside {
     flex: 1;
@@ -223,7 +230,7 @@ aside {
 aside div{
     display: flex;
     align-items: center;
-    padding-left: 1rem;
+    padding-left: 2rem;
 }
 
 aside div button{
@@ -232,8 +239,15 @@ aside div button{
     font-size: 1rem;
 }
 
+body{
+    background-color: #95C5C1;
+}
+
 .inner{
-    overflow:auto;   
+    border : 1px solid #ddd;
+    height: calc(100vh - 4rem);
+    overflow:auto;  
+    background-color: #324d5c; 
 }
 .team-name {
     font-weight: 700;
@@ -242,3 +256,13 @@ aside div button{
     font-size: 1.2rem;
 }
 
+.sort .f-btn{
+    color: white;
+    background-color: transparent;
+    margin-left: 2.5rem;
+}
+
+.sort .f-btn i{
+    font-weight: 500;
+    font-size: 2rem;
+}
