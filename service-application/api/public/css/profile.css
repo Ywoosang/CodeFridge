@@ -1,10 +1,12 @@
 li a {
-  font-size: 24px;;
+  font-size: 16px;;
 }
 
-li i {
-  
+.giticon i {
+  padding-left: 0px;
+  font-size: 24px;
 }
+
 
 .content{
     display: flex;
