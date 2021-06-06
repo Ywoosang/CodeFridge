@@ -28,19 +28,29 @@
             <!-- 좌측 사이드바 -->
             <ul>
                 <li class="team-name">{{teamName}}</li>
-                <a href="/resource/all"><li class="n-itm current"><i class="far fa-file"></i>모두 보기</li></a>
+                <a href="/resource/all"><li class="n-itm"><i class="far fa-file"></i>모두 보기</li></a>
                 <a href="/resource/image"><li class="n-itm"><i class="far fa-share-square"></i>이미지 모음</li></a>
                 <a href="/resource/pdf"><li class="n-itm"><i class="far fa-share-square"></i>문서 모음</li></a>
                 <a href="/resource/favorites"><li class="n-itm"><i class="far fa-star"></i>즐겨찾기</li></a>
                 <a href="/resource/trash"><li class="n-itm"><i class="far fa-trash-alt"></i>휴지통</li></a>
 
                 {% if size %}
-                <li><div class="bar">
-                    <div class="bar_"></div>
-                </div></li>
-                <li><b class="file_size">{{size}}MB /5GB</b></li>
+                <li>
+                    <div class="bar">
+                        <div class="bar_"></div>
+                    </div>
+                </li>
+                
+                <li>
+                    
+                    <b class="file_size">{{size}}MB /5GB</b>
+                    
+                </li>
                 <input type="hidden" value="{{size}}" class="total-size">
+            
                 {% endif %}
+                
+
             </ul>
             <!-- 깃 허브 링크 -->
             <a href="https://github.com/Ywoosang/DropBox-2021" class="github"><i class="fab fa-github"></i></a>
@@ -118,7 +128,7 @@
                                 <div class="com folder">
                                     <div class="fol-b">
                                         <button class="tsh fld">
-                                            <i class="fas fa-trash-alt fa-border"></i>
+                                            <i class="fas fa-trash-alt fa-border" style = "font-size:14px;display:block; background-color:gray; width: 97%; text-align: center;"></i>
                                         </button>
                                     </div>
                                     <input type="hidden" value="{{folder.id}}">
@@ -131,15 +141,17 @@
                                 <div class="com file">
                                     <div class="fol-b">
                                         {% if not file.deletedAt %}
-                                        <button class="fol-btn-s">
+                                        <button class="fol-btn-s"  >
                                             {% if file.favorite%}
-                                            <i class="fas fa-star checked fa-border"  ></i>
+                                            <i class="fas fa-star checked fa-border"  style = "font-size:14px;display:block; background-color:gray; width: 97%;"></i>
                                             {% else %}
-                                            <i class="fas fa-star fa-border" ></i>
+                                            <i class="fas fa-star fa-border " style = "font-size:14px;display:block; background-color:gray; width: 97%;" ></i>
                                             {% endif %}
                                         </button>
                                         <button class="tsh">
-                                            <i class="fas fa-trash-alt fa-border" ></i>
+
+                                            <i class="fas fa-trash-alt fa-border" style = "font-size:16px;display:block; background-color:gray; width: 100%; text-align: center;" ></i>
+
                                         </button>
                                         {% else %}
                                         <button class="restore">복구</button>
