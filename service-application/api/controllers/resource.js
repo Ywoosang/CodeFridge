@@ -242,8 +242,7 @@ exports.deleteContent = async (req, res, next) => {
                 })
                 .then(() => {
                     res.end();
-                }
-                )
+                })
         } else {
             File.destroy({
                 where: {

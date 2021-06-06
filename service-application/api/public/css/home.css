@@ -31,7 +31,7 @@
     font-size: 16px;
 }
 
-.modal .upload .upload-list li:last-child{
+.modal .upload .upload-list li{
     border-bottom: 1px solid black;
 }
 .modal .upload .upload-button{

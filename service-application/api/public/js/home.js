@@ -155,13 +155,7 @@ files.forEach(el => {
          
         })
     }
-        // 파일을 복구할 경우 만약 폴더가 통째로 삭제되었을 경우, 폴더 복원
     });
-
-
-
-// location.href = `${window.origin}/경로`;
-
 
 const setEvent = () => {
     const folders = document.querySelectorAll('.folder');
@@ -204,6 +198,8 @@ const setEvent = () => {
 
         }
     }));
+
+    // 삭제
     const deleteBtns = document.querySelectorAll('.tsh');
     deleteBtns.forEach(el => el.addEventListener('click', (e) => {
         console.log(e.target);
