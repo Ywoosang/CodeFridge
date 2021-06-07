@@ -288,6 +288,13 @@ ul div{
     padding-left: 1rem;
     color: white;
 }
+
+.invite_cowoker ul div{
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    color: black;
+}
 ul .f-btn:hover{
     color:rgb(38, 220, 193);
 }
