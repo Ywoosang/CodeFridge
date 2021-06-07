@@ -91,6 +91,7 @@ async function upload(files) {
         for (let file of files) {
             const formData = new FormData();
             formData.append('file', file);
+            // 시간값으로 고유 업로드 체크
             formData.append('num', num);
             // url,FormData,options 
             const res = await axios.post(`${window.origin}/s3/file`, formData, {
