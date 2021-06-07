@@ -1,8 +1,8 @@
 // 에디터 설정
 
-setTimeout(()=>{
+$(document).ready(function() {
     renderNote()
-},300)
+  }); 
 
 function renderNote() {
     $('#summernote').summernote({

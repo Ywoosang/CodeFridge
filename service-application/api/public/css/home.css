@@ -166,7 +166,6 @@ article .fol-w{
 }
 
 article .fol-w .fol-c{
-    flex:1;
     padding-left: 2rem;
     display: flex;
     flex-wrap: wrap;

@@ -51,6 +51,7 @@ exports.getAllContents = async (req, res, next) => {
         const teamName = req.data.teamName;
         const size = req.data.size;
         console.log('팀이름',req.data)
+        console.log('폴더',folders);
         res.render('home', { files, folders,size,teamName });
     } catch (err) {
         console.log(err);
@@ -62,7 +63,12 @@ exports.getImgContents = async(req,res,next) => {
             where: {
                 teamId : req.session.teamId,
                 mimetype : {
-                    [Op.like] : "%" + "image" + "%"
+                    [Op.and]: [ {
+                        [Op.like] : "%" + "image" + "%"
+                    }, {  
+                        [Op.notLike] : "%" + "svg" + "%"
+                     }],
+                     
                 }                
             },
         });

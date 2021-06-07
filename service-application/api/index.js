@@ -16,7 +16,11 @@ const redis = require('redis')
 const connectRedis = require('connect-redis');
 const nunjucks = require('nunjucks')
 const redisStore = connectRedis(session); 
+const favicon = require('serve-favicon'); 
 const app = express(); 
+ 
+
+ 
 
 app.set('view engine', 'html');
 const env = nunjucks.configure('views', {
@@ -49,6 +53,7 @@ app.use(express.urlencoded({extended:true}));
  
 // 정적 파일 경로 설정
 app.use(express.static(path.join(__dirname,'public')));
+app.use(favicon(__dirname + '/public/img/favicon.ico'));
 app.use('/img',express.static(path.join(__dirname,'public/img')));
  
 // AWS Config 
