@@ -22,7 +22,15 @@ uploadFileBtn.addEventListener('click', () => {
 uploadFileInput.addEventListener('change', showUploadModal);
 uploadFolderInput.addEventListener('change', showUploadModal);
 
-
+const cloudBtn = $('.f-btn');
+cloudBtn.addEventListener('click',(e)=>{
+    const i = e.target
+    if(i.classList.contains('clicked')){
+        i.classList.remove('clicked');
+    } else {
+        i.classList.add('clicked');
+    }
+})
 
 window.onload = function () {
     setEvent();

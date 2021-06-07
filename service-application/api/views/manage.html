@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <title>CodeFridge > 멤버 관리</title>
   <link rel="stylesheet" href="../css/manage.css">
   <link rel="stylesheet" href="../css/style.css">
@@ -17,72 +17,69 @@
 <body>
   <header>
     <div class="icon">
-        <a href="/resource/all" target="_self">
-            <img src="https://ifh.cc/g/70wwOB.png">
-        </a>
+      <a href="/resource/all" target="_self">
+        <img src="https://ifh.cc/g/70wwOB.png">
+      </a>
     </div>
     <div class="auth">
-        <div class="asidemenu">
-         
-            <a href="/auth/logout" title="로그아웃" class="logout">
-                <i class="fa fa-sign-out fa-2x"></i>
-            </a>
-            <a href="/auth/profile" title="프로필" class="userprofile">
-                <i class="fas fa-user-alt fa-2x"></i>
-            </a>
-            <a href="/team" title="팀 목록" >
-                <i class="fas fa-th-large fa-2x"></i>
-            </a>
-        </div>
-    </div>
-
-</header>
-  <div class="block">
-  <div class="block1">
-  <article class="profile">
-    <h1 class="team_name" style="width: 300px;">{{team.name}}</h1>
-    <form action="/team/manage/name" method="POST" class="change_team_name" >
-      <input  type="text" name="teamName" required>
-      <button type="submit" class="teamNameBtn">팀 이름 업데이트</button>
-    </form>
-    <div class="img">
-      
-      <img class="team-img" src="{{team.img}}">
-      <div class="upload">
-        <form action="/team/manage/image" method="POST" enctype="multipart/form-data">
-          <input id='img' type="file" name="file" accept="image/*">
-          <button class="img-submit" type="submit">이미지 업로드</button>
-        </form>
+      <div class="asidemenu">
+        <a href="/auth/logout" title="로그아웃" class="logout">
+          <i class="fa fa-sign-out fa-2x"></i>
+        </a>
+        <a href="/auth/profile" title="프로필" class="userprofile">
+          <i class="fas fa-user-alt fa-2x"></i>
+        </a>
+        <a href="/team" title="팀 목록">
+          <i class="fas fa-th-large fa-2x"></i>
+        </a>
       </div>
     </div>
-    <div class="des">
-      <p class="name"> </p>
+  </header>
+  <div class="block">
+    <div class="block1">
+      <article class="profile">
+        <h1 class="team_name" style="width: 300px;">{{team.name}}</h1>
+        <form action="/team/manage/name" method="POST" class="change_team_name">
+          <input type="text" name="teamName" required>
+          <button type="submit" class="teamNameBtn">팀 이름 업데이트</button>
+        </form>
+        <div class="img">
+          <img class="team-img" src="{{team.img}}">
+          <div class="upload">
+            <form action="/team/manage/image" method="POST" enctype="multipart/form-data">
+              <input id='img' type="file" name="file" accept="image/*">
+              <button class="img-submit" type="submit">이미지 업로드</button>
+            </form>
+          </div>
+        </div>
+        <div class="des">
+          <p class="name"> </p>
+        </div>
+      </article>
+      <article class="cowoker">
+        <h2 class="cowoker_list">팀원 내역</h2>
+        <ul>
+          {%for member in members %}
+          <li class=" ">
+            <div class="cowoker_name" style="color: black;">이름: {{ member.nickname }}</div>
+            <div class="cowoker_rank" style="color: black;">직급: {{ member.rank }} </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </article>
     </div>
-  </article>
-  <article class="cowoker">
-    <h2 class="cowoker_list">팀원 내역</h2>
-    <ul>
-      {%for member in members %}
-      <li class=" ">
-        <div class="cowoker_name" style="color: black;">이름: {{ member.nickname }}</div>
-        <div class="cowoker_rank" style="color: black;">직급: {{ member.rank }} </div>
-      </li>
-      {% endfor %}
-    </ul>
-  </article>
-</div>
-<div class="block2">
-  <article class="invite_cowoker">
-    <h2 class="invite_cowoker_name">멤버 초대</h2>
-    <input type="text" class="invite" placeholder="초대할 멤버 아이디">
-    <ul class='users'>
-      <li>
-         
+    <div class="block2">
+      <article class="invite_cowoker">
+        <h2 class="invite_cowoker_name">멤버 초대</h2>
+        <input type="text" class="invite" placeholder="초대할 멤버 아이디">
+        <ul class='users'>
+          <li>
 
-      </li>
-    </ul>
-  </article>
-</div>
+
+          </li>
+        </ul>
+      </article>
+    </div>
   <div>
 </body>
 
